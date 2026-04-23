@@ -59,6 +59,10 @@
   .learn-check.checked { background: var(--done); border-color: var(--done); color: #fff; }
   .learn-item.done .learn-text { text-decoration: line-through; color: var(--muted); }
   .learn-text { flex: 1; }
+  .learn-text .elinks { display: inline; margin-left: 4px; font-size: 12px; color: var(--muted); font-family: "Futura", "Helvetica Neue", sans-serif; letter-spacing: 0.3px; }
+  .learn-text .elinks::before { content: "→ "; color: var(--muted); }
+  .learn-text .elinks a { color: var(--muted); border-bottom: 1px dotted var(--muted); margin-right: 6px; }
+  .learn-text .elinks a:hover { color: var(--accent); border-bottom-color: var(--accent); background: var(--hl); }
   .learn-progress { display: inline-block; font-family: "Futura", sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 0.5px; margin-left: 8px; }
   .deliverable { background: var(--tag); padding: 12px 14px; margin-top: 12px; font-size: 14px; border-radius: 2px; }
   .deliverable-label { text-transform: uppercase; letter-spacing: 0.8px; font-size: 11px; color: var(--accent); font-weight: 800; font-family: "Futura", sans-serif; display: block; margin-bottom: 4px; }
@@ -144,9 +148,14 @@
   <a href="#week3">Week 3 &mdash; Current state</a>
   <a href="#week4">Week 4 &mdash; Interview prep</a>
   <a href="#vp-fluency">VP-level fluency checklist</a>
-  <a href="#sie">SIE parallel track</a>
-  <a href="#month2">Month 2 &mdash; Series 7 &amp; 63</a>
-  <a href="#cfa">Months 3&ndash;11 &mdash; CFA Level I</a>
+  <a href="#licensing-overview">Licensing roadmap &mdash; which exams do I need?</a>
+  <a href="#sie">SIE (Month 1, parallel)</a>
+  <a href="#series65">Series 65 (buy-side / RIA path, no sponsor)</a>
+  <a href="#series7">Series 7 (broker-dealer path, needs sponsor)</a>
+  <a href="#series63">Series 63 (state law, with Series 7)</a>
+  <a href="#series66">Series 66 (alternative to 63+65, with Series 7)</a>
+  <a href="#other-exams">Other exams (Series 3, 79, 24, 52)</a>
+  <a href="#cfa">CFA Level I (Feb 22&ndash;28, 2027)</a>
   <a href="#daily-feeds">Daily feeds &amp; podcasts</a>
 </div>
 
@@ -183,11 +192,11 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="1"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="1.1">&#10003;</div><div class="learn-text">The four buyers of money management: pensions, sovereign wealth, insurance, retail/wealth (+ endowments as a 5th)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="1.2">&#10003;</div><div class="learn-text">Fee structures: mutual fund ER, ETF ER, 2-and-20, fulcrum fees, performance fees — and why BlackRock's margin story is about mix shift toward private markets and tech (Aladdin)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="1.3">&#10003;</div><div class="learn-text">Active vs. passive vs. systematic-active — the middle category is where AQR, DFA, Research Affiliates live</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="1.4">&#10003;</div><div class="learn-text">"Beta, smart beta, alpha" — the fee ladder and what justifies each price point</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="1.5">&#10003;</div><div class="learn-text">Memorize BlackRock Q1 2026 key numbers: $13.9T AUM, $130B Q1 net inflows, 27% YoY revenue growth</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="1.1">&#10003;</div><div class="learn-text">The four buyers of money management: pensions, sovereign wealth, insurance, retail/wealth (+ endowments as a 5th)<span class="elinks"><a href="https://www.investopedia.com/terms/i/institutionalinvestor.asp">Institutional investors</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="1.2">&#10003;</div><div class="learn-text">Fee structures: mutual fund ER, ETF ER, 2-and-20, fulcrum fees, performance fees — and why BlackRock's margin story is about mix shift toward private markets and tech (Aladdin)<span class="elinks"><a href="https://www.investopedia.com/terms/t/two_and_twenty.asp">Two and twenty</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="1.3">&#10003;</div><div class="learn-text">Active vs. passive vs. systematic-active — the middle category is where AQR, DFA, Research Affiliates live<span class="elinks"><a href="https://www.investopedia.com/articles/mutualfund/07/active_vs_passive.asp">Active vs. passive</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="1.4">&#10003;</div><div class="learn-text">"Beta, smart beta, alpha" — the fee ladder and what justifies each price point<span class="elinks"><a href="https://www.investopedia.com/terms/s/smart-beta.asp">Smart beta</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="1.5">&#10003;</div><div class="learn-text">Memorize BlackRock Q1 2026 key numbers: $13.9T AUM, $130B Q1 net inflows, 27% YoY revenue growth<span class="elinks"><a href="https://ir.blackrock.com/">BlackRock IR</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -215,10 +224,10 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="2"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="2.1">&#10003;</div><div class="learn-text">Mean-variance optimization: the math, but more importantly its failure modes (tiny input changes → wildly different portfolios)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="2.2">&#10003;</div><div class="learn-text">Efficient frontier and the tangency portfolio</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="2.3">&#10003;</div><div class="learn-text">Why real allocators don't run MVO naively — Black-Litterman, resampling, constrained optimization</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="2.4">&#10003;</div><div class="learn-text">Internalize: "Optimization maximizes errors." Understand why estimation error dominates</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="2.1">&#10003;</div><div class="learn-text">Mean-variance optimization: the math, but more importantly its failure modes (tiny input changes → wildly different portfolios)<span class="elinks"><a href="https://www.investopedia.com/terms/m/meanvariance-analysis.asp">Mean-variance analysis</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="2.2">&#10003;</div><div class="learn-text">Efficient frontier and the tangency portfolio<span class="elinks"><a href="https://www.investopedia.com/terms/e/efficientfrontier.asp">Efficient frontier</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="2.3">&#10003;</div><div class="learn-text">Why real allocators don't run MVO naively — Black-Litterman, resampling, constrained optimization<span class="elinks"><a href="https://en.wikipedia.org/wiki/Black%E2%80%93Litterman_model">Black-Litterman model</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="2.4">&#10003;</div><div class="learn-text">Internalize: "Optimization maximizes errors." Understand why estimation error dominates<span class="elinks"><a href="https://www.newfrontieradvisors.com/research/articles/documents/markowitz-usiegel-jpm-fall-06.pdf">Michaud: estimation error in MVO</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -246,11 +255,11 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="3"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="3.1">&#10003;</div><div class="learn-text">CAPM and its failures (low-vol anomaly, size, value — the empirical reasons FF3 and FF5 exist)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="3.2">&#10003;</div><div class="learn-text">Fama-French 3-factor and 5-factor: market, size, value, profitability, investment</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="3.3">&#10003;</div><div class="learn-text">Carhart momentum as the fourth horseman</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="3.4">&#10003;</div><div class="learn-text">The modern factor zoo: quality, low-vol, momentum, carry, trend — and why AQR's Style Premia is a bundling play</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="3.5">&#10003;</div><div class="learn-text">Value factor story: HML definition, post-2017 drawdown, AQR's "cheap value spreads" argument, your own take</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="3.1">&#10003;</div><div class="learn-text">CAPM and its failures (low-vol anomaly, size, value — the empirical reasons FF3 and FF5 exist)<span class="elinks"><a href="https://www.investopedia.com/terms/c/capm.asp">CAPM</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="3.2">&#10003;</div><div class="learn-text">Fama-French 3-factor and 5-factor: market, size, value, profitability, investment<span class="elinks"><a href="https://www.investopedia.com/terms/f/famaandfrenchthreefactormodel.asp">Fama-French 3-factor</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="3.3">&#10003;</div><div class="learn-text">Carhart momentum as the fourth horseman<span class="elinks"><a href="https://en.wikipedia.org/wiki/Carhart_four-factor_model">Carhart 4-factor model</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="3.4">&#10003;</div><div class="learn-text">The modern factor zoo: quality, low-vol, momentum, carry, trend — and why AQR's Style Premia is a bundling play<span class="elinks"><a href="https://www.investopedia.com/terms/f/factor-investing.asp">Factor investing</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="3.5">&#10003;</div><div class="learn-text">Value factor story: HML definition, post-2017 drawdown, AQR's "cheap value spreads" argument, your own take<span class="elinks"><a href="https://www.aqr.com/Insights/Perspectives">AQR Perspectives</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -278,10 +287,10 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="4"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="4.1">&#10003;</div><div class="learn-text">Brinson attribution: allocation vs. selection vs. interaction</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="4.2">&#10003;</div><div class="learn-text">Risk-adjusted metrics: Sharpe, Sortino, information ratio, Treynor, Jensen's alpha, Calmar</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="4.3">&#10003;</div><div class="learn-text">Tracking error vs. active share — why they're not the same thing</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="4.4">&#10003;</div><div class="learn-text">Why "beating benchmark by 50 bps net" is hard — the industry hit rate from SPIVA</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="4.1">&#10003;</div><div class="learn-text">Brinson attribution: allocation vs. selection vs. interaction<span class="elinks"><a href="https://www.investopedia.com/terms/a/attribution-analysis.asp">Attribution analysis</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="4.2">&#10003;</div><div class="learn-text">Risk-adjusted metrics: Sharpe, Sortino, information ratio, Treynor, Jensen's alpha, Calmar<span class="elinks"><a href="https://www.investopedia.com/terms/s/sharperatio.asp">Sharpe ratio</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="4.3">&#10003;</div><div class="learn-text">Tracking error vs. active share — why they're not the same thing<span class="elinks"><a href="https://en.wikipedia.org/wiki/Active_share">Active share</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="4.4">&#10003;</div><div class="learn-text">Why "beating benchmark by 50 bps net" is hard — the industry hit rate from SPIVA<span class="elinks"><a href="https://www.spglobal.com/spdji/en/research-insights/spiva/">SPIVA scorecards</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -309,10 +318,10 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="5"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="5.1">&#10003;</div><div class="learn-text">Volatility, VaR, CVaR (expected shortfall) — and why VaR fails in tails</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="5.2">&#10003;</div><div class="learn-text">Risk parity: Bridgewater All Weather, AQR's Risk Parity fund, and the 2022 drawdown lesson</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="5.3">&#10003;</div><div class="learn-text">Correlation regimes: why 2008, 2020, 2022 all saw correlations converge to 1</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="5.4">&#10003;</div><div class="learn-text">Liquidity risk, counterparty risk, model risk</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="5.1">&#10003;</div><div class="learn-text">Volatility, VaR, CVaR (expected shortfall) — and why VaR fails in tails<span class="elinks"><a href="https://www.investopedia.com/terms/v/var.asp">Value at Risk (VaR)</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="5.2">&#10003;</div><div class="learn-text">Risk parity: Bridgewater All Weather, AQR's Risk Parity fund, and the 2022 drawdown lesson<span class="elinks"><a href="https://www.investopedia.com/terms/r/risk-parity.asp">Risk parity</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="5.3">&#10003;</div><div class="learn-text">Correlation regimes: why 2008, 2020, 2022 all saw correlations converge to 1<span class="elinks"><a href="https://www.investopedia.com/terms/c/correlation.asp">Correlation</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="5.4">&#10003;</div><div class="learn-text">Liquidity risk, counterparty risk, model risk<span class="elinks"><a href="https://www.investopedia.com/terms/l/liquidityrisk.asp">Liquidity risk</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -340,10 +349,10 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="6"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="6.1">&#10003;</div><div class="learn-text">Duration, convexity, key rate durations</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="6.2">&#10003;</div><div class="learn-text">Yield curve shapes and what they signal (2s10s, 3m10y, current 2026 curve dynamics)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="6.3">&#10003;</div><div class="learn-text">Credit spreads: IG, HY, CCC, and the "compression" cycle</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="6.4">&#10003;</div><div class="learn-text">Sector positioning: Treasuries, TIPS, MBS, munis, IG, HY, EMD (hard vs. local), private credit</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="6.1">&#10003;</div><div class="learn-text">Duration, convexity, key rate durations<span class="elinks"><a href="https://www.investopedia.com/terms/d/duration.asp">Duration</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="6.2">&#10003;</div><div class="learn-text">Yield curve shapes and what they signal (2s10s, 3m10y, current 2026 curve dynamics)<span class="elinks"><a href="https://www.investopedia.com/terms/y/yieldcurve.asp">Yield curve</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="6.3">&#10003;</div><div class="learn-text">Credit spreads: IG, HY, CCC, and the "compression" cycle<span class="elinks"><a href="https://www.investopedia.com/terms/c/creditspread.asp">Credit spread</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="6.4">&#10003;</div><div class="learn-text">Sector positioning: Treasuries, TIPS, MBS, munis, IG, HY, EMD (hard vs. local), private credit<span class="elinks"><a href="https://www.investopedia.com/terms/f/fixedincome.asp">Fixed income sectors</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -373,11 +382,11 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="7"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="7.1">&#10003;</div><div class="learn-text">Concentration: the Mag 7 problem. Top 10 S&amp;P names ~35% of index. What does that do to "passive"?</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="7.2">&#10003;</div><div class="learn-text">Sector vs. factor vs. stock selection as sources of alpha</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="7.3">&#10003;</div><div class="learn-text">Growth vs. value: not a style, a factor exposure</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="7.4">&#10003;</div><div class="learn-text">International and EM: the 15-year US dominance and whether it mean-reverts</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="7.5">&#10003;</div><div class="learn-text">Small cap and the Russell 2000 performance gap</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="7.1">&#10003;</div><div class="learn-text">Concentration: the Mag 7 problem. Top 10 S&amp;P names ~35% of index. What does that do to "passive"?<span class="elinks"><a href="https://www.investopedia.com/magnificent-seven-stocks-8402262">Magnificent Seven stocks</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="7.2">&#10003;</div><div class="learn-text">Sector vs. factor vs. stock selection as sources of alpha<span class="elinks"><a href="https://www.investopedia.com/terms/a/alpha.asp">Alpha sources</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="7.3">&#10003;</div><div class="learn-text">Growth vs. value: not a style, a factor exposure<span class="elinks"><a href="https://www.investopedia.com/articles/professionals/072415/value-or-growth-stocks-which-best.asp">Growth vs. value</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="7.4">&#10003;</div><div class="learn-text">International and EM: the 15-year US dominance and whether it mean-reverts<span class="elinks"><a href="https://www.investopedia.com/terms/e/emergingmarketeconomy.asp">Emerging markets</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="7.5">&#10003;</div><div class="learn-text">Small cap and the Russell 2000 performance gap<span class="elinks"><a href="https://www.investopedia.com/terms/r/russell2000.asp">Russell 2000</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -409,10 +418,10 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="8"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="8.1">&#10003;</div><div class="learn-text">Strategic vs. tactical asset allocation</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="8.2">&#10003;</div><div class="learn-text">The "endowment model" (Swensen, Yale) vs. "CPP model" vs. "Norway model"</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="8.3">&#10003;</div><div class="learn-text">Liability-driven investing (LDI) — what a UK pension fund actually does and why the 2022 gilt crisis happened</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="8.4">&#10003;</div><div class="learn-text">Target-date funds: glide paths, BlackRock's LifePath at $600B</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="8.1">&#10003;</div><div class="learn-text">Strategic vs. tactical asset allocation<span class="elinks"><a href="https://www.investopedia.com/terms/s/strategicassetallocation.asp">Strategic vs. tactical AA</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="8.2">&#10003;</div><div class="learn-text">The "endowment model" (Swensen, Yale) vs. "CPP model" vs. "Norway model"<span class="elinks"><a href="https://www.investopedia.com/terms/y/yale-model.asp">Yale endowment model</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="8.3">&#10003;</div><div class="learn-text">Liability-driven investing (LDI) — what a UK pension fund actually does and why the 2022 gilt crisis happened<span class="elinks"><a href="https://www.investopedia.com/terms/l/ldi.asp">Liability-driven investing</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="8.4">&#10003;</div><div class="learn-text">Target-date funds: glide paths, BlackRock's LifePath at $600B<span class="elinks"><a href="https://www.investopedia.com/terms/t/target-date_fund.asp">Target-date funds</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -441,10 +450,10 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="9"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="9.1">&#10003;</div><div class="learn-text">Private equity: buyout vs. growth vs. venture. J-curve, DPI, TVPI, IRR vs. MOIC, and why IRR lies</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="9.2">&#10003;</div><div class="learn-text">Private credit: direct lending, mezzanine, distressed, opportunistic. The $2.1T market</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="9.3">&#10003;</div><div class="learn-text">Hedge funds: strategy taxonomy (L/S, global macro, event-driven, relative value, managed futures/CTA)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="9.4">&#10003;</div><div class="learn-text">Real assets: real estate (apartments &amp; industrial as 2026 leaders), infrastructure (GIP), commodities</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="9.1">&#10003;</div><div class="learn-text">Private equity: buyout vs. growth vs. venture. J-curve, DPI, TVPI, IRR vs. MOIC, and why IRR lies<span class="elinks"><a href="https://www.investopedia.com/terms/p/privateequity.asp">Private equity basics</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="9.2">&#10003;</div><div class="learn-text">Private credit: direct lending, mezzanine, distressed, opportunistic. The $2.1T market<span class="elinks"><a href="https://www.investopedia.com/terms/p/private-credit.asp">Private credit</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="9.3">&#10003;</div><div class="learn-text">Hedge funds: strategy taxonomy (L/S, global macro, event-driven, relative value, managed futures/CTA)<span class="elinks"><a href="https://www.investopedia.com/terms/h/hedgefund.asp">Hedge fund strategies</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="9.4">&#10003;</div><div class="learn-text">Real assets: real estate (apartments &amp; industrial as 2026 leaders), infrastructure (GIP), commodities<span class="elinks"><a href="https://www.investopedia.com/terms/r/realasset.asp">Real assets</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -472,12 +481,12 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="10"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="10.1">&#10003;</div><div class="learn-text">Why it exists: post-2008 bank retreat, Dodd-Frank, demand for floating-rate yield</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="10.2">&#10003;</div><div class="learn-text">Market size ($2–3T), growth, participants (Apollo, Ares, Blackstone, Blue Owl, HPS/BlackRock, Oaktree)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="10.3">&#10003;</div><div class="learn-text">BDCs: structure, leverage, why they trade at premiums/discounts to NAV</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="10.4">&#10003;</div><div class="learn-text">Current stress: DB projects 4.8–5.5% defaults by end-2026. "True" rate ~5% with PIKs/LMEs. Loan duration extended 2–3yrs → 4–5yrs</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="10.5">&#10003;</div><div class="learn-text">Systemic concern: bank lending to PC funds +145% 2020–2024 to ~$95B. Interconnectedness</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="10.6">&#10003;</div><div class="learn-text">Asness March 2026 piece: he did NOT call the disaster. Illiquidity-premium narrative was overdone. Know the nuance</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="10.1">&#10003;</div><div class="learn-text">Why it exists: post-2008 bank retreat, Dodd-Frank, demand for floating-rate yield<span class="elinks"><a href="https://www.investopedia.com/terms/d/dodd-frank-financial-regulatory-reform-bill.asp">Dodd-Frank</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="10.2">&#10003;</div><div class="learn-text">Market size ($2–3T), growth, participants (Apollo, Ares, Blackstone, Blue Owl, HPS/BlackRock, Oaktree)<span class="elinks"><a href="https://www.withintelligence.com/insights/private-credit-outlook-2026/">Private credit market size</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="10.3">&#10003;</div><div class="learn-text">BDCs: structure, leverage, why they trade at premiums/discounts to NAV<span class="elinks"><a href="https://www.investopedia.com/terms/b/bdc.asp">Business Development Companies</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="10.4">&#10003;</div><div class="learn-text">Current stress: DB projects 4.8–5.5% defaults by end-2026. "True" rate ~5% with PIKs/LMEs. Loan duration extended 2–3yrs → 4–5yrs<span class="elinks"><a href="https://www.investopedia.com/terms/p/pikbond.asp">PIK interest</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="10.5">&#10003;</div><div class="learn-text">Systemic concern: bank lending to PC funds +145% 2020–2024 to ~$95B. Interconnectedness<span class="elinks"><a href="https://www.cnbc.com/2026/04/20/how-private-credits-cracks-are-threatening-to-deepen-private-equitys-woes.html">CNBC — PE/PC interconnection</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="10.6">&#10003;</div><div class="learn-text">Asness March 2026 piece: he did NOT call the disaster. Illiquidity-premium narrative was overdone. Know the nuance<span class="elinks"><a href="https://www.aqr.com/Insights/Perspectives/I-Did-Not-Predict-What-is-Going-on-in-Privates">Asness on privates</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -506,12 +515,12 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="11"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="11.1">&#10003;</div><div class="learn-text">Signal construction: factor zoo, signal decay, capacity, turnover, transaction costs</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="11.2">&#10003;</div><div class="learn-text">Risk model vs. alpha model (Barra-style risk decomposition)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="11.3">&#10003;</div><div class="learn-text">Portfolio construction: optimization under constraints, turnover budgets, transaction cost models</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="11.4">&#10003;</div><div class="learn-text">Execution: TCA, implementation shortfall</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="11.5">&#10003;</div><div class="learn-text">AQR 2025 returns (Apex +16.2%, MF +19.2%) vs. SocGen CTA index (+0.31%)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="11.6">&#10003;</div><div class="learn-text">Fundamental law: IR = IC × √BR. What each term means and how a quant fund maximizes each</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="11.1">&#10003;</div><div class="learn-text">Signal construction: factor zoo, signal decay, capacity, turnover, transaction costs<span class="elinks"><a href="https://www.investopedia.com/terms/q/quantitativeanalysis.asp">Quantitative analysis</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="11.2">&#10003;</div><div class="learn-text">Risk model vs. alpha model (Barra-style risk decomposition)<span class="elinks"><a href="https://en.wikipedia.org/wiki/Barra_Risk_Factor_Analysis">Barra risk factor analysis</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="11.3">&#10003;</div><div class="learn-text">Portfolio construction: optimization under constraints, turnover budgets, transaction cost models<span class="elinks"><a href="https://www.investopedia.com/terms/p/portfolio-optimization.asp">Portfolio optimization</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="11.4">&#10003;</div><div class="learn-text">Execution: TCA, implementation shortfall<span class="elinks"><a href="https://www.investopedia.com/terms/i/implementation-shortfall.asp">Implementation shortfall</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="11.5">&#10003;</div><div class="learn-text">AQR 2025 returns (Apex +16.2%, MF +19.2%) vs. SocGen CTA index (+0.31%)<span class="elinks"><a href="https://www.aqr.com/Strategies">AQR strategies</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="11.6">&#10003;</div><div class="learn-text">Fundamental law: IR = IC × √BR. What each term means and how a quant fund maximizes each<span class="elinks"><a href="https://www.investopedia.com/terms/f/fundamental_law_active.asp">Fundamental law of active mgmt</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -539,10 +548,10 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="12"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="12.1">&#10003;</div><div class="learn-text">The three generations of ESG: exclusion, integration, impact</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="12.2">&#10003;</div><div class="learn-text">The Stoxx/MSCI rating divergence problem — different providers, different ratings</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="12.3">&#10003;</div><div class="learn-text">The anti-ESG backlash (Texas, Florida pulling state pension money from BlackRock)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="12.4">&#10003;</div><div class="learn-text">Where money actually flows in 2026: climate transition funds, infrastructure/energy, less "ESG" labeling</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="12.1">&#10003;</div><div class="learn-text">The three generations of ESG: exclusion, integration, impact<span class="elinks"><a href="https://www.investopedia.com/terms/e/environmental-social-and-governance-esg-criteria.asp">ESG investing</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="12.2">&#10003;</div><div class="learn-text">The Stoxx/MSCI rating divergence problem — different providers, different ratings<span class="elinks"><a href="https://www.msci.com/research-and-insights/esg-ratings">MSCI ESG ratings</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="12.3">&#10003;</div><div class="learn-text">The anti-ESG backlash (Texas, Florida pulling state pension money from BlackRock)<span class="elinks"><a href="https://www.reuters.com/sustainability/sustainable-finance-reporting/us-red-states-pull-state-funds-esg-focused-managers-2023-03-24/">Anti-ESG movement</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="12.4">&#10003;</div><div class="learn-text">Where money actually flows in 2026: climate transition funds, infrastructure/energy, less "ESG" labeling<span class="elinks"><a href="https://www.blackrock.com/corporate/investor-relations/larry-fink-annual-chairmans-letter">Fink's annual letter</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -570,11 +579,11 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="13"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="13.1">&#10003;</div><div class="learn-text">The AI capex story: Mag 7 hyperscalers spending $300B+/year. Is it productive capital? When does ROI show up?</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="13.2">&#10003;</div><div class="learn-text">BlackRock's Aladdin: $1.4B+ tech services revenue, 22% YoY growth, why it's the real moat</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="13.3">&#10003;</div><div class="learn-text">Preqin acquisition by BlackRock — private markets data play</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="13.4">&#10003;</div><div class="learn-text">AI for investing: systematic shops using NLP, computer vision (satellite), alt data. What's good vs. hype</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="13.5">&#10003;</div><div class="learn-text">Asness's "AI is annoyingly better than me" quote — nuance it</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="13.1">&#10003;</div><div class="learn-text">The AI capex story: Mag 7 hyperscalers spending $300B+/year. Is it productive capital? When does ROI show up?<span class="elinks"><a href="https://stratechery.com">Stratechery on hyperscalers</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="13.2">&#10003;</div><div class="learn-text">BlackRock's Aladdin: $1.4B+ tech services revenue, 22% YoY growth, why it's the real moat<span class="elinks"><a href="https://www.blackrock.com/aladdin">BlackRock Aladdin</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="13.3">&#10003;</div><div class="learn-text">Preqin acquisition by BlackRock — private markets data play<span class="elinks"><a href="https://www.blackrock.com/corporate/newsroom/press-releases/article/corporate-one/press-releases/blackrock-to-acquire-preqin">BlackRock-Preqin deal</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="13.4">&#10003;</div><div class="learn-text">AI for investing: systematic shops using NLP, computer vision (satellite), alt data. What's good vs. hype<span class="elinks"><a href="https://www.investopedia.com/terms/a/alternative-data.asp">Alternative data</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="13.5">&#10003;</div><div class="learn-text">Asness's "AI is annoyingly better than me" quote — nuance it<span class="elinks"><a href="https://www.morningstar.com/podcasts/the-long-view/526f0852-3f72-4259-941c-e27eed99645f">Asness on Morningstar</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -602,11 +611,11 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="14"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="14.1">&#10003;</div><div class="learn-text">The current rate environment: Fed funds, dot plot, Fed balance sheet (QT/QE dynamics)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="14.2">&#10003;</div><div class="learn-text">Inflation: headline vs. core PCE, sticky services inflation, shelter lag</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="14.3">&#10003;</div><div class="learn-text">Global: ECB, BOJ (yen carry trade, 2024 lessons), EM central banks</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="14.4">&#10003;</div><div class="learn-text">US fiscal: deficit, debt/GDP, term premium, why 10-year yields matter to your equity book</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="14.5">&#10003;</div><div class="learn-text">Geopolitics: tariffs, Middle East (Iran, Hormuz), US-China, commodities implications</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="14.1">&#10003;</div><div class="learn-text">The current rate environment: Fed funds, dot plot, Fed balance sheet (QT/QE dynamics)<span class="elinks"><a href="https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260318.htm">FOMC SEP (dot plot)</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="14.2">&#10003;</div><div class="learn-text">Inflation: headline vs. core PCE, sticky services inflation, shelter lag<span class="elinks"><a href="https://www.investopedia.com/terms/p/pce.asp">Core PCE inflation</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="14.3">&#10003;</div><div class="learn-text">Global: ECB, BOJ (yen carry trade, 2024 lessons), EM central banks<span class="elinks"><a href="https://www.investopedia.com/terms/c/currencycarrytrade.asp">Yen carry trade</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="14.4">&#10003;</div><div class="learn-text">US fiscal: deficit, debt/GDP, term premium, why 10-year yields matter to your equity book<span class="elinks"><a href="https://www.investopedia.com/terms/t/termpremium.asp">Term premium</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="14.5">&#10003;</div><div class="learn-text">Geopolitics: tariffs, Middle East (Iran, Hormuz), US-China, commodities implications<span class="elinks"><a href="https://www.investopedia.com/terms/g/geopoliticalrisk.asp">Geopolitical risk</a></span></div></li>
     </ul>
   </div>
   <h4>Primary reading</h4>
@@ -640,11 +649,11 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="15"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="15.1">&#10003;</div><div class="learn-text">Read Q1 2026 earnings transcript end-to-end</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="15.2">&#10003;</div><div class="learn-text">Read Fink's most recent annual chairman's letter</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="15.3">&#10003;</div><div class="learn-text">Three-leg strategy: index (iShares) / private markets (GIP/HPS/Preqin) / tech (Aladdin)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="15.4">&#10003;</div><div class="learn-text">Numbers cold: $13.9T AUM, $744B LTM inflows, 10% LTM / 8% Q1 organic base fee growth, 44.5% op margin, 22% tech rev growth</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="15.5">&#10003;</div><div class="learn-text">DOL private-assets-in-TDF proposal and why BlackRock is salivating</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="15.1">&#10003;</div><div class="learn-text">Read Q1 2026 earnings transcript end-to-end<span class="elinks"><a href="https://ir.blackrock.com/">BlackRock IR</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="15.2">&#10003;</div><div class="learn-text">Read Fink's most recent annual chairman's letter<span class="elinks"><a href="https://www.blackrock.com/corporate/investor-relations/larry-fink-annual-chairmans-letter">Fink's chairman's letter</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="15.3">&#10003;</div><div class="learn-text">Three-leg strategy: index (iShares) / private markets (GIP/HPS/Preqin) / tech (Aladdin)<span class="elinks"><a href="https://www.ishares.com">iShares</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="15.4">&#10003;</div><div class="learn-text">Numbers cold: $13.9T AUM, $744B LTM inflows, 10% LTM / 8% Q1 organic base fee growth, 44.5% op margin, 22% tech rev growth<span class="elinks"><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001364742">BlackRock SEC filings</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="15.5">&#10003;</div><div class="learn-text">DOL private-assets-in-TDF proposal and why BlackRock is salivating<span class="elinks"><a href="https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/401k-plans-and-private-equity">DOL on PE in DC plans</a></span></div></li>
     </ul>
   </div>
   <ul class="links">
@@ -671,10 +680,10 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="16"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="16.1">&#10003;</div><div class="learn-text">Product shelf: Style Premia, Managed Futures, Alternative Risk Premia, Delphi L/S equity, Apex multi-strat</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="16.2">&#10003;</div><div class="learn-text">2025 performance: Apex +16.2% net, MF +19.2% vs. SocGen CTA index +0.31%</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="16.3">&#10003;</div><div class="learn-text">Tax-aware long/short story and the Orso Partners short thesis on AMG (April 2026)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="16.4">&#10003;</div><div class="learn-text">Asness's current themes: (1) bond-stock correlation regime shift, (2) private markets discipline, (3) AI and quant</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="16.1">&#10003;</div><div class="learn-text">Product shelf: Style Premia, Managed Futures, Alternative Risk Premia, Delphi L/S equity, Apex multi-strat<span class="elinks"><a href="https://www.aqr.com/Strategies">AQR strategies</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="16.2">&#10003;</div><div class="learn-text">2025 performance: Apex +16.2% net, MF +19.2% vs. SocGen CTA index +0.31%<span class="elinks"><a href="https://www.aqr.com/Insights/Perspectives">AQR Perspectives</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="16.3">&#10003;</div><div class="learn-text">Tax-aware long/short story and the Orso Partners short thesis on AMG (April 2026)<span class="elinks"><a href="https://www.bloomberg.com/news/articles/2026-04-17/short-seller-targets-aqr-backer-over-tax-loss-harvesting">Bloomberg: Orso/AMG</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="16.4">&#10003;</div><div class="learn-text">Asness's current themes: (1) bond-stock correlation regime shift, (2) private markets discipline, (3) AI and quant<span class="elinks"><a href="https://www.aqr.com/Insights/Perspectives">Cliff's Perspectives</a></span></div></li>
     </ul>
   </div>
   <ul class="links">
@@ -701,10 +710,10 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="17"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="17.1">&#10003;</div><div class="learn-text">How large allocators think: policy portfolios, benchmark construction, manager selection (not fund returns)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="17.2">&#10003;</div><div class="learn-text">"Core-satellite" vs. "building blocks" vs. "factor-based" allocation philosophies</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="17.3">&#10003;</div><div class="learn-text">Denominator effect: publics fall → privates become overweight → forced secondary sales</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="17.4">&#10003;</div><div class="learn-text">Secondaries market: why it's exploding, GP-led continuation vehicles, Evercore's $18B 2025 projection</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="17.1">&#10003;</div><div class="learn-text">How large allocators think: policy portfolios, benchmark construction, manager selection (not fund returns)<span class="elinks"><a href="https://www.investopedia.com/terms/p/policy-portfolio.asp">Policy portfolio</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="17.2">&#10003;</div><div class="learn-text">"Core-satellite" vs. "building blocks" vs. "factor-based" allocation philosophies<span class="elinks"><a href="https://www.investopedia.com/terms/c/core-plus.asp">Core-satellite approach</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="17.3">&#10003;</div><div class="learn-text">Denominator effect: publics fall → privates become overweight → forced secondary sales<span class="elinks"><a href="https://www.investopedia.com/the-denominator-effect-explained-6503170">Denominator effect</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="17.4">&#10003;</div><div class="learn-text">Secondaries market: why it's exploding, GP-led continuation vehicles, Evercore's $18B 2025 projection<span class="elinks"><a href="https://www.investopedia.com/terms/s/secondaries.asp">PE secondaries</a></span></div></li>
     </ul>
   </div>
   <ul class="links">
@@ -731,12 +740,12 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="18"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="18.1">&#10003;</div><div class="learn-text">Historical case: ~9% nominal / ~5.8% real since 1928</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="18.2">&#10003;</div><div class="learn-text">2022 break: 60/40 down ~17%, worst year since 1937</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="18.3">&#10003;</div><div class="learn-text">2023–2025 recovery</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="18.4">&#10003;</div><div class="learn-text">BlackRock April 2026 update: 20-day rolling stock-bond correlation hit 0.72 in late March (highest since May 2024)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="18.5">&#10003;</div><div class="learn-text">Vanguard's 40/60 shift recommendation for 2026</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="18.6">&#10003;</div><div class="learn-text">Where to go instead: gold, liquid alts (IALT +9.31% YTD), infrastructure, private credit (with caveats)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="18.1">&#10003;</div><div class="learn-text">Historical case: ~9% nominal / ~5.8% real since 1928<span class="elinks"><a href="https://www.investopedia.com/60-40-rule-7547851">60/40 portfolio</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="18.2">&#10003;</div><div class="learn-text">2022 break: 60/40 down ~17%, worst year since 1937<span class="elinks"><a href="https://www.bloomberg.com/news/articles/2023-01-02/-60-40-portfolio-has-worst-year-since-2008">60/40 2022 drawdown</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="18.3">&#10003;</div><div class="learn-text">2023–2025 recovery<span class="elinks"><a href="https://www.blackrock.com/us/individual/insights/60-40-portfolios-and-alternatives">BlackRock on 60/40</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="18.4">&#10003;</div><div class="learn-text">BlackRock April 2026 update: 20-day rolling stock-bond correlation hit 0.72 in late March (highest since May 2024)<span class="elinks"><a href="https://www.cnbc.com/2026/04/22/blackrock-on-60/40-and-portfolio-diversifiers.html">CNBC: BlackRock outlook</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="18.5">&#10003;</div><div class="learn-text">Vanguard's 40/60 shift recommendation for 2026<span class="elinks"><a href="https://corporate.vanguard.com/content/corporatesite/us/en/corp/who-we-are/pressroom/press-release-market-perspectives-2026-01-10.html">Vanguard 2026 outlook</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="18.6">&#10003;</div><div class="learn-text">Where to go instead: gold, liquid alts (IALT +9.31% YTD), infrastructure, private credit (with caveats)<span class="elinks"><a href="https://www.investopedia.com/terms/l/liquid-alternatives.asp">Liquid alternatives</a></span></div></li>
     </ul>
   </div>
   <ul class="links">
@@ -762,12 +771,12 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="19"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="19.1">&#10003;</div><div class="learn-text">End of ZIRP. 4–5% risk-free rate implications for ERP, DCFs, PE leverage models</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="19.2">&#10003;</div><div class="learn-text">Credit spreads at cycle tights in IG; HY showing divergence</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="19.3">&#10003;</div><div class="learn-text">TIPS real yields still elevated ~2%</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="19.4">&#10003;</div><div class="learn-text">Mortgage spreads and the MBS basis trade</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="19.5">&#10003;</div><div class="learn-text">EM debt hard currency vs. local</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="19.6">&#10003;</div><div class="learn-text">Muni market (tax policy uncertainty as driver)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="19.1">&#10003;</div><div class="learn-text">End of ZIRP. 4–5% risk-free rate implications for ERP, DCFs, PE leverage models<span class="elinks"><a href="https://www.investopedia.com/terms/z/zirp.asp">ZIRP</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="19.2">&#10003;</div><div class="learn-text">Credit spreads at cycle tights in IG; HY showing divergence<span class="elinks"><a href="https://fred.stlouisfed.org/series/BAMLH0A0HYM2">FRED: HY spread</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="19.3">&#10003;</div><div class="learn-text">TIPS real yields still elevated ~2%<span class="elinks"><a href="https://www.investopedia.com/terms/t/tips.asp">TIPS</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="19.4">&#10003;</div><div class="learn-text">Mortgage spreads and the MBS basis trade<span class="elinks"><a href="https://www.investopedia.com/terms/m/mbs.asp">MBS basics</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="19.5">&#10003;</div><div class="learn-text">EM debt hard currency vs. local<span class="elinks"><a href="https://www.investopedia.com/articles/investing/013114/investing-emerging-market-debt.asp">EM debt</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="19.6">&#10003;</div><div class="learn-text">Muni market (tax policy uncertainty as driver)<span class="elinks"><a href="https://www.investopedia.com/terms/m/municipalbond.asp">Municipal bonds</a></span></div></li>
     </ul>
   </div>
   <ul class="links">
@@ -794,11 +803,11 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="20"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="20.1">&#10003;</div><div class="learn-text">S&amp;P concentration: Mag 7 (or 6, or 4) driving returns</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="20.2">&#10003;</div><div class="learn-text">Profit margins at/near historic highs. What mean reversion would look like</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="20.3">&#10003;</div><div class="learn-text">Small cap underperformance — longest stretch in history</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="20.4">&#10003;</div><div class="learn-text">International: Europe and Japan beating US YTD 2025–2026 — regime change?</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="20.5">&#10003;</div><div class="learn-text">AI capex cycle: Nvidia, hyperscalers, power/data center second-order plays</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="20.1">&#10003;</div><div class="learn-text">S&amp;P concentration: Mag 7 (or 6, or 4) driving returns<span class="elinks"><a href="https://www.investopedia.com/magnificent-seven-stocks-8402262">Magnificent Seven</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="20.2">&#10003;</div><div class="learn-text">Profit margins at/near historic highs. What mean reversion would look like<span class="elinks"><a href="https://www.gmo.com/americas/research-library/">GMO on margins</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="20.3">&#10003;</div><div class="learn-text">Small cap underperformance — longest stretch in history<span class="elinks"><a href="https://www.investopedia.com/terms/r/russell2000.asp">Russell 2000</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="20.4">&#10003;</div><div class="learn-text">International: Europe and Japan beating US YTD 2025–2026 — regime change?<span class="elinks"><a href="https://www.investopedia.com/terms/i/international-investing.asp">International investing</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="20.5">&#10003;</div><div class="learn-text">AI capex cycle: Nvidia, hyperscalers, power/data center second-order plays<span class="elinks"><a href="https://stratechery.com">Stratechery</a></span></div></li>
     </ul>
   </div>
   <ul class="links">
@@ -824,11 +833,11 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="21"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="21.1">&#10003;</div><div class="learn-text">Structure to beat: 40% global equities (US/DM ex-US/EM splits), 15% FI (duration targeted), 20% PE (with vintage pacing)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="21.2">&#10003;</div><div class="learn-text">Private credit sleeve: senior direct lending vs. mezz specifics</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="21.3">&#10003;</div><div class="learn-text">Real assets: infrastructure + real estate allocation logic</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="21.4">&#10003;</div><div class="learn-text">Liquid alts / hedge fund sleeve: which strategies and why</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="21.5">&#10003;</div><div class="learn-text">Every line justified with current valuations, yields, spreads — not theory</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="21.1">&#10003;</div><div class="learn-text">Structure to beat: 40% global equities (US/DM ex-US/EM splits), 15% FI (duration targeted), 20% PE (with vintage pacing)<span class="elinks"><a href="https://www.investopedia.com/terms/a/assetallocation.asp">Asset allocation</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="21.2">&#10003;</div><div class="learn-text">Private credit sleeve: senior direct lending vs. mezz specifics<span class="elinks"><a href="https://www.investopedia.com/terms/d/direct-lending.asp">Direct lending</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="21.3">&#10003;</div><div class="learn-text">Real assets: infrastructure + real estate allocation logic<span class="elinks"><a href="https://www.investopedia.com/terms/i/infrastructure.asp">Infrastructure investing</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="21.4">&#10003;</div><div class="learn-text">Liquid alts / hedge fund sleeve: which strategies and why<span class="elinks"><a href="https://www.investopedia.com/terms/l/liquid-alternatives.asp">Liquid alts</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="21.5">&#10003;</div><div class="learn-text">Every line justified with current valuations, yields, spreads — not theory<span class="elinks"><a href="https://am.jpmorgan.com/us/en/asset-management/adv/insights/portfolio-insights/ltcma/">JPMAM LTCMAs</a></span></div></li>
     </ul>
   </div>
   <div class="callout">You redo this on Day 29. The delta between v1 and v2 is your 30-day proof.</div>
@@ -860,10 +869,10 @@
   <div class="learn-box">
     <h4>What to learn (practice out loud) <span class="learn-progress" data-lp="22"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="22.1">&#10003;</div><div class="learn-text">"Walk me through how you'd value a bank." (P/TBV, ROE-COE spread, CET1 — not DCF)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="22.2">&#10003;</div><div class="learn-text">"Pitch me a long." (Thesis, catalyst, valuation, risks, what would make you wrong)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="22.3">&#10003;</div><div class="learn-text">"Why has value underperformed since 2017 and is it over?"</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="22.4">&#10003;</div><div class="learn-text">"How do you think about the Mag 7 in a diversified portfolio?"</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="22.1">&#10003;</div><div class="learn-text">"Walk me through how you'd value a bank." (P/TBV, ROE-COE spread, CET1 — not DCF)<span class="elinks"><a href="https://www.investopedia.com/articles/stocks/05/bankevaluation.asp">Bank valuation</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="22.2">&#10003;</div><div class="learn-text">"Pitch me a long." (Thesis, catalyst, valuation, risks, what would make you wrong)<span class="elinks"><a href="https://corporatefinanceinstitute.com/resources/career-map/sell-side/capital-markets/pitchbook/">Long pitch structure</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="22.3">&#10003;</div><div class="learn-text">"Why has value underperformed since 2017 and is it over?"<span class="elinks"><a href="https://www.aqr.com/Insights/Perspectives">AQR on value</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="22.4">&#10003;</div><div class="learn-text">"How do you think about the Mag 7 in a diversified portfolio?"<span class="elinks"><a href="https://www.investopedia.com/magnificent-seven-stocks-8402262">Mag 7</a></span></div></li>
     </ul>
   </div>
   <ul class="links">
@@ -888,10 +897,10 @@
   <div class="learn-box">
     <h4>What to learn (practice out loud) <span class="learn-progress" data-lp="23"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="23.1">&#10003;</div><div class="learn-text">"Duration of a 10yr UST vs. 10yr IG corp — why the difference?"</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="23.2">&#10003;</div><div class="learn-text">"Spreads at 80 bps in IG. Are you a buyer or seller?"</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="23.3">&#10003;</div><div class="learn-text">"What's your view on the shape of the curve 12 months from now?"</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="23.4">&#10003;</div><div class="learn-text">"Walk me through how you'd hedge a corporate bond portfolio."</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="23.1">&#10003;</div><div class="learn-text">"Duration of a 10yr UST vs. 10yr IG corp — why the difference?"<span class="elinks"><a href="https://www.investopedia.com/terms/d/duration.asp">Duration mechanics</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="23.2">&#10003;</div><div class="learn-text">"Spreads at 80 bps in IG. Are you a buyer or seller?"<span class="elinks"><a href="https://fred.stlouisfed.org/series/BAMLC0A0CM">FRED: IG spread</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="23.3">&#10003;</div><div class="learn-text">"What's your view on the shape of the curve 12 months from now?"<span class="elinks"><a href="https://www.investopedia.com/terms/y/yieldcurve.asp">Yield curve</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="23.4">&#10003;</div><div class="learn-text">"Walk me through how you'd hedge a corporate bond portfolio."<span class="elinks"><a href="https://www.investopedia.com/terms/h/hedge.asp">Hedging basics</a></span></div></li>
     </ul>
   </div>
   <div class="deliverable">
@@ -913,10 +922,10 @@
   <div class="learn-box">
     <h4>What to learn (practice out loud) <span class="learn-progress" data-lp="24"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="24.1">&#10003;</div><div class="learn-text">"What's the fundamental law of active management? Why does breadth matter?"</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="24.2">&#10003;</div><div class="learn-text">"Value has had a rough decade. Is it dead?"</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="24.3">&#10003;</div><div class="learn-text">"What's signal decay and how do you measure it?"</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="24.4">&#10003;</div><div class="learn-text">"Why would a factor portfolio still work if everyone knows about the factor?"</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="24.1">&#10003;</div><div class="learn-text">"What's the fundamental law of active management? Why does breadth matter?"<span class="elinks"><a href="https://www.investopedia.com/terms/f/fundamental_law_active.asp">Fundamental law</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="24.2">&#10003;</div><div class="learn-text">"Value has had a rough decade. Is it dead?"<span class="elinks"><a href="https://www.aqr.com/Insights/Perspectives">AQR on value</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="24.3">&#10003;</div><div class="learn-text">"What's signal decay and how do you measure it?"<span class="elinks"><a href="https://www.aqr.com/Insights/Perspectives/The-Siren-Song-of-Factor-Timing">Factor timing / decay</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="24.4">&#10003;</div><div class="learn-text">"Why would a factor portfolio still work if everyone knows about the factor?"<span class="elinks"><a href="https://www.investopedia.com/terms/f/factor-investing.asp">Factor investing</a></span></div></li>
     </ul>
   </div>
   <div class="deliverable">
@@ -938,10 +947,10 @@
   <div class="learn-box">
     <h4>What to learn (practice out loud) <span class="learn-progress" data-lp="25"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="25.1">&#10003;</div><div class="learn-text">"Build me a 60/40 alternative in 2026."</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="25.2">&#10003;</div><div class="learn-text">"What's your view on private credit here?"</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="25.3">&#10003;</div><div class="learn-text">"How do you think about stock-bond correlation going forward?"</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="25.4">&#10003;</div><div class="learn-text">"Size a PE allocation for a $5B endowment."</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="25.1">&#10003;</div><div class="learn-text">"Build me a 60/40 alternative in 2026."<span class="elinks"><a href="https://www.blackrock.com/us/individual/insights/60-40-portfolios-and-alternatives">BlackRock on alts</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="25.2">&#10003;</div><div class="learn-text">"What's your view on private credit here?"<span class="elinks"><a href="https://www.aqr.com/Insights/Perspectives/I-Did-Not-Predict-What-is-Going-on-in-Privates">Asness on privates</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="25.3">&#10003;</div><div class="learn-text">"How do you think about stock-bond correlation going forward?"<span class="elinks"><a href="https://www.investopedia.com/terms/c/correlation.asp">Correlation regimes</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="25.4">&#10003;</div><div class="learn-text">"Size a PE allocation for a $5B endowment."<span class="elinks"><a href="https://investments.yale.edu/reports">Yale endowment reports</a></span></div></li>
     </ul>
   </div>
   <div class="deliverable">
@@ -963,10 +972,10 @@
   <div class="learn-box">
     <h4>What to learn <span class="learn-progress" data-lp="26"></span></h4>
     <ul class="learn-list">
-      <li class="learn-item"><div class="learn-check" data-l="26.1">&#10003;</div><div class="learn-text">"Why asset management?" — have a real, specific answer</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="26.2">&#10003;</div><div class="learn-text">"Why this firm specifically?" — 3 distinctives each for BlackRock (scale+tech+privates), AQR (academic+systematic), T. Rowe (active equity heritage), PIMCO (macro+FI), Bridgewater (principles+macro)</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="26.3">&#10003;</div><div class="learn-text">"Tell me about a time you were wrong about a stock/thesis."</div></li>
-      <li class="learn-item"><div class="learn-check" data-l="26.4">&#10003;</div><div class="learn-text">"What are you reading?" — have 2 books and 2 recent papers ready</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="26.1">&#10003;</div><div class="learn-text">"Why asset management?" — have a real, specific answer<span class="elinks"><a href="https://capitalallocators.com/podcast/">Capital Allocators podcast</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="26.2">&#10003;</div><div class="learn-text">"Why this firm specifically?" — 3 distinctives each for BlackRock (scale+tech+privates), AQR (academic+systematic), T. Rowe (active equity heritage), PIMCO (macro+FI), Bridgewater (principles+macro)<span class="elinks"><a href="https://www.aqr.com/About-Us">Firm about pages</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="26.3">&#10003;</div><div class="learn-text">"Tell me about a time you were wrong about a stock/thesis."<span class="elinks"><a href="https://www.investopedia.com/ask/answers/041015/what-behavioral-finance.asp">Behavioral biases</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="26.4">&#10003;</div><div class="learn-text">"What are you reading?" — have 2 books and 2 recent papers ready<span class="elinks"><a href="https://www.aqr.com/Insights/Perspectives">AQR Perspectives</a></span></div></li>
     </ul>
   </div>
   <ul class="links">
@@ -1084,78 +1093,801 @@
 <p class="section-intro">You can hold a conversation on any of these topics for 5+ minutes without searching. If you can do 8 of 10 by Day 30, you've hit the bar.</p>
 <div class="learn-box">
   <ul class="learn-list">
-    <li class="learn-item"><div class="learn-check" data-l="vp.1">&#10003;</div><div class="learn-text">BlackRock's strategy and the HPS/GIP/Preqin logic</div></li>
-    <li class="learn-item"><div class="learn-check" data-l="vp.2">&#10003;</div><div class="learn-text">AQR's current returns, the tax-aware controversy, and Asness's writing themes</div></li>
-    <li class="learn-item"><div class="learn-check" data-l="vp.3">&#10003;</div><div class="learn-text">The private credit stress story with specific statistics (default rates, loan duration extension, LME data)</div></li>
-    <li class="learn-item"><div class="learn-check" data-l="vp.4">&#10003;</div><div class="learn-text">The 60/40 debate and the 20-day correlation data from March 2026</div></li>
-    <li class="learn-item"><div class="learn-check" data-l="vp.5">&#10003;</div><div class="learn-text">Mag 7 concentration and whether it's a risk or a regime</div></li>
-    <li class="learn-item"><div class="learn-check" data-l="vp.6">&#10003;</div><div class="learn-text">AI capex and whether it's a bubble</div></li>
-    <li class="learn-item"><div class="learn-check" data-l="vp.7">&#10003;</div><div class="learn-text">Fed policy, the yield curve, and term premium</div></li>
-    <li class="learn-item"><div class="learn-check" data-l="vp.8">&#10003;</div><div class="learn-text">At least one non-US regime story (Japan yen carry, China property, Europe fiscal, UK gilts)</div></li>
-    <li class="learn-item"><div class="learn-check" data-l="vp.9">&#10003;</div><div class="learn-text">The allocator view: denominator effect, secondaries volume, GP-led continuations</div></li>
-    <li class="learn-item"><div class="learn-check" data-l="vp.10">&#10003;</div><div class="learn-text">Factor investing: what's worked, what's broken, what AQR and Research Affiliates argue</div></li>
+    <li class="learn-item"><div class="learn-check" data-l="vp.1">&#10003;</div><div class="learn-text">BlackRock's strategy and the HPS/GIP/Preqin logic<span class="elinks"><a href="https://ir.blackrock.com/">BlackRock IR</a></span></div></li>
+    <li class="learn-item"><div class="learn-check" data-l="vp.2">&#10003;</div><div class="learn-text">AQR's current returns, the tax-aware controversy, and Asness's writing themes<span class="elinks"><a href="https://www.aqr.com/Insights/Perspectives">AQR Perspectives</a></span></div></li>
+    <li class="learn-item"><div class="learn-check" data-l="vp.3">&#10003;</div><div class="learn-text">The private credit stress story with specific statistics (default rates, loan duration extension, LME data)<span class="elinks"><a href="https://www.cnbc.com/2026/04/20/how-private-credits-cracks-are-threatening-to-deepen-private-equitys-woes.html">CNBC: PC stress</a></span></div></li>
+    <li class="learn-item"><div class="learn-check" data-l="vp.4">&#10003;</div><div class="learn-text">The 60/40 debate and the 20-day correlation data from March 2026<span class="elinks"><a href="https://www.cnbc.com/2026/04/22/blackrock-on-60/40-and-portfolio-diversifiers.html">CNBC: 60/40</a></span></div></li>
+    <li class="learn-item"><div class="learn-check" data-l="vp.5">&#10003;</div><div class="learn-text">Mag 7 concentration and whether it's a risk or a regime<span class="elinks"><a href="https://www.investopedia.com/magnificent-seven-stocks-8402262">Magnificent Seven</a></span></div></li>
+    <li class="learn-item"><div class="learn-check" data-l="vp.6">&#10003;</div><div class="learn-text">AI capex and whether it's a bubble<span class="elinks"><a href="https://stratechery.com">Stratechery</a></span></div></li>
+    <li class="learn-item"><div class="learn-check" data-l="vp.7">&#10003;</div><div class="learn-text">Fed policy, the yield curve, and term premium<span class="elinks"><a href="https://www.investopedia.com/terms/t/termpremium.asp">Term premium</a></span></div></li>
+    <li class="learn-item"><div class="learn-check" data-l="vp.8">&#10003;</div><div class="learn-text">At least one non-US regime story (Japan yen carry, China property, Europe fiscal, UK gilts)<span class="elinks"><a href="https://www.investopedia.com/terms/c/currencycarrytrade.asp">Yen carry trade</a></span></div></li>
+    <li class="learn-item"><div class="learn-check" data-l="vp.9">&#10003;</div><div class="learn-text">The allocator view: denominator effect, secondaries volume, GP-led continuations<span class="elinks"><a href="https://www.investopedia.com/the-denominator-effect-explained-6503170">Denominator effect</a></span></div></li>
+    <li class="learn-item"><div class="learn-check" data-l="vp.10">&#10003;</div><div class="learn-text">Factor investing: what's worked, what's broken, what AQR and Research Affiliates argue<span class="elinks"><a href="https://www.investopedia.com/terms/f/factor-investing.asp">Factor investing</a></span></div></li>
   </ul>
 </div>
 
 <hr>
 
-<h2 id="sie">SIE parallel track (Track B &mdash; 30&ndash;45 min/day)</h2>
+<h2 id="licensing-overview">Licensing roadmap &mdash; which exams do I need?</h2>
+<p class="section-intro">"Qualify as an asset manager" isn't one credential &mdash; it depends on your seat. Here's the full landscape.</p>
 
-<h3>Official FINRA materials</h3>
-<ul class="links">
-  <li><a href="https://www.finra.org/sites/default/files/2025-10/SIE_Content_Outline.pdf">FINRA SIE Content Outline (2025 PDF)</a></li>
-  <li><a href="https://www.finra.org/registration-exams-ce/qualification-exams/securities-industry-essentials-exam">FINRA SIE exam page</a></li>
-</ul>
-
-<h3>Paid course (pick one)</h3>
-<ul class="links">
-  <li><a href="https://achievable.me/exams/finra-sie">Achievable SIE</a> (~$99 &mdash; recommended)</li>
-  <li><a href="https://www.kaplanfinancial.com/securities/sie">Kaplan SIE</a></li>
-  <li><a href="https://www.stcusa.com/securities/sie">STC SIE</a></li>
-</ul>
-
-<h3>Weekly schedule</h3>
 <table>
-  <tr><th>Week</th><th>Topic</th><th>Done</th></tr>
-  <tr><td>Week 1</td><td>Capital Markets (16%)</td><td><span class="day-check" data-check="sie1">&#10003;</span></td></tr>
-  <tr><td>Week 2</td><td>Products &amp; Risks (44%)</td><td><span class="day-check" data-check="sie2">&#10003;</span></td></tr>
-  <tr><td>Week 3</td><td>Trading/Accounts/Prohibited (31%)</td><td><span class="day-check" data-check="sie3">&#10003;</span></td></tr>
-  <tr><td>Week 4</td><td>Regulatory (9%) + practice exams (80%+ three times)</td><td><span class="day-check" data-check="sie4">&#10003;</span></td></tr>
-  <tr><td>Day 30</td><td><strong>Take SIE exam</strong></td><td><span class="day-check" data-check="sieexam">&#10003;</span></td></tr>
+  <tr><th>Path</th><th>Exams</th><th>Sponsor?</th><th>Best for</th></tr>
+  <tr><td><strong>Buy-side / RIA</strong></td><td>SIE + Series 65</td><td>No &mdash; take today</td><td>True AM, RIAs, fee-based advice, PM at advisory firms</td></tr>
+  <tr><td><strong>Broker-dealer</strong></td><td>SIE + Series 7 + 63</td><td>Yes (FINRA firm)</td><td>Wealth mgmt, trading seat at BD, sell-side</td></tr>
+  <tr><td><strong>Dual-registered</strong></td><td>SIE + Series 7 + 66</td><td>Yes (66 requires 7)</td><td>Full flexibility: advise + trade + sell</td></tr>
+  <tr><td><strong>Institutional PM / HF</strong></td><td>Often none; CFA matters</td><td>&mdash;</td><td>Systematic shops, hedge funds, institutional mandates</td></tr>
+  <tr><td><strong>Specialized</strong></td><td>Series 3, 79, 24, 52</td><td>Yes (varies)</td><td>CTA/futures, IB, supervisor, muni bonds</td></tr>
 </table>
+
+<div class="callout">
+  <strong>Your practical playbook.</strong> Start with SIE (no sponsor needed). Then take Series 65 immediately after &mdash; also no sponsor needed, and it's the actual credential for buy-side PM work. That gets you a legitimate AM-relevant license in ~3 months without waiting for a firm. When you land a sponsor, add Series 7 + 63 (or 66) on top. This maximizes optionality.
+</div>
 
 <hr>
 
-<h2 id="month2">Month 2 &mdash; Series 7 + 63</h2>
-<h3>Series 7</h3>
-<ul class="links">
-  <li><a href="https://www.finra.org/sites/default/files/2025-10/Series_7_Content_Outline.pdf">FINRA Series 7 Content Outline</a></li>
-  <li><a href="https://www.kaplanfinancial.com/securities/series-7">Kaplan Series 7</a></li>
-  <li><a href="https://achievable.me/exams/finra-series-7">Achievable Series 7</a></li>
-</ul>
-<h3>Series 63</h3>
-<ul class="links">
-  <li><a href="https://www.nasaa.org/exams-2/study-guides/series-63-study-guide/">NASAA Series 63 study guide</a></li>
-  <li><a href="https://www.kaplanfinancial.com/securities/series-63">Kaplan Series 63</a></li>
-</ul>
+<h2 id="sie">SIE &mdash; Securities Industry Essentials</h2>
+<p class="section-intro">The foundation. Take this first. No sponsor required. ~30&ndash;40 hrs prep for your background. Run this in parallel with the 30-day Track A sprint.</p>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="sie-overview">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">SIE overview</div>
+      <div class="day-title">Exam mechanics</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to know cold <span class="learn-progress" data-lp="sie-o"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="sie-o.1">&#10003;</div><div class="learn-text">75 scored + 5 unscored questions (as of Oct 27, 2025). 1h 45min. Passing: 70%.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-o.2">&#10003;</div><div class="learn-text">Fee: $80. No sponsor required. Open to anyone 18+.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-o.3">&#10003;</div><div class="learn-text">Valid for 4 years after passing without being registered</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-o.4">&#10003;</div><div class="learn-text">Content breakdown: Capital Markets 16% (12 q) | Products &amp; Risks 44% (33 q) | Trading/Accounts/Prohibited 31% (23 q) | Regulatory 9% (7 q)</div></li>
+    </ul>
+  </div>
+  <h4>Primary materials</h4>
+  <ul class="links">
+    <li><a href="https://www.finra.org/sites/default/files/2025-10/SIE_Content_Outline.pdf">FINRA SIE Content Outline (Oct 2025 PDF)</a></li>
+    <li><a href="https://www.finra.org/registration-exams-ce/qualification-exams/securities-industry-essentials-exam">FINRA SIE exam page</a></li>
+    <li><a href="https://achievable.me/exams/finra-sie">Achievable SIE (~$99, recommended for your background)</a></li>
+    <li><a href="https://www.kaplanfinancial.com/securities/sie">Kaplan SIE</a></li>
+  </ul>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="sie-w1">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">SIE &mdash; Week 1</div>
+      <div class="day-title">Capital Markets (16% / ~12 questions)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="sie-w1"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="sie-w1.1">&#10003;</div><div class="learn-text">Market participants: issuers, broker-dealers, investment advisers, investors (retail vs. institutional vs. accredited vs. QP)<span class="elinks"><a href="https://www.investopedia.com/terms/a/accreditedinvestor.asp">Accredited investor</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w1.2">&#10003;</div><div class="learn-text">Regulators: SEC, FINRA, MSRB, state regulators, Federal Reserve, Treasury, DOL<span class="elinks"><a href="https://www.investopedia.com/terms/f/finra.asp">FINRA explained</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w1.3">&#10003;</div><div class="learn-text">Securities Acts: 1933 (issuance), 1934 (trading + SEC), 1940 (ICA + IAA)<span class="elinks"><a href="https://www.investopedia.com/terms/s/securitiesact1933.asp">Securities Act of 1933</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w1.4">&#10003;</div><div class="learn-text">Primary vs. secondary markets; exchanges vs. OTC; ATS and dark pools<span class="elinks"><a href="https://www.investopedia.com/terms/d/dark-pool.asp">Dark pools</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w1.5">&#10003;</div><div class="learn-text">Economic factors: Fed policy, yield curve, business cycle, inflation<span class="elinks"><a href="https://www.investopedia.com/terms/b/businesscycle.asp">Business cycle</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">Answer from memory: (1) What's the difference between accredited and QP? (2) Who regulates muni bonds? (3) What does the 1940 Act cover?</div>
+    <textarea data-key="sie-w1-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="sie-w1-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="sie-w2">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">SIE &mdash; Week 2</div>
+      <div class="day-title">Products &amp; Risks (44% / ~33 questions) &mdash; biggest section</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="sie-w2"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="sie-w2.1">&#10003;</div><div class="learn-text">Equity: common vs. preferred, voting rights, dividends, ADRs, REITs<span class="elinks"><a href="https://www.investopedia.com/terms/p/preferredstock.asp">Preferred stock</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w2.2">&#10003;</div><div class="learn-text">Debt: Treasuries, TIPS, agencies, munis (GO vs. revenue), corporates, CDs, MMMFs<span class="elinks"><a href="https://www.investopedia.com/terms/g/generalobligationbond.asp">GO vs. revenue bonds</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w2.3">&#10003;</div><div class="learn-text">Packaged products: mutual funds (A/B/C shares, loads, 12b-1), ETFs, UITs, closed-end funds, variable products<span class="elinks"><a href="https://www.investopedia.com/terms/s/shareclasses.asp">Mutual fund share classes</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w2.4">&#10003;</div><div class="learn-text">Options: calls/puts, long/short, in/at/out of money, covered vs. naked<span class="elinks"><a href="https://www.investopedia.com/options-basics-tutorial-4583012">Options basics</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w2.5">&#10003;</div><div class="learn-text">Alternative products: hedge funds, private placements (Reg D), DPPs, structured products<span class="elinks"><a href="https://www.investopedia.com/terms/r/regulationd.asp">Regulation D</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w2.6">&#10003;</div><div class="learn-text">Risk types: systematic (market, interest rate, inflation) vs. unsystematic (credit, liquidity, business)<span class="elinks"><a href="https://www.investopedia.com/terms/s/systematicrisk.asp">Systematic vs. unsystematic risk</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">(1) What makes a muni bond tax-free at the state level? (2) Mutual fund A-share vs. C-share trade-off? (3) Define a covered call and when you'd write one.</div>
+    <textarea data-key="sie-w2-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="sie-w2-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="sie-w3">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">SIE &mdash; Week 3</div>
+      <div class="day-title">Trading, Accounts, Prohibited Activities (31% / ~23 questions)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="sie-w3"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="sie-w3.1">&#10003;</div><div class="learn-text">Account types: cash, margin, options, IRA, 401(k), 529, UGMA/UTMA, corporate<span class="elinks"><a href="https://www.investopedia.com/terms/m/marginaccount.asp">Margin account</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w3.2">&#10003;</div><div class="learn-text">Order types: market, limit, stop, stop-limit, GTC vs. day, AON, FOK, IOC<span class="elinks"><a href="https://www.investopedia.com/terms/o/order.asp">Order types</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w3.3">&#10003;</div><div class="learn-text">Settlement: T+1 (as of 5/2024), DVP/RVP, good delivery<span class="elinks"><a href="https://www.sec.gov/newsroom/press-releases/2023-29">SEC on T+1</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w3.4">&#10003;</div><div class="learn-text">Prohibited: insider trading, front-running, churning, painting the tape, market manipulation<span class="elinks"><a href="https://www.investopedia.com/terms/c/churning.asp">Churning</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w3.5">&#10003;</div><div class="learn-text">AML/BSA: CTR ($10K), SAR, CIP, KYC<span class="elinks"><a href="https://www.investopedia.com/terms/a/aml.asp">AML basics</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w3.6">&#10003;</div><div class="learn-text">Customer communications: retail vs. institutional, approval requirements, record retention<span class="elinks"><a href="https://www.finra.org/rules-guidance/key-topics/communications-with-public">FINRA Comms rules</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">(1) When does settlement occur now and what changed in 2024? (2) What dollar threshold triggers a CTR? (3) Define churning and give an example.</div>
+    <textarea data-key="sie-w3-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="sie-w3-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="sie-w4">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">SIE &mdash; Week 4</div>
+      <div class="day-title">Regulatory (9% / ~7 q) + Practice exams &mdash; confidence gate</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="sie-w4"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="sie-w4.1">&#10003;</div><div class="learn-text">Registration requirements: U4, U5, Form BD, fingerprinting, disclosures<span class="elinks"><a href="https://www.finra.org/registration-exams-ce/classic-crd/forms">FINRA forms</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w4.2">&#10003;</div><div class="learn-text">Continuing education: Regulatory Element and Firm Element<span class="elinks"><a href="https://www.finra.org/registration-exams-ce/continuing-education">FINRA CE program</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w4.3">&#10003;</div><div class="learn-text">Disciplinary process: FINRA Code of Procedure vs. Code of Arbitration<span class="elinks"><a href="https://www.finra.org/arbitration-mediation">FINRA arbitration</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w4.4">&#10003;</div><div class="learn-text">SIPC protection: $500K total, $250K cash<span class="elinks"><a href="https://www.investopedia.com/terms/s/sipc.asp">SIPC</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w4.5">&#10003;</div><div class="learn-text">Practice exam gate: score 80%+ on three different full-length mocks before sitting<span class="elinks"><a href="https://achievable.me/exams/finra-sie">Achievable practice exams</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="sie-w4.6">&#10003;</div><div class="learn-text">Review every missed question. Write explanation in your own words.<span class="elinks"><a href="https://www.finra.org/sites/default/files/2025-10/SIE_Content_Outline.pdf">FINRA SIE outline</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Readiness check</span>
+    <div class="deliverable-prompt">Log your 3 practice exam scores and the topics you missed most. When all three are 80%+, schedule the real exam.</div>
+    <textarea data-key="sie-w4-ready" placeholder="Practice exam 1: __%  |  Practice exam 2: __%  |  Practice exam 3: __%  |  Weak topics:"></textarea>
+    <div class="save-indicator" data-ind="sie-w4-ready"></div>
+  </div>
+</div>
 
 <hr>
 
-<h2 id="cfa">Months 3&ndash;11 &mdash; CFA Level I (Feb 22&ndash;28, 2027)</h2>
-<ul class="links">
-  <li><a href="https://www.cfainstitute.org/programs/cfa-program/dates-fees">CFA exam dates &amp; fees</a> &mdash; <strong>registration opens May 5, 2026</strong></li>
-  <li><a href="https://www.cfainstitute.org/programs/cfa-program/curriculum">CFA curriculum overview</a></li>
-  <li><a href="https://www.schweser.com/cfa">Kaplan Schweser CFA</a></li>
-  <li><a href="https://www.markmeldrum.com">Mark Meldrum CFA</a></li>
-</ul>
+<h2 id="series65">Series 65 &mdash; Uniform Investment Adviser Law Examination</h2>
+<p class="section-intro">The actual license for buy-side portfolio management. No sponsor. No prerequisite. Take right after SIE.</p>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s65-overview">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 65 overview</div>
+      <div class="day-title">Exam mechanics</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to know cold <span class="learn-progress" data-lp="s65-o"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s65-o.1">&#10003;</div><div class="learn-text">130 scored questions. 180 min. Passing: 72% (94 of 130)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-o.2">&#10003;</div><div class="learn-text">Fee: $187. No sponsor. No corequisite. Open enrollment via FINRA</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-o.3">&#10003;</div><div class="learn-text">Plan for 80&ndash;100 study hours &mdash; less for you given IB/ER base</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-o.4">&#10003;</div><div class="learn-text">Content breakdown: Economic Factors &amp; Business Info 15% | Investment Vehicles 25% | Client Investment Recs &amp; Strategies 30% | Laws/Regs/Ethics 30%</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-o.5">&#10003;</div><div class="learn-text">This is the license that qualifies you as an IAR (Investment Adviser Representative) at an RIA. It's the real buy-side credential.</div></li>
+    </ul>
+  </div>
+  <h4>Primary materials</h4>
+  <ul class="links">
+    <li><a href="https://www.nasaa.org/exams-2/study-guides/series-65-study-guide/">NASAA Series 65 Study Guide</a></li>
+    <li><a href="https://www.finra.org/registration-exams-ce/qualification-exams/series65">FINRA Series 65 page</a></li>
+    <li><a href="https://achievable.me/exams/finra-series-65">Achievable Series 65</a></li>
+    <li><a href="https://www.kaplanfinancial.com/securities/series-65">Kaplan Series 65</a></li>
+  </ul>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s65-w1">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 65 &mdash; Week 1</div>
+      <div class="day-title">Economic Factors &amp; Business Information (15% / ~20 q)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="s65-w1"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s65-w1.1">&#10003;</div><div class="learn-text">Basic economic concepts: GDP, inflation (CPI, PCE), unemployment, business cycles<span class="elinks"><a href="https://www.investopedia.com/terms/g/gdp.asp">GDP basics</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w1.2">&#10003;</div><div class="learn-text">Monetary policy (Fed, FOMC) vs. fiscal policy<span class="elinks"><a href="https://www.investopedia.com/ask/answers/100314/whats-difference-between-monetary-policy-and-fiscal-policy.asp">Monetary vs. fiscal</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w1.3">&#10003;</div><div class="learn-text">Financial reporting: balance sheet, income statement, cash flow, key ratios<span class="elinks"><a href="https://www.investopedia.com/articles/basics/06/financialreporting.asp">Financial statements</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w1.4">&#10003;</div><div class="learn-text">Quantitative methods: time value of money, IRR, NPV, compound interest<span class="elinks"><a href="https://www.investopedia.com/terms/t/timevalueofmoney.asp">Time value of money</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w1.5">&#10003;</div><div class="learn-text">Types of risk: market, credit, interest rate, reinvestment, inflation, liquidity, political, legislative<span class="elinks"><a href="https://www.investopedia.com/terms/r/reinvestmentrisk.asp">Reinvestment risk</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">(1) Difference between CPI and PCE? (2) When would the Fed cut vs. hike? (3) What's reinvestment risk and when does it matter most?</div>
+    <textarea data-key="s65-w1-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="s65-w1-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s65-w2">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 65 &mdash; Week 2</div>
+      <div class="day-title">Investment Vehicle Characteristics (25% / ~32 q)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="s65-w2"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s65-w2.1">&#10003;</div><div class="learn-text">Fixed income: duration, convexity, YTM vs. current yield, bond pricing, callable bonds<span class="elinks"><a href="https://www.investopedia.com/terms/y/yieldtomaturity.asp">Yield to maturity</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w2.2">&#10003;</div><div class="learn-text">Equity securities: common vs. preferred, rights, warrants, ADRs<span class="elinks"><a href="https://www.investopedia.com/terms/w/warrant.asp">Warrants</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w2.3">&#10003;</div><div class="learn-text">Pooled vehicles: mutual funds, ETFs, closed-end funds, UITs, hedge funds, PE, REITs<span class="elinks"><a href="https://www.investopedia.com/terms/c/closed-endinvestment.asp">Closed-end fund</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w2.4">&#10003;</div><div class="learn-text">Derivatives: options, futures, forwards &mdash; uses for hedging and speculation<span class="elinks"><a href="https://www.investopedia.com/terms/d/derivative.asp">Derivatives</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w2.5">&#10003;</div><div class="learn-text">Insurance-based: variable annuities, variable life, fixed annuities, indexed annuities<span class="elinks"><a href="https://www.investopedia.com/terms/v/variableannuity.asp">Variable annuity</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w2.6">&#10003;</div><div class="learn-text">Alternatives: commodities, structured products, direct participation programs<span class="elinks"><a href="https://www.investopedia.com/terms/d/dpp.asp">Direct participation programs</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">(1) Bond with coupon 5%, YTM 6% &mdash; is it trading at premium or discount? (2) Variable vs. fixed annuity &mdash; key risk shift? (3) Open vs. closed-end fund pricing?</div>
+    <textarea data-key="s65-w2-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="s65-w2-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s65-w3">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 65 &mdash; Week 3</div>
+      <div class="day-title">Client Investment Recommendations &amp; Strategies (30% / ~39 q) &mdash; the AM meat</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="s65-w3"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s65-w3.1">&#10003;</div><div class="learn-text">Client profiling: objectives, risk tolerance, time horizon, tax status, liquidity needs<span class="elinks"><a href="https://www.investopedia.com/terms/i/investmentobjective.asp">Investment objective</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w3.2">&#10003;</div><div class="learn-text">Portfolio construction: strategic vs. tactical AA, rebalancing, diversification, correlation<span class="elinks"><a href="https://www.investopedia.com/terms/r/rebalancing.asp">Rebalancing</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w3.3">&#10003;</div><div class="learn-text">Modern Portfolio Theory: efficient frontier, CAPM, Sharpe, alpha, beta, standard deviation<span class="elinks"><a href="https://www.investopedia.com/terms/m/modernportfoliotheory.asp">MPT</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w3.4">&#10003;</div><div class="learn-text">Fundamental vs. technical analysis; active vs. passive management; EMH implications<span class="elinks"><a href="https://www.investopedia.com/terms/e/efficientmarkethypothesis.asp">Efficient market hypothesis</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w3.5">&#10003;</div><div class="learn-text">Tax considerations: LTCG vs. STCG, wash sale, tax-loss harvesting, qualified vs. non-qualified accounts<span class="elinks"><a href="https://www.investopedia.com/terms/w/washsalerule.asp">Wash sale rule</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w3.6">&#10003;</div><div class="learn-text">Retirement planning: IRA types (Traditional, Roth, SEP, SIMPLE), 401(k), RMDs, SECURE Act<span class="elinks"><a href="https://www.investopedia.com/terms/i/ira.asp">IRA types</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w3.7">&#10003;</div><div class="learn-text">Trusts and estate planning: revocable vs. irrevocable, gift tax, stepped-up basis<span class="elinks"><a href="https://www.investopedia.com/terms/s/stepupinbasis.asp">Step-up in basis</a></span></div></li>
+    </ul>
+  </div>
+  <div class="callout">
+    This section overlaps heavily with your Track A material (Days 2, 3, 4 on MPT/CAPM/attribution). You're effectively double-dipping. Leverage that.
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">(1) Sharpe ratio formula and intuition? (2) Wash sale rule &mdash; the 30-day window explained? (3) Roth IRA contribution limit 2026 and phase-out? (4) When does strategic AA trump tactical AA?</div>
+    <textarea data-key="s65-w3-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="s65-w3-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s65-w4">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 65 &mdash; Week 4</div>
+      <div class="day-title">Laws, Regulations &amp; Ethics (30% / ~39 q) + practice</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="s65-w4"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s65-w4.1">&#10003;</div><div class="learn-text">Uniform Securities Act definitions: security, person, broker-dealer, agent, IA, IAR<span class="elinks"><a href="https://www.investopedia.com/terms/u/uniformsecuritiesact.asp">Uniform Securities Act</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w4.2">&#10003;</div><div class="learn-text">IA vs. IAR registration: state vs. SEC jurisdiction by AUM thresholds ($100M mid-sized cutoff)<span class="elinks"><a href="https://www.investopedia.com/terms/r/ria.asp">Registered Investment Adviser</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w4.3">&#10003;</div><div class="learn-text">Investment Advisers Act of 1940: registration exemptions (private fund advisers, VC advisers, foreign)<span class="elinks"><a href="https://www.investopedia.com/terms/i/investadvact.asp">Investment Advisers Act of 1940</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w4.4">&#10003;</div><div class="learn-text">Fiduciary duty: duty of care + duty of loyalty. Disclose conflicts. Best execution.<span class="elinks"><a href="https://www.investopedia.com/terms/f/fiduciary.asp">Fiduciary duty</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w4.5">&#10003;</div><div class="learn-text">Form ADV (Parts 1, 2A, 2B): what gets disclosed, who files, when<span class="elinks"><a href="https://www.investopedia.com/terms/a/advform.asp">Form ADV</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w4.6">&#10003;</div><div class="learn-text">Performance-based fees, soft dollars, agency cross, principal transactions<span class="elinks"><a href="https://www.investopedia.com/terms/s/softdollars.asp">Soft dollars</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w4.7">&#10003;</div><div class="learn-text">Anti-fraud: Section 206 &mdash; what's prohibited even if not specifically listed<span class="elinks"><a href="https://www.sec.gov/divisions/investment/iaregulation/memoia.htm">SEC on Section 206</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s65-w4.8">&#10003;</div><div class="learn-text">3 practice exams at 75%+ before scheduling the real thing<span class="elinks"><a href="https://achievable.me/exams/finra-series-65">Achievable Series 65</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Readiness check</span>
+    <div class="deliverable-prompt">3 practice exam scores + weakest ethics topics. Schedule when all 3 are 75%+.</div>
+    <textarea data-key="s65-w4-ready" placeholder="Mock 1: __%  |  Mock 2: __%  |  Mock 3: __%  |  Weak areas:"></textarea>
+    <div class="save-indicator" data-ind="s65-w4-ready"></div>
+  </div>
+</div>
+
+<hr>
+
+<h2 id="series7">Series 7 &mdash; General Securities Representative (when you have a sponsor)</h2>
+<p class="section-intro">The broker-dealer license. Requires SIE + FINRA member firm sponsor + Form U4. 80&ndash;120 hrs prep. ~65&ndash;70% first-time pass rate. Plan for 6&ndash;10 weeks.</p>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s7-overview">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 7 overview</div>
+      <div class="day-title">Exam mechanics</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to know cold <span class="learn-progress" data-lp="s7-o"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s7-o.1">&#10003;</div><div class="learn-text">125 scored + 5 unscored. 3h 45min. Passing: 72% (90 of 125)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-o.2">&#10003;</div><div class="learn-text">Fee: $395. Must be sponsored by FINRA member firm (Form U4)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-o.3">&#10003;</div><div class="learn-text">Corequisite: SIE (take first or simultaneously)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-o.4">&#10003;</div><div class="learn-text">Job function weightings: Function 1 (Seeks Business) 9 q | Function 2 (Opens Accounts) 11 q | <strong>Function 3 (Products/Recommendations/Records) 91 q</strong> | Function 4 (Transactions) 14 q</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-o.5">&#10003;</div><div class="learn-text">Function 3 is 73% of the exam. Everything else is secondary.</div></li>
+    </ul>
+  </div>
+  <h4>Primary materials</h4>
+  <ul class="links">
+    <li><a href="https://www.finra.org/sites/default/files/2025-10/Series_7_Content_Outline.pdf">FINRA Series 7 Content Outline (Oct 2025)</a></li>
+    <li><a href="https://www.finra.org/registration-exams-ce/qualification-exams/series7">FINRA Series 7 page</a></li>
+    <li><a href="https://achievable.me/exams/finra-series-7">Achievable Series 7</a></li>
+    <li><a href="https://www.kaplanfinancial.com/securities/series-7">Kaplan Series 7</a></li>
+  </ul>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s7-w12">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 7 &mdash; Weeks 1&ndash;2</div>
+      <div class="day-title">Equity, Debt, Packaged Products (Function 3 core)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="s7-w12"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s7-w12.1">&#10003;</div><div class="learn-text">Equity deep dive: rights, warrants, ADRs, preferred stock types, stock splits, dividends<span class="elinks"><a href="https://www.investopedia.com/terms/a/adr.asp">ADRs</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w12.2">&#10003;</div><div class="learn-text">Corporate bonds: yield calcs (current yield, YTM, YTC), bond pricing at premium/discount, callable features<span class="elinks"><a href="https://www.investopedia.com/terms/y/yieldtocall.asp">Yield to call</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w12.3">&#10003;</div><div class="learn-text">Government securities: T-bills, T-notes, T-bonds, TIPS, STRIPS, agency debt (Ginnie/Fannie/Freddie)<span class="elinks"><a href="https://www.investopedia.com/terms/s/strips.asp">STRIPS</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w12.4">&#10003;</div><div class="learn-text">Packaged products: open-end vs. closed-end, ETFs, UITs, structured products, variable annuities<span class="elinks"><a href="https://www.investopedia.com/terms/u/uit.asp">Unit Investment Trust</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w12.5">&#10003;</div><div class="learn-text">Mutual fund share classes: A (front load, breakpoints), B (back-end CDSC), C (level load)<span class="elinks"><a href="https://www.investopedia.com/terms/b/breakpoint.asp">Breakpoint sales</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">(1) Calculate current yield for 5% coupon bond at $950. (2) Breakpoint sale violation example? (3) ETF vs. closed-end fund &mdash; which trades at discount/premium to NAV?</div>
+    <textarea data-key="s7-w12-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="s7-w12-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s7-w34">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 7 &mdash; Weeks 3&ndash;4</div>
+      <div class="day-title">Municipal Securities + Options (Series 7's hardest topics)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="s7-w34"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s7-w34.1">&#10003;</div><div class="learn-text">Munis: GO vs. revenue, double-barreled, industrial revenue bonds, BANs/TANs/RANs<span class="elinks"><a href="https://www.investopedia.com/terms/g/generalobligationbond.asp">GO vs. revenue</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w34.2">&#10003;</div><div class="learn-text">Muni taxation: in-state triple exemption, tax-equivalent yield formula, de minimis rule<span class="elinks"><a href="https://www.investopedia.com/terms/t/taxequivalentyield.asp">Tax-equivalent yield</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w34.3">&#10003;</div><div class="learn-text">MSRB rules: G-17 (fair dealing), G-37 (political contributions), confirmations, record retention<span class="elinks"><a href="https://www.msrb.org/rules-and-interpretations/msrb-rules">MSRB rules</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w34.4">&#10003;</div><div class="learn-text">Options basics: long call/put, short call/put, max gain/loss, breakeven for each<span class="elinks"><a href="https://www.investopedia.com/options-basics-tutorial-4583012">Options basics</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w34.5">&#10003;</div><div class="learn-text">Option strategies: covered calls, protective puts, collars, straddles, strangles, spreads (bull/bear, debit/credit)<span class="elinks"><a href="https://www.investopedia.com/trading/options-strategies/">Options strategies</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w34.6">&#10003;</div><div class="learn-text">Options math: break-evens, max gain, max loss for every strategy type. Memorize.<span class="elinks"><a href="https://www.investopedia.com/terms/b/breakevenpoint.asp">Breakeven point</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w34.7">&#10003;</div><div class="learn-text">OCC rules, OAP, exercise and assignment<span class="elinks"><a href="https://www.theocc.com/">Options Clearing Corp</a></span></div></li>
+    </ul>
+  </div>
+  <div class="callout">
+    <strong>Options is where most people fail Series 7.</strong> Over-invest here. Do 200+ options-only practice questions. Draw every strategy's P&amp;L diagram until you can sketch it in 20 seconds.
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">(1) Bull call spread max gain/loss/breakeven? (2) Tax-equivalent yield for 4% muni at 32% bracket? (3) When would you write a covered call vs. buy a protective put?</div>
+    <textarea data-key="s7-w34-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="s7-w34-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s7-w56">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 7 &mdash; Weeks 5&ndash;6</div>
+      <div class="day-title">Accounts, Margin, Trading Rules, Suitability</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="s7-w56"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s7-w56.1">&#10003;</div><div class="learn-text">Margin: Reg T (50% initial), minimum equity (25% maintenance for long, 30% for short), SMA<span class="elinks"><a href="https://www.investopedia.com/terms/r/regulationt.asp">Regulation T</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w56.2">&#10003;</div><div class="learn-text">Margin calls: Reg T call, house call, maintenance call calculations<span class="elinks"><a href="https://www.investopedia.com/terms/m/margincall.asp">Margin call</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w56.3">&#10003;</div><div class="learn-text">Account types deep dive: JTWROS vs. TIC, DVP/RVP, prime brokerage, discretionary<span class="elinks"><a href="https://www.investopedia.com/terms/j/jtwros.asp">JTWROS</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w56.4">&#10003;</div><div class="learn-text">Suitability (Reg BI): reasonable basis, customer-specific, quantitative; compliance obligations<span class="elinks"><a href="https://www.sec.gov/investment/regulation-best-interest">SEC Reg BI</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w56.5">&#10003;</div><div class="learn-text">Prohibited practices: churning, front-running, painting the tape, wash trades, pump &amp; dump<span class="elinks"><a href="https://www.investopedia.com/terms/f/frontrunning.asp">Front-running</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w56.6">&#10003;</div><div class="learn-text">Retirement plans: IRAs, 401(k), 403(b), ERISA, RMDs, early withdrawal penalties<span class="elinks"><a href="https://www.investopedia.com/terms/e/erisa.asp">ERISA</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">(1) Client buys $20K in margin &mdash; initial Reg T requirement? (2) Maintenance call formula for long position? (3) Reg BI's three core obligations?</div>
+    <textarea data-key="s7-w56-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="s7-w56-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s7-w78">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 7 &mdash; Weeks 7&ndash;8</div>
+      <div class="day-title">Full-length mocks &mdash; confidence gate</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="s7-w78"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s7-w78.1">&#10003;</div><div class="learn-text">Full-length mock #1 (timed, 3h 45min)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w78.2">&#10003;</div><div class="learn-text">Review every missed question. Categorize by topic.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w78.3">&#10003;</div><div class="learn-text">Drill weakest 2 topics for 3&ndash;4 days</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w78.4">&#10003;</div><div class="learn-text">Mock #2 (different provider). Target 78%+</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s7-w78.5">&#10003;</div><div class="learn-text">Mock #3. Target 80%+. If you hit it, schedule the exam.</div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Readiness check</span>
+    <div class="deliverable-prompt">Track mocks, time per question, accuracy by topic. Schedule when 3 consecutive 78%+.</div>
+    <textarea data-key="s7-mocks" placeholder="Mock 1: __%  Timing: __  |  Mock 2: __%  |  Mock 3: __%  |  Weakest: "></textarea>
+    <div class="save-indicator" data-ind="s7-mocks"></div>
+  </div>
+</div>
+
+<hr>
+
+<h2 id="series63">Series 63 &mdash; Uniform Securities Agent State Law</h2>
+<p class="section-intro">Short, focused state-law exam. Paired with Series 7 for broker-dealer agents. ~25&ndash;30 hrs prep, knock out in 2 weeks.</p>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s63-overview">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 63 overview</div>
+      <div class="day-title">Exam mechanics</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to know cold <span class="learn-progress" data-lp="s63-o"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s63-o.1">&#10003;</div><div class="learn-text">60 scored questions + 5 unscored. 75 min. Passing: 72% (43 of 60)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-o.2">&#10003;</div><div class="learn-text">Fee: $147. Open enrollment (no sponsor needed to sit, but needed to register for state)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-o.3">&#10003;</div><div class="learn-text">Pure Uniform Securities Act. No products, no math.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-o.4">&#10003;</div><div class="learn-text">Content: Regulation of Issuers/Securities 5% | Regulation of BD &amp; Agents 47% | Regulation of IA &amp; IARs 20% | Remedies/Administrative 25% | Ethical Practices/Fiduciary 3%</div></li>
+    </ul>
+  </div>
+  <h4>Primary materials</h4>
+  <ul class="links">
+    <li><a href="https://www.nasaa.org/exams/exam-study-guides/series-63-study-guide/">NASAA Series 63 Study Guide</a></li>
+    <li><a href="https://www.kaplanfinancial.com/securities/series-63">Kaplan Series 63</a></li>
+    <li><a href="https://achievable.me/exams/finra-series-63">Achievable Series 63</a></li>
+  </ul>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s63-w1">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 63 &mdash; Week 1</div>
+      <div class="day-title">BD/Agent Regulation + IA/IAR Regulation (67% of exam)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="s63-w1"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s63-w1.1">&#10003;</div><div class="learn-text">USA definitions: person, security, sale, offer, broker-dealer, agent, IA, IAR, issuer<span class="elinks"><a href="https://www.investopedia.com/terms/u/uniformsecuritiesact.asp">Uniform Securities Act</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-w1.2">&#10003;</div><div class="learn-text">Exclusions from BD/agent definitions (banks, trust companies, issuer's clerical staff)<span class="elinks"><a href="https://www.nasaa.org/exams-2/study-guides/series-63-study-guide/">NASAA Series 63 guide</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-w1.3">&#10003;</div><div class="learn-text">Registration procedures, filing, supervision, bonds, minimum financial req<span class="elinks"><a href="https://www.finra.org/registration-exams-ce/classic-crd/forms">Registration forms</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-w1.4">&#10003;</div><div class="learn-text">De minimis exemption (5 or fewer clients in 12 months)<span class="elinks"><a href="https://www.nasaa.org/industry-resources/investment-advisers/">NASAA IA resources</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-w1.5">&#10003;</div><div class="learn-text">Federal covered advisers (&gt;$110M AUM) vs. state-registered<span class="elinks"><a href="https://www.investopedia.com/terms/r/ria.asp">RIA state vs. federal</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">(1) Is an out-of-state BD with 2 clients in your state required to register? (2) When does an IA become federal covered? (3) 3 activities that trigger agent registration?</div>
+    <textarea data-key="s63-w1-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="s63-w1-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s63-w2">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 63 &mdash; Week 2</div>
+      <div class="day-title">Securities Registration + Remedies + Ethics + mocks</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to learn <span class="learn-progress" data-lp="s63-w2"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s63-w2.1">&#10003;</div><div class="learn-text">Securities registration methods: notification, coordination, qualification<span class="elinks"><a href="https://www.nasaa.org/industry-resources/corporation-finance/">NASAA registration</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-w2.2">&#10003;</div><div class="learn-text">Federal covered securities (listed on exchanges, investment company securities, Reg D tier 2)<span class="elinks"><a href="https://www.investopedia.com/terms/r/regulationd.asp">Regulation D</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-w2.3">&#10003;</div><div class="learn-text">Exempt securities vs. exempt transactions (unsolicited orders, private placements, institutional)<span class="elinks"><a href="https://www.investopedia.com/terms/e/exempt-transaction.asp">Exempt transactions</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-w2.4">&#10003;</div><div class="learn-text">Administrator powers: investigate, subpoena, cease-and-desist, denial/suspension/revocation<span class="elinks"><a href="https://www.nasaa.org/about-us/">NASAA &amp; state admins</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-w2.5">&#10003;</div><div class="learn-text">Civil penalties, criminal penalties, statute of limitations, right of rescission<span class="elinks"><a href="https://www.investopedia.com/terms/r/rescission.asp">Right of rescission</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s63-w2.6">&#10003;</div><div class="learn-text">2 practice exams at 80%+<span class="elinks"><a href="https://achievable.me/exams/finra-series-63">Achievable Series 63</a></span></div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Readiness check</span>
+    <div class="deliverable-prompt">Practice scores + schedule exam when both 80%+.</div>
+    <textarea data-key="s63-ready" placeholder="Mock 1: __%  |  Mock 2: __%"></textarea>
+    <div class="save-indicator" data-ind="s63-ready"></div>
+  </div>
+</div>
+
+<hr>
+
+<h2 id="series66">Series 66 &mdash; Uniform Combined State Law (alternative to 63+65)</h2>
+<p class="section-intro">Combines Series 63 and 65. Shorter (100 questions, 150 min) but <strong>requires Series 7 as corequisite</strong>. Many find this harder than either alone. Only take if you already have or are getting Series 7.</p>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="s66-overview">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Series 66 overview</div>
+      <div class="day-title">Exam mechanics &amp; decision criteria</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to know cold <span class="learn-progress" data-lp="s66-o"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="s66-o.1">&#10003;</div><div class="learn-text">100 scored + 10 unscored. 150 min. Passing: 73% (73 of 100)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s66-o.2">&#10003;</div><div class="learn-text">Fee: $177. Series 7 corequisite (must be active)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s66-o.3">&#10003;</div><div class="learn-text">Content: Economic Factors 5% | Investment Vehicles 20% | Client Recs/Strategies 30% | Laws/Regs/Ethics 45%</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s66-o.4">&#10003;</div><div class="learn-text">Overlaps with Series 7 so products/economics are lighter than Series 65. Heavy on regs/ethics.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="s66-o.5">&#10003;</div><div class="learn-text"><strong>Decision:</strong> only worth it if you already have Series 7. Otherwise take Series 65 alone.</div></li>
+    </ul>
+  </div>
+  <h4>Primary materials</h4>
+  <ul class="links">
+    <li><a href="https://www.nasaa.org/exams/exam-study-guides/series-66-study-guide/">NASAA Series 66 Study Guide</a></li>
+    <li><a href="https://www.kaplanfinancial.com/securities/series-66">Kaplan Series 66</a></li>
+  </ul>
+</div>
+
+<hr>
+
+<h2 id="other-exams">Other asset-management-related exams (situational)</h2>
+<p class="section-intro">Depending on your seat, one of these may be required. Most AM candidates never touch these; included for completeness.</p>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="other-exams">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">Reference</div>
+      <div class="day-title">Specialized FINRA exams</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>When you'd need each <span class="learn-progress" data-lp="oe"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="oe.1">&#10003;</div><div class="learn-text"><strong>Series 3</strong> &mdash; National Commodities Futures. Required to sell/advise on commodities, futures, managed futures. Relevant if joining a CTA (e.g., AQR Managed Futures). 120 questions, 2h 30min, passing 70% each section. No sponsor.<span class="elinks"><a href="https://www.nfa.futures.org/registration-actions/registration-requirements/series-3.html">NFA Series 3</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="oe.2">&#10003;</div><div class="learn-text"><strong>Series 79</strong> &mdash; Investment Banking Representative. Required for IB work (M&amp;A, underwriting). Not for AM. Included in case you pivot.<span class="elinks"><a href="https://www.finra.org/registration-exams-ce/qualification-exams/series79">FINRA Series 79</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="oe.3">&#10003;</div><div class="learn-text"><strong>Series 24</strong> &mdash; General Securities Principal. Supervisory exam for managers of registered reps. Take after Series 7 once promoted to supervisor role.<span class="elinks"><a href="https://www.finra.org/registration-exams-ce/qualification-exams/series24">FINRA Series 24</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="oe.4">&#10003;</div><div class="learn-text"><strong>Series 52</strong> &mdash; Municipal Securities Representative. Required if structuring/underwriting munis beyond simple sales.<span class="elinks"><a href="https://www.msrb.org/professional-qualification/series-52-municipal-securities-representative">MSRB Series 52</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="oe.5">&#10003;</div><div class="learn-text"><strong>Series 31</strong> &mdash; Futures Managed Funds. Abbreviated futures license for managed futures funds only.<span class="elinks"><a href="https://www.nfa.futures.org/registration-actions/registration-requirements/series-31.html">NFA Series 31</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="oe.6">&#10003;</div><div class="learn-text"><strong>CAIA (Chartered Alternative Investment Analyst)</strong> &mdash; Not a license, but the industry-recognized credential for alternatives (PE, HF, real assets). Two levels. Valuable if targeting alts-heavy AMs.<span class="elinks"><a href="https://caia.org/programs/caia-charter">CAIA program</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="oe.7">&#10003;</div><div class="learn-text"><strong>FRM (Financial Risk Manager)</strong> &mdash; GARP credential. Valuable for risk roles at AMs or for risk-parity/systematic shops. Two parts.<span class="elinks"><a href="https://www.garp.org/frm">GARP FRM</a></span></div></li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
+<h2 id="cfa">CFA Level I (Feb 22&ndash;28, 2027)</h2>
+<p class="section-intro">The real buy-side credential. 10 topics. 180 MCQs across 2 sessions. Registration opens May 5, 2026 (early-bird ~$1,140, standard ~$1,490 through Nov 5, 2026). Budget ~300 hours total.</p>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="cfa-overview">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">CFA L1 overview</div>
+      <div class="day-title">Exam mechanics &amp; logistics</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to know cold <span class="learn-progress" data-lp="cfa-o"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="cfa-o.1">&#10003;</div><div class="learn-text">Format: 180 MCQs in two 135-min sessions (90 each). ~90 sec per question.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-o.2">&#10003;</div><div class="learn-text">Session 1: Ethics + Investment Tools (Quants, Econ, FRA). Session 2: Issuers, PM, Equity, FI, Derivatives, Alts.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-o.3">&#10003;</div><div class="learn-text">Passing score: not published, typically ~63&ndash;70%. Minimum Passing Score set by Board.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-o.4">&#10003;</div><div class="learn-text">Pass rate Level 1: ~41%. Average prep: 303 hours.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-o.5">&#10003;</div><div class="learn-text">Ethics carries "adjacency" weight: if you're borderline, Ethics score breaks the tie.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-o.6">&#10003;</div><div class="learn-text">Feb 2027 exam window: Feb 22&ndash;28. Registration opens May 5, 2026.</div></li>
+    </ul>
+  </div>
+  <h4>Official + prep materials</h4>
+  <ul class="links">
+    <li><a href="https://www.cfainstitute.org/programs/cfa-program/dates-fees">CFA exam dates &amp; fees (official)</a></li>
+    <li><a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/level-i-exam">CFA Level I official resource hub</a></li>
+    <li><a href="https://www.schweser.com/cfa/level-1">Kaplan Schweser CFA Level 1</a> &mdash; gold standard prep</li>
+    <li><a href="https://www.markmeldrum.com">Mark Meldrum</a> &mdash; supplemental video (highly rated)</li>
+    <li><a href="https://analystprep.com/cfa-level-1-exam/">AnalystPrep</a> &mdash; question bank</li>
+  </ul>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="cfa-topics">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">CFA L1 topic weights</div>
+      <div class="day-title">The "Core Four" + the rest</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>2026 Topic weightings (same for 2027) <span class="learn-progress" data-lp="cfa-t"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="cfa-t.1">&#10003;</div><div class="learn-text"><strong>Ethics &amp; Professional Standards</strong>: 15&ndash;20% (~27&ndash;36 q) &mdash; highest weight, plus tiebreaker<span class="elinks"><a href="https://www.cfainstitute.org/en/ethics-standards">CFA Ethics Standards</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-t.2">&#10003;</div><div class="learn-text"><strong>Financial Statement Analysis</strong>: 11&ndash;14% (~20&ndash;25 q) &mdash; your IB/ER base is an edge here<span class="elinks"><a href="https://www.investopedia.com/terms/f/financial-statement-analysis.asp">FSA overview</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-t.3">&#10003;</div><div class="learn-text"><strong>Equity Investments</strong>: 11&ndash;14% (~20&ndash;25 q) &mdash; more edge territory<span class="elinks"><a href="https://www.cfainstitute.org/programs/cfa-program/candidate-resources/level-i-exam">CFA L1 curriculum</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-t.4">&#10003;</div><div class="learn-text"><strong>Fixed Income</strong>: 11&ndash;14% (~20&ndash;25 q) &mdash; the topic you'd most benefit from mastering<span class="elinks"><a href="https://www.investopedia.com/terms/f/fixedincome.asp">Fixed income</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-t.5">&#10003;</div><div class="learn-text">Portfolio Management: 8&ndash;12% (~14&ndash;22 q)<span class="elinks"><a href="https://www.investopedia.com/terms/p/portfoliomanagement.asp">Portfolio management</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-t.6">&#10003;</div><div class="learn-text">Alternative Investments: 7&ndash;10% (~13&ndash;18 q)<span class="elinks"><a href="https://www.investopedia.com/terms/a/alternative_investment.asp">Alternative investments</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-t.7">&#10003;</div><div class="learn-text">Corporate Issuers: 6&ndash;9% (~11&ndash;16 q)<span class="elinks"><a href="https://www.investopedia.com/terms/c/corporatefinance.asp">Corporate finance</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-t.8">&#10003;</div><div class="learn-text">Economics: 6&ndash;9% (~11&ndash;16 q)<span class="elinks"><a href="https://www.investopedia.com/terms/e/economics.asp">Economics overview</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-t.9">&#10003;</div><div class="learn-text">Quantitative Methods: 6&ndash;9% (~11&ndash;16 q)<span class="elinks"><a href="https://www.investopedia.com/terms/q/quantitativeanalysis.asp">Quant methods</a></span></div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-t.10">&#10003;</div><div class="learn-text">Derivatives: 5&ndash;8% (~9&ndash;14 q)<span class="elinks"><a href="https://www.investopedia.com/terms/d/derivative.asp">Derivatives</a></span></div></li>
+    </ul>
+  </div>
+  <div class="callout">
+    The "Core Four" (Ethics, FRA, Equity, FI) is ~50&ndash;60% of the exam. Spend 60% of your time there. Your IB/ER background means FRA and Equity should feel like review.
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="cfa-p1">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">CFA L1 &mdash; Phase 1</div>
+      <div class="day-title">Orientation (Early June 2026 &middot; ~10 hrs)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to do <span class="learn-progress" data-lp="cfa-p1"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p1.1">&#10003;</div><div class="learn-text">Register for Feb 2027 exam window (opens May 5, 2026; early-bird ~$1,140)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p1.2">&#10003;</div><div class="learn-text">Buy Kaplan Schweser package (notes + QBank + mocks)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p1.3">&#10003;</div><div class="learn-text">Optional: Mark Meldrum video subscription for harder topics (Derivatives, Quants)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p1.4">&#10003;</div><div class="learn-text">Set study calendar: ~7 hrs/week for 36 weeks June&ndash;Feb</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p1.5">&#10003;</div><div class="learn-text">Read Schweser Study Plan, get familiar with CFA Candidate Body of Knowledge</div></li>
+    </ul>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="cfa-p2">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">CFA L1 &mdash; Phase 2</div>
+      <div class="day-title">First pass: content (June&ndash;Oct 2026 &middot; ~180 hrs)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to do <span class="learn-progress" data-lp="cfa-p2"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p2.1">&#10003;</div><div class="learn-text">June: Quant Methods (challenging + foundational), FRA part 1</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p2.2">&#10003;</div><div class="learn-text">July: FRA part 2, Corporate Issuers, Economics</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p2.3">&#10003;</div><div class="learn-text">August: Equity Investments, Portfolio Management</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p2.4">&#10003;</div><div class="learn-text">September: Fixed Income (hardest; spend extra time), Derivatives</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p2.5">&#10003;</div><div class="learn-text">October: Alternative Investments, Ethics (save for last but start reviewing now)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p2.6">&#10003;</div><div class="learn-text">Per topic: read Schweser notes, do EOC questions, then 30&ndash;50 QBank Qs. Target 75%+ before moving on.</div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Monthly check-in</span>
+    <div class="deliverable-prompt">Track hours, QBank % by topic, and weakest concepts. Update monthly.</div>
+    <textarea data-key="cfa-p2-log" placeholder="June: __ hrs, QBank avg __%, weak: __&#10;July: __ hrs, QBank avg __%, weak: __&#10;(continue monthly)"></textarea>
+    <div class="save-indicator" data-ind="cfa-p2-log"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="cfa-p3">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">CFA L1 &mdash; Phase 3</div>
+      <div class="day-title">Second pass: consolidation (Nov&ndash;Dec 2026 &middot; ~60 hrs)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to do <span class="learn-progress" data-lp="cfa-p3"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p3.1">&#10003;</div><div class="learn-text">Re-read Schweser Secret Sauce (condensed summary book)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p3.2">&#10003;</div><div class="learn-text">Mixed-topic QBank sessions (not by topic anymore)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p3.3">&#10003;</div><div class="learn-text">Drill formula sheet to memorization (Sharpe, bond pricing, option payoffs, ratios)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p3.4">&#10003;</div><div class="learn-text">Deep Ethics review &mdash; the chapter-by-chapter Schweser ethics workbook</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p3.5">&#10003;</div><div class="learn-text">Redo the topics you scored under 70% on first pass</div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Takeaway questions</span>
+    <div class="deliverable-prompt">(1) Why does duration matter more than YTM when rates shift? (2) Sharpe vs. Sortino vs. Treynor &mdash; when to use each? (3) Standard V(A) vs. V(B) of CFA Code &mdash; key difference?</div>
+    <textarea data-key="cfa-p3-tq" placeholder="Your answers..."></textarea>
+    <div class="save-indicator" data-ind="cfa-p3-tq"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="cfa-p4">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">CFA L1 &mdash; Phase 4</div>
+      <div class="day-title">Mock exams (January 2027 &middot; ~40 hrs)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to do <span class="learn-progress" data-lp="cfa-p4"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p4.1">&#10003;</div><div class="learn-text">Mock #1 (Schweser Book 1) &mdash; full 4h 30min, simulate real conditions</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p4.2">&#10003;</div><div class="learn-text">Detailed review: categorize every miss by topic and error type (content vs. careless)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p4.3">&#10003;</div><div class="learn-text">Mock #2 (Schweser Book 2)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p4.4">&#10003;</div><div class="learn-text">Mock #3 (CFA Institute official mock, free via candidate resources)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p4.5">&#10003;</div><div class="learn-text">Mock #4 (AnalystPrep or additional Schweser) &mdash; target 70%+</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p4.6">&#10003;</div><div class="learn-text">If any mock is under 65%, drill that topic hard for 3 days before next mock</div></li>
+    </ul>
+  </div>
+  <div class="deliverable">
+    <span class="deliverable-label">Mock tracker</span>
+    <div class="deliverable-prompt">Score each mock, time to complete, topics below 60%.</div>
+    <textarea data-key="cfa-mocks" placeholder="Mock 1 (Schweser): __%  Time: __&#10;Mock 2: __%&#10;Mock 3 (CFA official): __%&#10;Mock 4: __%"></textarea>
+    <div class="save-indicator" data-ind="cfa-mocks"></div>
+  </div>
+</div>
+
+<div class="day">
+  <div class="day-header">
+    <div class="day-check" data-check="cfa-p5">&#10003;</div>
+    <div class="day-body">
+      <div class="day-num">CFA L1 &mdash; Phase 5</div>
+      <div class="day-title">Final polish (February 2027 &middot; ~20 hrs)</div>
+    </div>
+  </div>
+  <div class="learn-box">
+    <h4>What to do <span class="learn-progress" data-lp="cfa-p5"></span></h4>
+    <ul class="learn-list">
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p5.1">&#10003;</div><div class="learn-text">Re-read Ethics top to bottom (tiebreaker topic)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p5.2">&#10003;</div><div class="learn-text">Final formula sheet drill (daily)</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p5.3">&#10003;</div><div class="learn-text">Light QBank &mdash; mixed topics, 30 minutes a day. Don't burn out.</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p5.4">&#10003;</div><div class="learn-text">Logistics: test center confirmation, ID ready, calculator (BA II Plus or HP 12C), arrive 30 min early</div></li>
+      <li class="learn-item"><div class="learn-check" data-l="cfa-p5.5">&#10003;</div><div class="learn-text">Last 2 days: sleep, no heavy studying. You either know it or you don't.</div></li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
+<h2>Your master licensing timeline</h2>
 <table>
-  <tr><th>Phase</th><th>When</th><th>Hours</th></tr>
-  <tr><td>Orientation</td><td>Early June 2026</td><td>10</td></tr>
-  <tr><td>First pass</td><td>June&ndash;Oct 2026</td><td>180</td></tr>
-  <tr><td>Second pass</td><td>Nov&ndash;Dec 2026</td><td>60</td></tr>
-  <tr><td>Mocks</td><td>Jan 2027</td><td>40</td></tr>
-  <tr><td>Final polish</td><td>Feb 2027</td><td>20</td></tr>
+  <tr><th>Month</th><th>Focus</th><th>Hours/week</th><th>Cost</th></tr>
+  <tr><td>May 2026</td><td>30-day AM sprint + SIE</td><td>15&ndash;20</td><td>$99 (Achievable) + $80 (SIE fee)</td></tr>
+  <tr><td>June 2026</td><td>Series 65 (no sponsor needed)</td><td>10&ndash;15</td><td>~$150 prep + $187 fee</td></tr>
+  <tr><td>June&ndash;Oct 2026</td><td>CFA L1 first pass</td><td>7&ndash;10</td><td>$1,140 (early-bird) + ~$800 Schweser</td></tr>
+  <tr><td>When sponsored</td><td>Series 7 + 63 (or 66)</td><td>10&ndash;15</td><td>$395 + $147 (or $177) + prep</td></tr>
+  <tr><td>Nov&ndash;Dec 2026</td><td>CFA L1 second pass</td><td>10&ndash;12</td><td>&mdash;</td></tr>
+  <tr><td>Jan 2027</td><td>CFA L1 mocks</td><td>10&ndash;15</td><td>&mdash;</td></tr>
+  <tr><td>Feb 22&ndash;28, 2027</td><td><strong>CFA L1 exam</strong></td><td>&mdash;</td><td>&mdash;</td></tr>
 </table>
+
+<div class="callout">
+  <strong>Total cost estimate:</strong> ~$3,000&ndash;$3,500 for SIE + Series 65 + CFA L1 (if self-paying CFA). Series 7 + 63 typically sponsor-paid. This is a legitimate professional investment.
+</div>
 
 <hr>
 
