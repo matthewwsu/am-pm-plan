@@ -71,6 +71,16 @@
   textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px rgba(139, 44, 29, 0.15); }
   .save-indicator { font-size: 11px; color: var(--muted); font-family: "Futura", sans-serif; text-transform: uppercase; letter-spacing: 0.6px; margin-top: 4px; height: 14px; }
   .save-indicator.saved { color: var(--done); }
+  .reveal-btn { background: none; border: none; color: var(--muted); font-family: "Futura", "Helvetica Neue", sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; cursor: pointer; padding: 6px 0 2px; margin-top: 4px; border-bottom: 1px dotted var(--muted); align-self: flex-start; }
+  .reveal-btn:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .reveal-btn::before { content: "▸ "; display: inline-block; transition: transform 0.15s; }
+  .reveal-btn.open::before { transform: rotate(90deg); }
+  .sample-answer { display: none; background: #f7f3e8; border: 1px dashed #c49400; border-radius: 2px; padding: 12px 14px; margin-top: 8px; font-size: 14px; line-height: 1.6; color: #4a3a1a; }
+  .sample-answer.open { display: block; }
+  .sample-answer-label { display: block; font-family: "Futura", "Helvetica Neue", sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: #8b6d00; font-weight: 800; margin-bottom: 6px; }
+  .sample-answer p { margin: 6px 0; }
+  .sample-answer ul { margin: 4px 0; padding-left: 20px; }
+  .sample-answer strong { color: #2d2512; }
   .callout { background: var(--hl); border-left: 4px solid #c49400; padding: 12px 16px; margin: 18px 0; font-size: 15px; }
   .section-intro { color: var(--muted); font-size: 15px; margin-bottom: 16px; font-style: italic; }
   table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
@@ -210,6 +220,24 @@
     <div class="deliverable-prompt">One-page org map of top 10 AMs by AUM: mix, strategy, pitch.</div>
     <textarea data-key="d1" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d1"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; one defensible framing</span>
+      <p><strong>Top 10 asset managers by AUM (as of late 2025 / early 2026):</strong></p>
+      <ul>
+        <li><strong>BlackRock</strong> &mdash; $13.9T AUM. Mix: ~60% index/iShares, growing private markets (HPS, GIP, Preqin), Aladdin tech as the moat. Pitch: scale + tech + privates-for-retail.</li>
+        <li><strong>Vanguard</strong> &mdash; ~$10T AUM. Mix: mostly index mutual funds and ETFs. Mutual ownership structure keeps fees rock-bottom. Pitch: lowest-cost beta.</li>
+        <li><strong>Fidelity</strong> &mdash; ~$5.8T AUM (discretionary). Mix: active mutual funds, brokerage, retirement services, zero-fee index funds. Pitch: direct-to-consumer with advice.</li>
+        <li><strong>State Street Global Advisors</strong> &mdash; ~$4.7T AUM. Mix: SPDR ETFs, institutional indexing. Pitch: original ETF innovator (SPY).</li>
+        <li><strong>JPMorgan Asset Management</strong> &mdash; ~$3.6T AUM. Mix: active equities, FI, alts, multi-asset; LTCMAs respected. Pitch: bank-backed scale + institutional relationships.</li>
+        <li><strong>Capital Group</strong> &mdash; ~$2.8T AUM. Mix: American Funds active mutual funds. Pitch: multi-manager active, long tenure.</li>
+        <li><strong>Amundi</strong> &mdash; ~$2.3T AUM. Mix: European leader, mix of index and active. Pitch: European anchor + EM reach.</li>
+        <li><strong>Goldman Sachs Asset Management</strong> &mdash; ~$3.1T AUM (post-NNIP acquisition). Mix: alts-heavy, FI, OCIO, advisory. Pitch: institutional relationships + alts.</li>
+        <li><strong>PIMCO</strong> &mdash; ~$2T AUM. Mix: fixed income specialist (macro + FI DNA). Pitch: bond-market authority.</li>
+        <li><strong>Invesco</strong> &mdash; ~$1.8T AUM. Mix: ETFs (QQQ), multi-asset, alternatives. Pitch: mid-tier diversified platform.</li>
+      </ul>
+      <p><strong>What to notice:</strong> BlackRock is nearly 2&times; its nearest competitor. Top 3 (BlackRock, Vanguard, State Street) together hold ~$28T &mdash; more than US GDP. The "Big Three" passive concentration is itself a governance story (proxy voting power, anti-trust debate). Active shops (Capital, Fidelity, T. Rowe) are fighting fee compression; alt-heavy shops (Blackstone, Apollo, KKR, Ares) are the real growth story but aren't in the "AM" top 10 by traditional AUM definitions.</p>
+    </div>
   </div>
 </div>
 
@@ -241,6 +269,14 @@
     <div class="deliverable-prompt">60-second answer to "why don't real allocators just run Markowitz?"</div>
     <textarea data-key="d2" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d2"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer</span>
+      <p>Markowitz MVO is mathematically elegant but operationally broken. The problem is estimation error: optimizers take expected returns, variances, and covariances as inputs and maximize a function of those inputs. Since all three are estimated from noisy historical data, small changes in the inputs produce wildly different "optimal" portfolios. A 10 bps shift in expected return for one asset can swing its optimal weight from 0% to 40%.</p>
+      <p>Michaud called this "error maximization" — the assets with the highest estimated returns get overweighted, but those estimates are exactly where noise is highest. The output looks precise but isn't.</p>
+      <p>Real allocators fix this in three ways: <strong>(1) Black-Litterman</strong> starts from market-implied equilibrium and lets you tilt only where you have real views, with confidence weighting; <strong>(2) resampled efficient frontiers</strong> (Michaud) run MVO across hundreds of bootstrapped return samples and average the weights; <strong>(3) constrained optimization</strong> imposes sensible floors and caps (no more than 20% in one asset, long-only, etc.) that absorb the noise.</p>
+      <p>Practical version: most institutional allocators still use MVO as a sanity check but anchor portfolios on policy weights, peer benchmarks, or risk-factor budgets instead.</p>
+    </div>
   </div>
 </div>
 
@@ -273,6 +309,14 @@
     <div class="deliverable-prompt">3-minute answer on "what is the value factor and does it still work?"</div>
     <textarea data-key="d3" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d3"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer</span>
+      <p><strong>Definition:</strong> The value factor (HML — High Minus Low book-to-market) captures the historical excess return of cheap stocks (high B/P) over expensive stocks (low B/P). Fama-French documented it in 1992; over long horizons, value beat growth by 3–5% annualized.</p>
+      <p><strong>The problem:</strong> Value has had a brutal decade. From 2017 through early 2020, growth crushed value by roughly 6% annualized. 2020 was catastrophic for value funds. Many declared the factor dead.</p>
+      <p><strong>AQR's argument (Asness):</strong> The factor isn't broken — the spread just got historically stretched. Cheap stocks got cheaper, expensive stocks got more expensive. When AQR measured the "value spread" (valuation gap between cheap and expensive) in 2020, it was wider than in 1999 at the dot-com peak. That setup is exactly when forward returns to value are historically best. And indeed, 2021–2023 saw a partial value rebound.</p>
+      <p><strong>My view:</strong> Value isn't dead but it's not a passive buy-and-hold anymore. Pure B/P is too crude — modern "quality-value" (cheap stocks that are also profitable, à la FF5 profitability + investment factors) has worked better. And the factor's behavior is regime-dependent: it works during rising-rate, rotation periods; it suffers when mega-cap growth compounds. In a 4–5% rate world with stretched Mag 7 valuations, I'd tilt toward quality-value selectively — but I wouldn't bet the farm on a pure value revival.</p>
+    </div>
   </div>
 </div>
 
@@ -304,6 +348,39 @@
     <div class="deliverable-prompt">Hand-calculate Brinson attribution on a hypothetical 3-sector fund vs. benchmark.</div>
     <textarea data-key="d4" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d4"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; worked example</span>
+      <p><strong>Setup:</strong> Hypothetical 3-sector fund vs. benchmark. Fund returns -2.0% in the period; benchmark returns -2.5%. So fund beat by +50 bps. Attribute it.</p>
+      <p><strong>Data:</strong></p>
+      <ul>
+        <li><strong>Tech</strong>: Benchmark weight 30%, Fund weight 45%, Benchmark return +5%, Fund return +6%</li>
+        <li><strong>Financials</strong>: Benchmark weight 40%, Fund weight 35%, Benchmark return -5%, Fund return -4%</li>
+        <li><strong>Energy</strong>: Benchmark weight 30%, Fund weight 20%, Benchmark return -10%, Fund return -8%</li>
+      </ul>
+      <p><strong>Brinson formulas:</strong></p>
+      <ul>
+        <li>Allocation = &Sigma; (w<sub>fund</sub> &minus; w<sub>bench</sub>) &times; (r<sub>bench,sector</sub> &minus; r<sub>bench,total</sub>)</li>
+        <li>Selection = &Sigma; w<sub>bench</sub> &times; (r<sub>fund,sector</sub> &minus; r<sub>bench,sector</sub>)</li>
+        <li>Interaction = &Sigma; (w<sub>fund</sub> &minus; w<sub>bench</sub>) &times; (r<sub>fund,sector</sub> &minus; r<sub>bench,sector</sub>)</li>
+      </ul>
+      <p><strong>Allocation effect:</strong></p>
+      <ul>
+        <li>Tech: (0.45 &minus; 0.30) &times; (5% &minus; (&minus;2.5%)) = 0.15 &times; 7.5% = <strong>+1.125%</strong> (overweight the winning sector)</li>
+        <li>Financials: (0.35 &minus; 0.40) &times; (&minus;5% &minus; (&minus;2.5%)) = &minus;0.05 &times; &minus;2.5% = <strong>+0.125%</strong></li>
+        <li>Energy: (0.20 &minus; 0.30) &times; (&minus;10% &minus; (&minus;2.5%)) = &minus;0.10 &times; &minus;7.5% = <strong>+0.75%</strong></li>
+        <li><strong>Total allocation: +2.00%</strong></li>
+      </ul>
+      <p><strong>Selection effect:</strong></p>
+      <ul>
+        <li>Tech: 0.30 &times; (6% &minus; 5%) = <strong>+0.30%</strong></li>
+        <li>Financials: 0.40 &times; (&minus;4% &minus; (&minus;5%)) = <strong>+0.40%</strong></li>
+        <li>Energy: 0.30 &times; (&minus;8% &minus; (&minus;10%)) = <strong>+0.60%</strong></li>
+        <li><strong>Total selection: +1.30%</strong></li>
+      </ul>
+      <p><strong>Interaction (residual):</strong> ~&minus;2.80% (plug that reconciles to the +50 bps total active return). In practice this is small and often combined into Selection.</p>
+      <p><strong>Takeaway:</strong> The fund won by <em>both</em> betting on Tech (allocation) and picking better names within each sector (selection). A good PM should be able to tell you which effect is dominant — persistent selection wins suggest skill; one-off allocation wins can be luck.</p>
+    </div>
   </div>
 </div>
 
@@ -335,6 +412,14 @@
     <div class="deliverable-prompt">200 words on "why did risk parity break in 2022, and is it broken going forward?"</div>
     <textarea data-key="d5" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d5"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; ~200 words</span>
+      <p>Risk parity's pitch is elegant: instead of letting equity dominate risk (as it does in a dollar-weighted 60/40 where stocks contribute ~90% of portfolio variance), allocate capital so each asset class contributes equal risk. Typically this means <em>leveraging</em> bonds up to match equity vol.</p>
+      <p>That worked spectacularly from the 1990s through 2020. Falling rates meant leveraged bonds produced equity-like returns with bond-like drawdowns, and the negative stock-bond correlation made the combination diversifying.</p>
+      <p>2022 broke the premise. Stocks and bonds both fell sharply as inflation and rate-hiking correlation-ed them to the downside. Leveraged bond exposure amplified the bond loss. AQR's Risk Parity fund lost ~30%; Bridgewater's All Weather was also deeply negative.</p>
+      <p>Is it broken going forward? Conditionally no. Risk parity's vulnerability was specifically the shift from a low-inflation, accommodative-Fed regime (negative stock-bond correlation) to a high-inflation, hawkish regime (positive correlation). The strategy still works in its designed environment — uncertain growth, stable inflation. But practitioners now add inflation-sensitive sleeves (commodities, TIPS, gold) and don't lever as aggressively. It's not dead, just less of a free lunch than the 2010s marketing suggested.</p>
+    </div>
   </div>
 </div>
 
@@ -368,6 +453,29 @@
     <div class="deliverable-prompt">Build a $100M FI portfolio. Explicit duration, credit quality, sector targets. Defend each choice.</div>
     <textarea data-key="d6" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d6"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; $100M core+ FI portfolio</span>
+      <p><strong>Mandate assumption:</strong> Core-plus bond mandate, Agg-like benchmark, 2&ndash;3% target excess return, moderate active risk (~100 bps TE).</p>
+      <p><strong>Structure &amp; rationale:</strong></p>
+      <ul>
+        <li><strong>Treasuries: $25M</strong> (5-yr average duration). Liquidity anchor. Overweight intermediate given curve steepening bias in 2026. Avoid long end given fiscal concerns.</li>
+        <li><strong>TIPS: $10M</strong> (7-yr duration). Real yields ~2% are historically attractive; buys inflation insurance cheaply relative to 2021.</li>
+        <li><strong>Agency MBS: $20M</strong> (~5-yr effective duration). Spreads still wide vs. historical norms post-QT. Prepayment risk manageable given rate environment.</li>
+        <li><strong>IG Corporate: $25M</strong> (average A/BBB, 6-yr duration). Spreads tight at cycle but carry is reasonable at 5.2% all-in yield. Quality tilt &mdash; avoid BBB-heavy issuers.</li>
+        <li><strong>HY Corporate: $10M</strong> (4-yr effective duration). Overweight BB, underweight CCC. HY spreads showing divergence &mdash; pick through credits.</li>
+        <li><strong>EM Debt: $5M</strong> (split hard and local currency). Selective &mdash; hard currency sovereigns in Mexico, Indonesia; avoid frontier markets.</li>
+        <li><strong>Cash / short Treasuries: $5M</strong>. Dry powder for opportunistic adds.</li>
+      </ul>
+      <p><strong>Portfolio-level targets:</strong></p>
+      <ul>
+        <li>Duration: ~5.5 yrs (benchmark Agg ~6 yrs &mdash; slight underweight given fiscal/inflation uncertainty)</li>
+        <li>Average credit quality: A/A-</li>
+        <li>Expected yield: ~5.4% at cost</li>
+        <li>Key active positions: overweight agency MBS vs. IG credit; underweight long-duration Treasuries; quality tilt within HY</li>
+      </ul>
+      <p><strong>Risks:</strong> Re-inflation surprise (hurts duration); credit cycle turn (spreads widen on IG/HY); Fed cuts rapidly (flattens curve, compresses MBS spreads).</p>
+    </div>
   </div>
 </div>
 
@@ -400,6 +508,24 @@
     <div class="deliverable-prompt">Defend concentrated vs. diversified equity book in writing. Take a position.</div>
     <textarea data-key="d7" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d7"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; taking a position</span>
+      <p><strong>My position: Concentrated for active mandates; diversified for core allocations. The question is wrongly framed when people treat it as binary.</strong></p>
+      <p><strong>The case for concentrated (20&ndash;40 names):</strong></p>
+      <ul>
+        <li>Fundamental law of active management: IR = IC &times; &radic;BR. Most shops overestimate breadth &mdash; having "opinions" on 200 stocks is different from having real edge on 20. Concentrating capital behind your 20 highest-conviction ideas maximizes IC.</li>
+        <li>Pattern from the best long-term records (Buffett, Greenblatt, Akre): 10&ndash;25 positions, low turnover, deep work per name.</li>
+        <li>In a Mag 7 world, a "diversified" 500-stock fund is effectively a concentrated bet on 7 tech names. Own the concentration intentionally.</li>
+      </ul>
+      <p><strong>The case for diversified (100+ names):</strong></p>
+      <ul>
+        <li>Career risk asymmetry: a concentrated fund that's wrong for 18 months gets fired, even if the thesis plays out over 5. Diversification buys you time.</li>
+        <li>For core equity exposure in a multi-asset book, idiosyncratic risk isn't what you're trying to buy — you want market beta cheaply. Use a broad index for that.</li>
+        <li>Quant/systematic shops need breadth to harvest factor premia &mdash; fundamental law cuts the other way there.</li>
+      </ul>
+      <p><strong>Synthesis:</strong> Allocators should run a <em>core-satellite</em> structure. Cheap beta in the core (Vanguard/iShares/DFA). High-conviction concentrated managers as the satellite. The worst structure is "diversified-active" — 200 stocks with 80 bps of fees. That's a closet index charging active fees and it's why SPIVA data is so bleak for active mgmt.</p>
+    </div>
   </div>
 </div>
 
@@ -436,6 +562,36 @@
     <div class="deliverable-prompt">Allocations for three clients: 35yo retail, $10B corp pension, SWF with 50yr horizon.</div>
     <textarea data-key="d8" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d8"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; 3 client allocations</span>
+      <p><strong>35-year-old retail investor ($500K, 30-yr horizon, moderate-aggressive risk):</strong></p>
+      <ul>
+        <li>80% equities (60% US broad / 15% international developed / 5% EM)</li>
+        <li>15% fixed income (mostly IG, some TIPS for inflation protection)</li>
+        <li>5% alternatives (REITs or commodity exposure)</li>
+        <li>Rationale: long horizon means human capital dominates, can afford equity volatility. Simplicity wins &mdash; no private markets complexity. Target-date glidepath logic.</li>
+      </ul>
+      <p><strong>$10B corporate pension (frozen plan, 90% funded, 12-yr duration liability):</strong></p>
+      <ul>
+        <li>55% LDI fixed income (long duration Treasuries + IG corporates matching liability duration)</li>
+        <li>25% return-seeking equities (global, mostly passive)</li>
+        <li>10% private credit (yield enhancement without equity beta)</li>
+        <li>5% hedge funds (multi-strat, downside protection)</li>
+        <li>5% real estate / infrastructure (liability-matching long-duration real cash flows)</li>
+        <li>Rationale: LDI is the governing philosophy. Hedge interest rate risk on the liability; only take growth risk where you're truly compensated. Post-2022 gilt crisis, no leveraged LDI.</li>
+      </ul>
+      <p><strong>Sovereign wealth fund ($200B, 50-yr horizon, low spending rate):</strong></p>
+      <ul>
+        <li>40% global equities (tilted toward factor exposure &mdash; value, quality)</li>
+        <li>15% fixed income (mostly government, low allocation because horizon is so long)</li>
+        <li>25% private equity (global buyout + growth + VC, aggressive pacing program)</li>
+        <li>10% real assets (infrastructure, timberland, farmland)</li>
+        <li>10% hedge funds / absolute return</li>
+        <li>Rationale: 50-yr horizon = massive illiquidity premium capacity. Can tolerate 30%+ drawdowns. Benchmark against a peer universe (CPP, Norway, GIC), not a market index.</li>
+      </ul>
+      <p><strong>Key lesson:</strong> Allocations are outputs, not inputs. The driver is the liability structure + horizon + risk tolerance. Start there, not with "what's the optimal portfolio."</p>
+    </div>
   </div>
 </div>
 
@@ -467,6 +623,21 @@
     <div class="deliverable-prompt">Know cold: GP vs. LP, mgmt fee vs. carry, why PE returns look smoothed vs. public.</div>
     <textarea data-key="d9" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d9"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; alternatives fundamentals cold</span>
+      <p><strong>GP vs. LP:</strong> The General Partner manages the fund (makes investment decisions, earns fees); Limited Partners are the investors who commit capital but have limited liability and no operational control. In a PE fund, the GP might put in 1&ndash;5% of committed capital (GP commit); LPs provide the other 95%+. GP earns management fees (annual) and carried interest (performance-based).</p>
+      <p><strong>Management fee vs. carry:</strong> Standard "2 and 20" means 2% annual management fee on committed capital + 20% carried interest on profits above a hurdle (typically 8% preferred return). The hurdle is "soft" &mdash; once crossed, GP catches up. Carry is taxed at capital gains rates in the US, which is a major lobbying issue.</p>
+      <p><strong>Why PE returns look smoothed:</strong></p>
+      <ul>
+        <li>Privates are marked to NAV quarterly based on GP-estimated fair value, not market prices</li>
+        <li>NAVs lag public market movements — a PE-owned SaaS company won't get remarked daily as Snowflake stock swings</li>
+        <li>This creates artificially low reported vol and low correlation to public equities, making the Sharpe ratio look fantastic</li>
+        <li>In reality, if you mark-to-market using public comp multiples, PE looks much closer to public equity beta + 200&ndash;300 bps illiquidity premium</li>
+        <li>Academic research (Gredil, Sorensen, Waller) suggests reported PE Sharpe is ~2x overstated vs. "true" economic exposure</li>
+      </ul>
+      <p><strong>The allocator implication:</strong> PE's historical outperformance vs. public equity has been ~300 bps net of fees on a properly measured (PME) basis. Real premium, but not the "equity-like returns with bond-like risk" marketing claim. The smoothing is useful for reducing reported portfolio vol but dangerous if it masks true risk.</p>
+    </div>
   </div>
 </div>
 
@@ -501,6 +672,23 @@
     <div class="deliverable-prompt">5-minute "your view of private credit in 2026" with specific stats on spread compression, PIK accounting, secondaries volume, and LME data.</div>
     <textarea data-key="d10" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d10"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; 5 min private credit view</span>
+      <p><strong>My view:</strong> Private credit is a legitimate asset class for institutional allocators with long horizons but it's entered a stress phase that many retail-oriented products aren't priced for. The illiquidity premium is real but materially smaller than marketing suggests, and the cycle is turning.</p>
+      <p><strong>Size &amp; participants:</strong> ~$2T market globally, doubled in 5 years. Dominated by Apollo, Blackstone, Ares, Blue Owl, HPS (now BlackRock), Oaktree. Growing retail access through BDCs and interval funds.</p>
+      <p><strong>Current stress metrics (2026):</strong></p>
+      <ul>
+        <li>Deutsche Bank projects 4.8&ndash;5.5% default rates by end-2026, up from ~2% in 2023</li>
+        <li>"True" default rate already ~5% if you count PIK conversions and liability management exercises (LMEs) as functional defaults</li>
+        <li>Loan duration has extended from 2&ndash;3 years to 4&ndash;5 years as PE can't exit at target valuations</li>
+        <li>Secondaries market exploding as LPs try to offload illiquid positions</li>
+        <li>Spread compression: all-in yields on new deals down from ~12% in 2022 to ~9&ndash;10% today while default risk is up</li>
+      </ul>
+      <p><strong>Systemic concern:</strong> Bank lending to PC funds grew 145% from 2020 to 2024 to ~$95B. This creates an interconnection where a PC stress event could feed back to the banking system &mdash; the opposite of Dodd-Frank's original intent.</p>
+      <p><strong>Asness's nuanced take (March 2026):</strong> He did NOT predict the current pain. His long-standing argument was that the illiquidity premium was narrower than marketed &mdash; maybe 100&ndash;200 bps rather than the 300+ bps claimed. The current stress validates the "it's not a free lunch" thesis but he explicitly notes he's not taking a victory lap on timing.</p>
+      <p><strong>Allocator implication:</strong> Still own it in portfolios, but: (1) focus on senior direct lending, avoid mezz/opportunistic; (2) scrutinize manager underwriting; (3) model mark-to-market drawdowns, not just reported NAV; (4) be skeptical of retail-accessible products that promise liquidity the underlying doesn't have.</p>
+    </div>
   </div>
 </div>
 
@@ -534,6 +722,25 @@
     <div class="deliverable-prompt">State IR = IC√BR. Explain each term and how a quant fund maximizes each.</div>
     <textarea data-key="d11" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d11"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer</span>
+      <p><strong>The Fundamental Law of Active Management (Grinold &amp; Kahn):</strong></p>
+      <p style="text-align: center; font-size: 16px;"><strong>IR = IC &times; &radic;BR</strong></p>
+      <p><strong>The terms:</strong></p>
+      <ul>
+        <li><strong>IR (Information Ratio)</strong> = active return / active risk (tracking error). The output &mdash; your risk-adjusted alpha.</li>
+        <li><strong>IC (Information Coefficient)</strong> = correlation between your forecasts and realized returns. A measure of skill. Realistic IC for a good fundamental manager is 0.02&ndash;0.05; for a top-tier quant shop, maybe 0.05&ndash;0.10. An IC of 0.5 would mean you're essentially psychic.</li>
+        <li><strong>BR (Breadth)</strong> = number of independent forecasts per year. A PM making 20 stock picks per year held for a year has BR = 20. A quant running daily signals across 3,000 stocks has BR &gt; 750,000.</li>
+      </ul>
+      <p><strong>How quant funds maximize each:</strong></p>
+      <ul>
+        <li><strong>Maximize IC through signal research.</strong> Better features, cleaner data, new alternative data sources (satellite imagery, credit card transactions, NLP on earnings calls). Marginal IC improvement is hard because alpha decays as more people find it.</li>
+        <li><strong>Maximize BR through scale and frequency.</strong> Cross-sectional breadth (trade 5,000 stocks instead of 50), time-series breadth (rebalance daily instead of quarterly), asset-class breadth (add futures, FX, rates to equity book). This is quant's structural edge over fundamental &mdash; a fundamental PM can't double their breadth just by adding computing power, but a quant can.</li>
+      </ul>
+      <p><strong>Why this matters strategically:</strong> Fundamental shops with BR ~30 need IC ~0.10 to hit an IR of 0.5. Quant shops with BR ~10,000 need IC of just 0.005. That's why high-BR/low-IC quant strategies (AQR Style Premia, DFA) can work where equivalent low-BR fundamental strategies can't.</p>
+      <p><strong>The trap:</strong> Breadth only counts if forecasts are <em>independent</em>. Owning 500 stocks driven by one macro view is BR = 1, not 500.</p>
+    </div>
   </div>
 </div>
 
@@ -565,6 +772,25 @@
     <div class="deliverable-prompt">Hold both sides of the ESG debate credibly without becoming a partisan.</div>
     <textarea data-key="d12" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d12"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; both sides credibly</span>
+      <p><strong>Pro-ESG case:</strong></p>
+      <ul>
+        <li>Material ESG risks are financial risks &mdash; climate transition hurts stranded-asset energy companies, governance failures destroy Enron/WeCrashed-style value, human capital practices affect productivity. Integrating these into analysis is just good fundamental investing.</li>
+        <li>Capital allocation signals from large asset owners shape corporate behavior. If BlackRock, Norway's SWF, and CalPERS say they care about emissions, boards listen. That's Fink's original argument.</li>
+        <li>Client demand is real. European regulators require ESG disclosure; US retail/wealth clients increasingly screen for it. Ignoring demand ignores distribution.</li>
+        <li>Performance: ESG funds outperformed on a risk-adjusted basis from ~2015&ndash;2021, particularly during COVID. Quality tilt embedded in ESG scores explains much of this, but the correlation is real.</li>
+      </ul>
+      <p><strong>Anti-ESG case:</strong></p>
+      <ul>
+        <li>Rating inconsistency is damning. MSCI, Sustainalytics, and S&amp;P often give the same company wildly different ESG scores (correlation ~0.40, vs. credit rating correlation ~0.95). If the measurement is unreliable, the product is unreliable.</li>
+        <li>Fiduciary concern: pension managers have a duty to maximize risk-adjusted return. Incorporating non-financial factors (moral, political) may breach that duty if it sacrifices returns.</li>
+        <li>Anti-fossil-fuel underweights missed the 2021&ndash;2022 energy rally (~100% upside in XLE). State-level backlash (Texas, Florida) has pulled billions from BlackRock specifically over ESG.</li>
+        <li>"Greenwashing" is rampant &mdash; funds labeled ESG often differ little from non-ESG peers but charge higher fees.</li>
+      </ul>
+      <p><strong>Honest synthesis:</strong> ESG as <em>material-risk integration</em> is just good investing and should be universal. ESG as a values-based <em>overlay</em> (exclusion lists, impact targets) is a preference, not a fiduciary mandate. The industry conflated these two things to sell products, and the backlash is a correction. Expect labels to shift toward "climate transition," "sustainable infrastructure," "green bonds" &mdash; more specific, more defensible &mdash; and away from all-purpose "ESG."</p>
+    </div>
   </div>
 </div>
 
@@ -597,6 +823,16 @@
     <div class="deliverable-prompt">Take a position on whether AI capex is a bubble. Defend with three data points.</div>
     <textarea data-key="d13" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d13"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; one defensible view</span>
+      <p><strong>Position: "It's a partial bubble &mdash; capex at the hyperscaler level looks rational; capex at the 2nd-tier (power, data center REIT, semi-cap) has bubble characteristics."</strong></p>
+      <p><strong>Data point 1 &mdash; Hyperscaler ROI is defensible.</strong> Combined 2025 capex from MSFT, GOOG, META, AMZN is ~$340B, up from ~$180B in 2023. But these are companies with $200B+ operating cash flow each; capex as % of OCF is ~50%, high but not unprecedented (oil majors hit 80%+ historically). Azure/AWS/GCP revenue growth is accelerating not decelerating (30&ndash;40% YoY) and AI compute is driving that. If AI demand is real, the capex is rational.</p>
+      <p><strong>Data point 2 &mdash; Circularity is a warning sign.</strong> MSFT's $10B OpenAI investment is mostly Azure credits. NVDA invests in CoreWeave and then CoreWeave buys NVDA GPUs. These vendor-financing arrangements inflate reported revenue at NVDA while obscuring true end-demand. The 2001 telecom bubble had identical structural dynamics (Cisco financing CLECs to buy Cisco gear).</p>
+      <p><strong>Data point 3 &mdash; Power grid and data center REIT valuations look detached.</strong> DLR and EQIX trade at premiums to 2021 peaks. Power utilities (VST, NRG) are up 3&ndash;5x on AI demand narrative. If hyperscaler capex normalizes even modestly &mdash; or if AI workloads get more efficient per dollar of compute &mdash; these second-derivative plays get repriced hard.</p>
+      <p><strong>How I'd position:</strong> Own the hyperscalers directly (you're paying for real revenue growth at reasonable multiples). Skeptical of pure-play infrastructure (data center REITs, pure-play AI energy). Short the narrative, not the primary beneficiaries.</p>
+      <p><strong>What would change my mind:</strong> Sustained 30%+ revenue acceleration at MSFT/GOOG for 4 more quarters, or conversely, one hyperscaler guiding capex down and the others not following.</p>
+    </div>
   </div>
 </div>
 
@@ -630,6 +866,17 @@
     <div class="deliverable-prompt">One-page macro view a multi-asset PM would recognize as coherent. Positions on: rates, USD, equities vs. credit, duration, EM.</div>
     <textarea data-key="d14" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d14"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; one-page macro view</span>
+      <p><strong>Headline view: Late-cycle with regime uncertainty. Positioning for slower growth, sticky services inflation, Fed-neutral, USD weakness, neutral-to-underweight duration, overweight quality equities.</strong></p>
+      <p><strong>Rates:</strong> Fed funds at 4.00&ndash;4.25% post the March 2026 cuts. Dot plot implies 2&ndash;3 more cuts in 2026 but real yields stay elevated. Core PCE sticky at 2.6&ndash;2.8% &mdash; services inflation (shelter, labor-intensive categories) holds up even as goods disinflate. Curve is moderately steep (2s10s ~50 bps) and likely steepens further as Fed cuts, term premium rebuilds.</p>
+      <p><strong>USD:</strong> Lean bearish on USD over 12 months. DXY has been topping for 18 months. Fed cutting while other central banks hold creates short-term USD weakness; longer-term, fiscal deterioration (deficit ~7% of GDP) caps USD upside. Allocate toward JPY and EM FX selectively.</p>
+      <p><strong>Equities vs. credit:</strong> Equities > credit at current spreads. IG at ~90 bps, HY at ~320 bps &mdash; close to cycle tights. Credit offers minimal cushion if growth slows. Equities still have earnings support from Mag 7; broader S&amp;P earnings revisions flat-to-positive. If I had to choose one, own quality equity over IG credit.</p>
+      <p><strong>Duration:</strong> Neutral-to-underweight. 10-yr UST at 4.3% is fair value, not compelling. Term premium rebuilds as Fed cuts = headwind for duration. Prefer intermediate (5-yr) over long end given fiscal risk.</p>
+      <p><strong>EM:</strong> Overweight EM equities (valuations cheap vs. DM after 15 yrs of relative underperformance; China policy support is a catalyst). Selective in EM debt &mdash; hard currency investment-grade sovereigns OK, avoid frontier.</p>
+      <p><strong>Risks to the view:</strong> (1) Inflation re-acceleration forcing Fed back to hikes &mdash; would crush duration and equities. (2) Credit cycle turn &mdash; HY spreads widening to 600+ bps would signal recession is priced in. (3) China property-linked systemic shock.</p>
+    </div>
   </div>
 </div>
 
@@ -666,6 +913,14 @@
     <div class="deliverable-prompt">60-second BlackRock thesis as you'd deliver in an interview.</div>
     <textarea data-key="d15" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d15"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; 60-second BlackRock thesis</span>
+      <p>"BlackRock is the clearest case study in the consolidation of asset management globally. $13.9 trillion in AUM, $744 billion in LTM net inflows, 10% organic base fee growth &mdash; those are numbers that shouldn't be possible at this scale, but the strategy makes them inevitable.</p>
+      <p>Three legs: <strong>index</strong> through iShares dominates the ETF distribution rails; <strong>private markets</strong> via the HPS, GIP, and Preqin acquisitions positions them for the $30 trillion retail allocation to alts that's coming through DC plans and wirehouse channels; <strong>tech</strong> through Aladdin is the real moat &mdash; $1.4B+ revenue, 22% growth, and it's now the operating system for much of the institutional AM industry.</p>
+      <p>The margin story is mix shift. As private markets and tech grow faster than index, blended fee rate rises even while individual fund fees compress. That's why operating margin hit 44.5% even as they were integrating three major acquisitions.</p>
+      <p>The real catalyst ahead is the DOL proposal to allow private assets in target-date funds. If that passes, BlackRock is positioned to intermediate a new $2&ndash;3 trillion flow. That's the trade that makes the stock still interesting at current levels despite $13.9T already on the books."</p>
+    </div>
   </div>
 </div>
 
@@ -696,6 +951,14 @@
     <div class="deliverable-prompt">60-second AQR thesis.</div>
     <textarea data-key="d16" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d16"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; 60-second AQR thesis</span>
+      <p>"AQR is having its moment. After years of being written off as 'factor-zoo quants whose products don't work,' 2025 put up numbers that reframe the entire firm: Apex multi-strat +16.2% net, Managed Futures +19.2% &mdash; against the SocGen CTA index at +0.31%. That's not just a good year, that's vindication of the systematic philosophy.</p>
+      <p>The product shelf has real depth: Style Premia, Managed Futures, Alternative Risk Premia, Delphi long/short equity, Apex. Each is a packaged expression of academically-grounded factor research. And the tax-aware long/short story is adding a new growth leg &mdash; charging active fees for what's effectively a tax alpha product.</p>
+      <p>The nuance to respect: Asness writes prolifically, and his current themes matter. He's been early on the stock-bond correlation regime shift, he's the most credible skeptic of private markets' illiquidity-premium narrative, and his March 2026 piece on privates explicitly does NOT claim he predicted the pain &mdash; just that it vindicates the 'it's not a free lunch' critique.</p>
+      <p>The April 2026 Orso Partners short thesis on AMG (their parent-company affiliate) is worth watching &mdash; questions around tax-aware marketing claims. But the core product performance speaks for itself."</p>
+    </div>
   </div>
 </div>
 
@@ -726,6 +989,18 @@
     <div class="deliverable-prompt">Explain the denominator effect and why secondaries volume is rising.</div>
     <textarea data-key="d17" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d17"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer</span>
+      <p><strong>The denominator effect:</strong> In a policy portfolio with target allocations (say 30% to private equity), privates are marked at NAV quarterly while publics are marked daily. When public markets drop 20%, the <em>total portfolio</em> shrinks, but privates stay near their last NAV. Suddenly privates are 35&ndash;38% of the portfolio instead of 30%. The denominator (total AUM) fell; the numerator (private NAV) didn't.</p>
+      <p>This puts allocators in a bind. They're overweight their target by IPS. They need to rebalance &mdash; either (a) sell privates (illiquid, expensive), (b) buy more publics (procyclical), or (c) ask the board to widen the policy bands. Many large endowments hit this in 2022 and again in early 2025.</p>
+      <p><strong>Secondaries:</strong> The natural release valve. The secondaries market lets LPs sell their private fund stakes to buyers who want private exposure without committing to a new fund. Volume has gone from ~$25B in 2012 to Evercore's projected $180B+ in 2025. Two flavors:</p>
+      <ul>
+        <li><strong>LP-led secondaries:</strong> An LP sells its stake in a fund. Trades typically happen at 5&ndash;20% discounts to reported NAV, which tells you how much "smoothing" actually exists in private marks.</li>
+        <li><strong>GP-led continuation vehicles:</strong> The GP sets up a new fund to acquire specific portfolio assets from the old fund, letting LPs either cash out or roll. Growing rapidly because it solves the "trapped asset" problem when the fund nears its 10-year life but the PE-owned companies can't IPO or be sold cleanly.</li>
+      </ul>
+      <p><strong>What this means:</strong> The secondaries boom signals that illiquidity is being priced, not just talked about. For an allocator, secondaries are now a tactical tool &mdash; buy at discounts during stress, sell during good NAV periods. For a PM building a PC/PE book, include a secondary-market execution capability.</p>
+    </div>
   </div>
 </div>
 
@@ -757,6 +1032,23 @@
     <div class="deliverable-prompt">Your view: is 60/40 dead or just bruised? Defend.</div>
     <textarea data-key="d18" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d18"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; defend a position</span>
+      <p><strong>Position: "Bruised, not dead &mdash; but the portfolio that replaces it shouldn't be called 60/40 anymore."</strong></p>
+      <p>The 60/40 that returned 9% nominal / 5.8% real from 1928 had a very specific property: negative stock-bond correlation that showed up when you needed it (in equity drawdowns). That property was real from the early 1980s through 2020, but it's a function of disinflationary regime + accommodative Fed. When inflation becomes the dominant driver (2022, and arguably March 2026 when correlation hit 0.72), stocks and bonds fall together. No diversification, no hedge.</p>
+      <p><strong>So is it dead?</strong></p>
+      <p>No, because the underlying logic still holds: you want exposure to growth assets (equities) and to a counter-cyclical hedge (bonds normally play that role). The 2022 break wasn't structural; it was regime-specific. If inflation settles near 2% and the Fed becomes reactive to growth again, negative correlation returns.</p>
+      <p><strong>What should replace it:</strong></p>
+      <p>Practically, allocators are moving to a "diversifier-enhanced" 50/30/20 or 55/25/20:</p>
+      <ul>
+        <li>~50&ndash;55% global equities (less US-concentrated than before)</li>
+        <li>~25&ndash;30% fixed income (shorter duration than the Agg, more TIPS allocation)</li>
+        <li>~15&ndash;20% alternatives (infrastructure, private credit, gold, trend-following strategies)</li>
+      </ul>
+      <p>The 20% diversifier sleeve is meant to do what bonds used to do &mdash; provide uncorrelated returns during equity drawdowns. Trend-following, in particular, was one of the few strategies that worked in 2022.</p>
+      <p><strong>The BlackRock data point:</strong> Their April 2026 note highlighting that 20-day rolling stock-bond correlation hit 0.72 (highest since May 2024) is exactly why this conversation is live. But that data point is also why I push back on Vanguard's 40/60 recommendation &mdash; if correlation is temporarily high, you don't solve it by owning more of the correlated asset. You solve it by adding diversifiers.</p>
+    </div>
   </div>
 </div>
 
@@ -789,6 +1081,16 @@
     <div class="deliverable-prompt">How does 4.5% 10yr change your equity valuation framework vs. ZIRP?</div>
     <textarea data-key="d19" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d19"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer</span>
+      <p>The 10-yr at 4.5% vs. 0.5% (ZIRP era) isn't a small change &mdash; it rewires valuation across every asset class.</p>
+      <p><strong>DCF mechanics:</strong> Risk-free rate is the foundation of every cost of equity via CAPM. If r<sub>f</sub> moves from 0.5% to 4.5% and equity risk premium stays at ~5%, cost of equity goes from ~5.5% to ~9.5%. For a company with 2% terminal growth, that takes a stable-state multiple (1/(r&minus;g)) from 1/3.5% = 28.6x down to 1/7.5% = 13.3x. Long-duration growth stocks &mdash; whose value is dominated by far-future cash flows &mdash; get hammered. That's mechanically why unprofitable tech collapsed in 2022.</p>
+      <p><strong>Equity risk premium debate:</strong> At ZIRP, the S&amp;P's earnings yield of 4&ndash;5% looked attractive vs. 0.5% bonds (4% ERP). At 4.5% 10-yr today, the S&amp;P's earnings yield of ~4% means you're getting <em>negative</em> ERP on a forward basis. Historically, negative-ERP regimes have been followed by either earnings acceleration or equity underperformance.</p>
+      <p><strong>PE leverage models:</strong> A typical LBO built in 2021 assumed 4&ndash;5x leverage at sub-5% total cost of debt. At 8&ndash;10% all-in cost today, debt service consumes ~50% more of EBITDA, making the same deal un-financeable at the same price. This is why PE deal volume collapsed and why so many 2020&ndash;2021 vintage deals are now in LME/restructuring.</p>
+      <p><strong>Corporate capital allocation:</strong> Hurdle rates reset. Projects that cleared an 8% hurdle at ZIRP don't clear a 12% hurdle today. Expect less capex, more buybacks-over-growth decisions.</p>
+      <p><strong>The portfolio implication:</strong> In a 4&ndash;5% risk-free world, bonds are a real competitor to equity again. That's why 60/40 looks less broken now than in ZIRP &mdash; bonds have actual yield. But it also means equity multiples have to compress unless earnings growth accelerates. Positioning: quality companies (cash-generative, low leverage) over high-growth speculation.</p>
+    </div>
   </div>
 </div>
 
@@ -819,6 +1121,33 @@
     <div class="deliverable-prompt">Is US exceptionalism ending? What would change your mind?</div>
     <textarea data-key="d20" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d20"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; one defensible view</span>
+      <p><strong>Position: "US exceptionalism is pausing, not ending &mdash; but the pause will be long enough to matter for allocations."</strong></p>
+      <p><strong>The exceptionalism that drove 15 years of outperformance:</strong></p>
+      <ul>
+        <li>Mag 7 technology dominance &mdash; global customer base, platform economics, network effects no European/Japanese equivalent</li>
+        <li>Cheap dollar funding and shale revolution (energy independence)</li>
+        <li>Fiscal room to run huge deficits (reserve currency privilege)</li>
+        <li>Demographic edge (net immigration) vs. aging Europe/Japan/China</li>
+        <li>ERP: US earnings growth structurally higher than rest of world</li>
+      </ul>
+      <p><strong>Reasons for a pause:</strong></p>
+      <ul>
+        <li>Mag 7 valuations are stretched at ~30x forward earnings vs. ~14x for Europe and ~16x Japan. Mean reversion in the valuation gap is more likely than mean reversion in fundamentals.</li>
+        <li>Fiscal deterioration (deficit ~7% GDP, debt/GDP 120%+) means the reserve currency privilege is being tested &mdash; USD has weakened 6% on trade-weighted basis YTD.</li>
+        <li>Japan is in a multi-decade breakout on corporate governance reform, buybacks, and ending deflation. Europe is catching a tailwind from defense/energy capex.</li>
+        <li>YTD 2025&ndash;2026, Europe (MSCI EAFE) and Japan (TOPIX) are both beating S&amp;P. This is the first sustained period of non-US leadership since 2009.</li>
+      </ul>
+      <p><strong>What would change my mind (true end of exceptionalism):</strong></p>
+      <ul>
+        <li>Mag 7 earnings growth decelerating materially (below +15% YoY blended)</li>
+        <li>USD breaking technical floors and sustained weakness toward 85 DXY</li>
+        <li>Mass capital flight from US Treasuries by foreign official holders</li>
+      </ul>
+      <p><strong>Positioning:</strong> Don't abandon US, but rebalance. Move from 65% US / 35% ex-US to 55% US / 45% ex-US. Overweight Japan explicitly. Underweight small-cap (structurally challenged). Quality tilt in US.</p>
+    </div>
   </div>
 </div>
 
@@ -851,6 +1180,60 @@
     <div class="deliverable-prompt">$1B endowment, 7.5% return target, 10-year horizon. Policy portfolio with allocation, rationale, positioning, risks, rebalancing policy.</div>
     <textarea data-key="d21" placeholder="Your answer..." style="min-height: 200px;"></textarea>
     <div class="save-indicator" data-ind="d21"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; abbreviated IC memo skeleton</span>
+      <p><strong>TO:</strong> Investment Committee<br><strong>FROM:</strong> [PM]<br><strong>RE:</strong> Policy Portfolio Recommendation &mdash; $1B Endowment, 7.5% Target Return, 10-Year Horizon</p>
+      <p><strong>Executive summary:</strong> Recommend a globally diversified policy portfolio with 45% equity risk, 20% fixed income, 25% privates, and 10% diversifiers. Expected nominal return 7.8%, volatility 10.5%, 1-in-20 drawdown of ~22%. Structure balances the 7.5% return need against generational preservation mandate.</p>
+      <p><strong>Proposed allocation:</strong></p>
+      <ul>
+        <li><strong>Global equities: 40%</strong>
+          <ul>
+            <li>US large-cap: 22% (quality tilt, underweight Mag 7 concentration)</li>
+            <li>DM ex-US: 10% (overweight Japan on governance reform)</li>
+            <li>EM: 5% (India/LatAm focused)</li>
+            <li>Small-cap: 3%</li>
+          </ul>
+        </li>
+        <li><strong>Fixed income: 15%</strong>
+          <ul>
+            <li>Treasuries + TIPS: 8% (intermediate duration; liquidity anchor)</li>
+            <li>IG credit: 4%</li>
+            <li>HY / loans: 3%</li>
+          </ul>
+        </li>
+        <li><strong>Private equity: 20%</strong> (vintage pacing: ~3% commitment/year over 7 years)
+          <ul>
+            <li>Buyout: 12%</li>
+            <li>Growth: 5%</li>
+            <li>VC: 3%</li>
+          </ul>
+        </li>
+        <li><strong>Private credit: 10%</strong> (senior direct lending, avoid mezz)</li>
+        <li><strong>Real assets: 10%</strong> (infrastructure 6%, real estate 4%)</li>
+        <li><strong>Diversifiers: 5%</strong> (trend-following, multi-strat HF)</li>
+      </ul>
+      <p><strong>Expected returns (nominal, 10-yr):</strong></p>
+      <ul>
+        <li>Global equities: 7.5% (JPMAM LTCMAs)</li>
+        <li>Fixed income: 5.0%</li>
+        <li>Private equity: 10.0% (conservatively 250 bps illiquidity premium over public)</li>
+        <li>Private credit: 8.0%</li>
+        <li>Real assets: 7.0%</li>
+        <li>Diversifiers: 5.5%</li>
+        <li>Blended: ~7.8%</li>
+      </ul>
+      <p><strong>Key risks and monitoring:</strong></p>
+      <ul>
+        <li><em>Denominator effect</em> &mdash; widen policy bands to &plusmn;5% around each target to avoid forced rebalancing in equity drawdowns</li>
+        <li><em>Private credit cycle turn</em> &mdash; monitor default rates quarterly; exit opportunistic sleeves at first sign of stress</li>
+        <li><em>Inflation regime shift</em> &mdash; 5% real assets + TIPS allocation provides hedge</li>
+        <li><em>Mag 7 concentration risk</em> &mdash; quality tilt in US equity selection</li>
+      </ul>
+      <p><strong>Rebalancing policy:</strong> Annual formal rebalancing with quarterly monitoring. Trigger-based rebalancing if any sleeve moves &gt;3% from target. Privates rebalanced by adjusting new commitments, not by selling into secondary.</p>
+      <p><strong>Implementation:</strong> Public markets via index where possible (minimize fees). Active management in inefficient pockets: EM, small-cap, private credit manager selection. Target all-in fee load ~40 bps on publics, weighted blended ~100 bps including privates.</p>
+      <p><em>Request IC approval for the above policy portfolio and delegated authority for tactical deviations of &plusmn;3% around strategic targets.</em></p>
+    </div>
   </div>
 </div>
 
@@ -883,6 +1266,17 @@
     <div class="deliverable-prompt">Your top long pitch. 90 seconds max.</div>
     <textarea data-key="d22" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d22"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; illustrative long pitch structure</span>
+      <p><em>Note: This is a worked example to demonstrate pitch structure. In an interview, use a company you genuinely know well, not this one.</em></p>
+      <p><strong>"Long Visa (V) &mdash; 90 seconds"</strong></p>
+      <p><strong>Thesis:</strong> Visa is a regulated utility mispriced as a cyclical payment company. It's the rails for ~$15T of annual consumer payments globally, earns a take rate measured in basis points, and that take rate is structurally protected by two-sided network effects that no regulator has been willing to break. Trading at 25x forward earnings for 11% revenue CAGR, 66% operating margins, and FCF conversion &gt;100%.</p>
+      <p><strong>Catalyst:</strong> Three near-term drivers: (1) cross-border volume recovery post-COVID still has 2&ndash;3 more years of normalization; (2) new flows beyond consumer payments &mdash; B2B, P2P, government disbursements &mdash; where Visa is underpenetrated; (3) AI-driven fraud reduction lowers network loss rates, expanding margins.</p>
+      <p><strong>Valuation:</strong> 25x forward earnings vs. own 5-yr average of 28x. At 11% revenue growth, 16% EPS growth via leverage + buybacks, you get to ~20% annual total return with zero multiple expansion over 3 years. PEG under 1.5x, which is rare for this quality of business.</p>
+      <p><strong>Risks / what would make me wrong:</strong> (1) Stablecoin/CBDC rails becoming real payment alternatives &mdash; watch Fed guidance and retailer adoption of Visa Direct alternatives; (2) EU Digital Markets Act expanding to force interchange caps below 20 bps; (3) Recession cycle causing discretionary spend pullback (historically ~10% downside in '08, faster recovery than most).</p>
+      <p><strong>Position sizing:</strong> High-conviction long, 4&ndash;5% position. Stop-loss thesis: any quarter where US payments volume growth &lt;5% absent macro shock = re-examine.</p>
+    </div>
   </div>
 </div>
 
@@ -908,6 +1302,19 @@
     <div class="deliverable-prompt">Your curve view for the next 12 months. Positioning implication.</div>
     <textarea data-key="d23" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d23"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; 12-month curve view</span>
+      <p><strong>View: Bull steepener &mdash; Fed cuts bringing front end down faster than long end; 2s10s widens from ~50 bps to ~100&ndash;120 bps.</strong></p>
+      <p><strong>Logic:</strong></p>
+      <ul>
+        <li><em>Front end (2-yr):</em> Fed is in cutting cycle; dot plot implies another 50&ndash;75 bps of cuts over next 12 months. Front end mechanically follows Fed policy. 2-yr Treasury should drift from ~3.8% toward ~3.2% as cuts progress.</li>
+        <li><em>Long end (10-yr, 30-yr):</em> Fiscal concerns remain structural &mdash; US deficit ~7% of GDP, debt-service costs rising, and no political path to fiscal consolidation. Term premium has been rebuilding and likely continues. 10-yr stays anchored around 4.2&ndash;4.4% even as the Fed cuts. 30-yr could drift slightly higher as global buyers reprice US fiscal risk.</li>
+        <li><em>Net:</em> Front end falls 50&ndash;70 bps, long end flat-to-slightly-higher, curve steepens.</li>
+      </ul>
+      <p><strong>Positioning implication:</strong> Overweight intermediate (3&ndash;5 yr) on the belly of the curve &mdash; benefits from cuts without the fiscal tail risk. Underweight long-end duration (20+ yr). Consider a 2s10s steepener trade directly (long 2-yr, short 10-yr) for pure curve exposure without duration bias.</p>
+      <p><strong>What would change my mind:</strong> (1) Inflation re-acceleration forcing Fed to pause cuts &mdash; curve would flatten; (2) Recession hitting forcing aggressive cuts into long end &mdash; curve bull-flattens instead; (3) Treasury issuance surprise skewed to front end &mdash; would invert the steepening logic.</p>
+    </div>
   </div>
 </div>
 
@@ -933,6 +1340,16 @@
     <div class="deliverable-prompt">Explain in plain English why factors persist despite being public.</div>
     <textarea data-key="d24" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d24"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer</span>
+      <p>Factors persist despite being public knowledge for three interlocking reasons:</p>
+      <p><strong>1. Risk compensation (the efficient-markets-consistent story):</strong> Factor premia are compensation for bearing genuine risk that the market can't diversify away. Value stocks are cheap <em>because</em> they're often fundamentally distressed, cyclically exposed, or structurally challenged. Momentum works <em>because</em> trend-followers get carried out when trends reverse (2009, 2022). The factor premium isn't a free lunch &mdash; it's payment for accepting a specific risk profile. As long as the risk exists, the premium persists.</p>
+      <p><strong>2. Behavioral/structural limits to arbitrage:</strong> Even if factors were pure mispricing, arbitrage is constrained. Institutional constraints (no shorting in mutual funds), career risk (a value manager 3 years underwater gets fired), transaction costs (small-cap + high turnover eats alpha), and capacity limits (you can't deploy $100B into a factor without moving prices) all mean rational arbitrageurs can't fully close the gap. This is why the value drawdown of 2017&ndash;2020 happened &mdash; arbitrageurs got carried out first.</p>
+      <p><strong>3. Time horizons matter more than knowledge:</strong> Factors work on 3&ndash;7 year horizons. Most investors operate on 1&ndash;3 year horizons. That mismatch is structural &mdash; pensions rebalance annually, fund managers are evaluated quarterly, retail flows chase recent returns. Even when everyone "knows" value will mean-revert eventually, few have the horizon and discipline to harvest it through a multi-year underperformance.</p>
+      <p><strong>The honest caveat:</strong> Factor premia do shrink over time as they become known. AQR's own research shows the value premium post-1992 (when Fama-French published) is smaller than pre-1992. Academic discovery acts as a partial tax on the premium. But "smaller" is not "zero." And new factors (quality, low-vol, momentum combinations) continue to emerge from research.</p>
+      <p><strong>The trap to avoid:</strong> "Factor timing" &mdash; trying to predict which factor works next &mdash; is where most investors fail. Asness's "Siren Song of Factor Timing" makes the case that you're better off with stable factor exposure than trying to rotate.</p>
+    </div>
   </div>
 </div>
 
@@ -958,6 +1375,44 @@
     <div class="deliverable-prompt">Your 60/40 replacement: what goes in, what comes out, sized to $1B.</div>
     <textarea data-key="d25" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d25"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; $1B 60/40 replacement</span>
+      <p><strong>The "55/30/15 Diversified" book, $1B:</strong></p>
+      <p><strong>Growth (55% = $550M)</strong></p>
+      <ul>
+        <li>Global equities: $400M (US 55% / DM 30% / EM 15%)</li>
+        <li>Private equity: $100M (pace-based commitments)</li>
+        <li>Equity-like real estate: $50M</li>
+      </ul>
+      <p><strong>Income &amp; preservation (30% = $300M)</strong></p>
+      <ul>
+        <li>Core fixed income: $175M (intermediate duration, IG-tilted)</li>
+        <li>TIPS: $50M (inflation hedge)</li>
+        <li>Private credit (senior direct lending): $75M</li>
+      </ul>
+      <p><strong>Diversifiers (15% = $150M) &mdash; the key upgrade vs. 60/40</strong></p>
+      <ul>
+        <li>Infrastructure: $50M (regulated utilities, data centers, energy transition)</li>
+        <li>Trend-following CTAs: $40M (the asset class that worked in 2022)</li>
+        <li>Gold/commodities basket: $30M</li>
+        <li>Multi-strat hedge fund: $30M</li>
+      </ul>
+      <p><strong>Why this beats 60/40 in current regime:</strong></p>
+      <ul>
+        <li><em>Mixed correlation environment:</em> Trend-following is explicitly designed to profit from sustained moves in either direction &mdash; it was one of the only diversifiers that worked in 2022</li>
+        <li><em>Inflation insurance:</em> TIPS + commodities + infrastructure combine to ~$130M of real-asset / inflation-linked exposure. 60/40 has essentially zero.</li>
+        <li><em>Yield:</em> Private credit senior direct lending provides 8&ndash;10% coupons &mdash; the "yield replacement" for what bonds used to be.</li>
+      </ul>
+      <p><strong>Expected portfolio stats:</strong></p>
+      <ul>
+        <li>Expected return (nominal, 10-yr): ~7.2%</li>
+        <li>Volatility: ~9.5% (vs. 60/40 at ~11%)</li>
+        <li>Max drawdown (Monte Carlo p95): ~18%</li>
+        <li>Income yield: ~3.8% (vs. 60/40 at ~2.8%)</li>
+      </ul>
+      <p><strong>Implementation note:</strong> Diversifier sleeve is where manager selection matters most. Avoid retail-style "alternative" ETFs; work with institutional-quality managers for the trend-following and multi-strat pieces.</p>
+    </div>
   </div>
 </div>
 
@@ -988,6 +1443,29 @@
     <div class="deliverable-prompt">"Why AM?" — your 60-second answer. True, not generic.</div>
     <textarea data-key="d26" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d26"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; structural framework, not a fake personal story</span>
+      <p><em>This needs to be in your real voice with your real story. Below is a framework for what a strong answer has.</em></p>
+      <p><strong>What a strong "Why AM?" answer does:</strong></p>
+      <ul>
+        <li><em>Personal origin</em> (20&ndash;30 sec): What first drew you to markets/investing? Must be genuine, specific, and pre-date your "optimize for the next job" era. A story about a parent's 401(k), a first stock you bought in high school, a moment during an internship where you realized you cared more about the long-term decision than the transaction.</li>
+        <li><em>The transition logic</em> (20&ndash;30 sec): Why <em>from</em> your current seat (IB, ER, trading) <em>to</em> AM? Frame it as progression, not escape. "In IB I pitched decisions; in AM I want to own them and live with the consequences over years" is a classic, effective framing.</li>
+        <li><em>What specifically about the AM craft</em> (20&ndash;30 sec): You need one concrete thing you can't get anywhere else. Long time horizon, ability to compound your own edge, building conviction over quarters and testing it in real P&amp;L, the intellectual model of markets-as-hypothesis-testing.</li>
+        <li><em>Why now</em> (10&ndash;20 sec): Current market moment validates why you want to be in this role in 2026 specifically &mdash; regime change, rate reset, private market complexity, AI disruption, something that makes this a generational moment.</li>
+      </ul>
+      <p><strong>Traps to avoid:</strong></p>
+      <ul>
+        <li>"I love investing" — everyone says this; means nothing</li>
+        <li>"I'm passionate about markets" — same problem</li>
+        <li>Framing AM as "work-life balance vs. banking" — you'll be seen as weak</li>
+        <li>Making it purely intellectual with no personal hook — will feel canned</li>
+        <li>Promising things you can't back up ("I'll contribute X") — reserve this for the "why this firm" question</li>
+      </ul>
+      <p><strong>Template sentence structure:</strong><br>
+      "I've been drawn to markets since [specific origin, 1 sentence]. In [current role], I've realized [specific insight about what you value, 1 sentence]. What I want next is [specific AM craft element, 1 sentence]. The 2026 market specifically is interesting because [current-state observation, 1 sentence]."</p>
+      <p><strong>Your homework:</strong> Write three versions, read them aloud, keep the one that sounds most like you talking naturally. Record yourself. Iterate until it's tight and honest.</p>
+    </div>
   </div>
 </div>
 
@@ -1012,6 +1490,32 @@
     <div class="deliverable-prompt">What fell apart? What was stronger than expected? What needs drilling?</div>
     <textarea data-key="d27" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d27"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; self-review framework</span>
+      <p><em>This is structural guidance for how to critique your own recording. Your actual answer will be specific to what you said.</em></p>
+      <p><strong>For each question you recorded, score yourself on three dimensions (1&ndash;5):</strong></p>
+      <ol>
+        <li><strong>Structure:</strong> Did you open with a clear thesis/answer? Or did you meander before getting to the point? Strong answers lead with the conclusion, then justify.</li>
+        <li><strong>Specificity:</strong> Did you use specific numbers, company names, dates? Or did you lean on generic language ("I think equities are interesting right now")? Specificity signals preparation.</li>
+        <li><strong>Conviction vs. humility:</strong> Did you take a position? And did you acknowledge what would prove you wrong? The combination is what VP-level looks like.</li>
+      </ol>
+      <p><strong>Common failure modes to listen for:</strong></p>
+      <ul>
+        <li><em>Filler words:</em> "um," "like," "you know" &mdash; these kill authority. Count them.</li>
+        <li><em>Hedging overload:</em> "It could be... but maybe... although possibly..." You'll sound uncertain. Pick a view.</li>
+        <li><em>Name-dropping without substance:</em> "As Asness wrote..." without actually using his argument is worse than not mentioning him.</li>
+        <li><em>Running out of rope:</em> Speaking in one long breath until you have nothing left. Breathe. Pause.</li>
+        <li><em>Rehearsed cadence:</em> Sounding like you're reciting instead of thinking. Counter by preparing <em>ideas</em>, not <em>scripts</em>.</li>
+      </ul>
+      <p><strong>Prioritize drilling by:</strong></p>
+      <ul>
+        <li>The 2 topics where you were lowest-scoring (don't drill what you already know)</li>
+        <li>The areas where you failed the "specificity" test (forcing yourself to memorize 5 concrete data points for that topic)</li>
+        <li>Answers that ran &gt;90 seconds when the question called for 60 &mdash; practice tightening</li>
+      </ul>
+      <p><strong>What "ready" looks like:</strong> You should be able to answer any of the Day 22&ndash;25 drill questions in under 90 seconds, with at least 3 concrete data points, a clear view, and one acknowledged counter-argument. If you can't, you need more drilling before Day 28.</p>
+    </div>
   </div>
 </div>
 
@@ -1036,6 +1540,24 @@
     <div class="deliverable-prompt">Delta vs. #1. Where did drilling help? Where are you still soft?</div>
     <textarea data-key="d28" placeholder="Your answer..."></textarea>
     <div class="save-indicator" data-ind="d28"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; delta framework</span>
+      <p><em>Your actual answer will be specific to your recordings. Below is the structure for writing an honest delta.</em></p>
+      <p><strong>For each question, note:</strong></p>
+      <ul>
+        <li><em>Was the improvement real or cosmetic?</em> Real improvement = more specific data, better structure, new counter-arguments. Cosmetic = just sounds smoother because you've heard yourself say it twice. Cosmetic improvement doesn't generalize to the interview.</li>
+        <li><em>Did drilling work?</em> If you drilled Day 22 equity pitches and the pitch is now substantially stronger, the drilling method is working &mdash; apply to weakest remaining area. If the pitch only marginally improved after 3 hours of drilling, the issue isn't rehearsal &mdash; it's missing knowledge. Go back to the source material.</li>
+        <li><em>Where are you still soft?</em> Be brutal here. If behavioral answers still feel rehearsed, they'll still feel rehearsed in the real interview. If a technical topic still produces hesitation, the interviewer will find it. Don't tell yourself "it's fine, I've improved."</li>
+      </ul>
+      <p><strong>Common patterns from candidates running Mock 1 → Mock 2:</strong></p>
+      <ul>
+        <li><em>Biggest gains:</em> Pitch structure (now leading with thesis), data recall (more numbers memorized), and tightness (answers fit the time budget).</li>
+        <li><em>Most persistent weakness:</em> The question you <em>didn't</em> drill because you thought you already had it. Test that one honestly in Mock 2.</li>
+        <li><em>Sneaky regression:</em> Some candidates get <em>worse</em> at behavioral answers between mocks because they start over-rehearsing and sound robotic. If this happens, stop practicing behaviorals and do them fresh in the real interview.</li>
+      </ul>
+      <p><strong>Decision gate:</strong> If your Mock 2 delta is a clear improvement on 4+ of 5 questions and you can answer within time limits, you're ready &mdash; move to Day 29 with confidence. If 2+ questions still feel shaky, do a 3rd recording focused only on those questions before moving on.</p>
+    </div>
   </div>
 </div>
 
@@ -1060,6 +1582,37 @@
     <div class="deliverable-prompt">Full policy portfolio memo. Compare against v1 (Day 21). Note what changed and why.</div>
     <textarea data-key="d29" placeholder="Your answer..." style="min-height: 200px;"></textarea>
     <div class="save-indicator" data-ind="d29"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; what a strong v2 looks like vs. v1</span>
+      <p><em>Your Day 29 memo should be the Day 21 memo rewritten with 4 weeks of deeper knowledge. Below are the upgrades a genuinely-improved v2 displays.</em></p>
+      <p><strong>Upgrade 1 &mdash; Specificity of current market anchors</strong></p>
+      <ul>
+        <li>v1: "Private credit exposure sized to 10% given current market conditions."</li>
+        <li>v2: "Private credit exposure at 10%, weighted 70% senior direct lending / 30% opportunistic. With Deutsche Bank projecting 4.8&ndash;5.5% default rates by end-2026 and loan duration extending from 2&ndash;3 yrs to 4&ndash;5 yrs, we reduce mezz allocation by 300 bps and add a monitoring trigger at HY OAS &gt; 500 bps."</li>
+      </ul>
+      <p><strong>Upgrade 2 &mdash; Named frameworks, not just conclusions</strong></p>
+      <ul>
+        <li>v1: "Fixed income sleeve sized to match the rate regime."</li>
+        <li>v2: "Fixed income sleeve sized using LDI-lite principles &mdash; intermediate duration (5-yr target) to moderate fiscal-risk exposure at the long end while still capturing re-rating benefits from Fed cuts. Key rate duration budgeted separately for 2-yr, 5-yr, 10-yr."</li>
+      </ul>
+      <p><strong>Upgrade 3 &mdash; Explicit risk quantification</strong></p>
+      <ul>
+        <li>v1: "Expected return 7.5%, moderate risk."</li>
+        <li>v2: "Expected return 7.8%, portfolio volatility 10.5%, 95% Monte Carlo drawdown &minus;22% (stress-tested against 2008, 2020, 2022 regimes). Sharpe 0.41. Equity beta to global markets: 0.68."</li>
+      </ul>
+      <p><strong>Upgrade 4 &mdash; Defendable positioning with data points</strong></p>
+      <ul>
+        <li>v1: "Slight equity tilt toward international markets."</li>
+        <li>v2: "Reduce US equity from 32% → 28%; increase DM ex-US to 12% (from 8%). Justification: MSCI EAFE vs. S&amp;P valuation gap at widest since 2008 (14x vs. 22x fwd P/E), Japan corporate governance reform driving 8+ year structural re-rating, USD weakening trend favorable to non-US exposure."</li>
+      </ul>
+      <p><strong>Upgrade 5 &mdash; Explicit acknowledgment of what's uncertain</strong></p>
+      <ul>
+        <li>v1: "Monitor markets and adjust as needed."</li>
+        <li>v2: "Rebalancing triggers: (a) Any asset class ±3% from target; (b) HY OAS breaches 450 bps = reduce private credit by 200 bps; (c) 20-day stock-bond correlation stays above +0.5 for 60 days = re-examine 60/40 replacement logic; (d) Fed cuts through 3% target = add duration."</li>
+      </ul>
+      <p><strong>The test:</strong> A CIO reading v2 should feel they're reading a memo from someone who knows current market state. A CIO reading v1 might not. That's the delta.</p>
+    </div>
   </div>
 </div>
 
@@ -1084,6 +1637,52 @@
     <div class="deliverable-prompt">Your full market view as you'd submit to a VP. Rates, credit, equities, alts, risks. 3 pages worth.</div>
     <textarea data-key="d30" placeholder="Your answer..." style="min-height: 200px;"></textarea>
     <div class="save-indicator" data-ind="d30"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; synthesis memo skeleton</span>
+      <p><strong>TO:</strong> VP, Multi-Asset Investing<br><strong>FROM:</strong> [Your name]<br><strong>RE:</strong> 2026 Market View &amp; Portfolio Positioning</p>
+      <p><strong>Executive summary:</strong> 2026 is a regime-transition market. The 40-year disinflation cycle has ended but a new stable inflation regime hasn't started. Interest rates are reset but uncertain, equity concentration is stretched, private markets are stressed, and geopolitical fragmentation is structural. This view recommends a quality-tilted, diversifier-heavy portfolio with explicit inflation insurance and reduced US-centric exposure.</p>
+      <p><strong>Macro framework</strong></p>
+      <ul>
+        <li>Fed at 4.00&ndash;4.25%, expected to cut 50&ndash;75 bps more through 2026. But core PCE sticky at 2.6&ndash;2.8% suggests persistent above-2% inflation rather than disinflationary return to 2010s norms.</li>
+        <li>US fiscal trajectory (7% deficit, 120% debt/GDP) is the structural risk. Term premium has rebuilt and stays elevated. 10-yr UST fair value ~4.2&ndash;4.5%.</li>
+        <li>USD peaked. Global rebalancing of reserve assets is slow but directional. Expect DXY weakness over 24 months; DM equities ex-US benefit.</li>
+      </ul>
+      <p><strong>Equities</strong></p>
+      <ul>
+        <li>US equities are expensive at 22x forward, concentrated in Mag 7, earnings-support dependent on AI capex returning measurable revenue growth in 2026&ndash;2027.</li>
+        <li>International equities (Europe, Japan) cheap at 14&ndash;16x forward with positive catalysts: defense capex in Europe, corporate governance reform in Japan.</li>
+        <li>EM selective: China underweight (policy uncertainty), India/LatAm overweight.</li>
+        <li><em>Positioning:</em> Reduce US from 65% to 55% of equity sleeve. Quality tilt throughout. Avoid speculative growth and unprofitable tech.</li>
+      </ul>
+      <p><strong>Credit</strong></p>
+      <ul>
+        <li>IG spreads at 90 bps, HY at 320 bps &mdash; close to cycle tights with minimal cushion. Credit-cycle turn underway but not acute.</li>
+        <li>Private credit entering stress phase. DB projects 4.8&ndash;5.5% defaults end-2026. Select managers, avoid mezz, focus on senior direct lending.</li>
+        <li><em>Positioning:</em> Underweight corporate credit, overweight Treasuries/agency MBS. Private credit at 10% of book, senior-only.</li>
+      </ul>
+      <p><strong>Rates &amp; duration</strong></p>
+      <ul>
+        <li>Bull steepener view: 2s10s widens from 50 bps to 100+ bps. Front end falls with Fed cuts; long end anchored by fiscal.</li>
+        <li><em>Positioning:</em> Neutral-to-underweight duration overall. Concentrate in 3&ndash;7yr belly. Hold TIPS allocation for inflation insurance.</li>
+      </ul>
+      <p><strong>Alternatives &amp; real assets</strong></p>
+      <ul>
+        <li>Infrastructure: overweight. Regulated utilities, data centers, energy transition. Long-duration real cash flows, inflation-linked.</li>
+        <li>Real estate: selective. Multifamily and industrial OK; office avoided; retail structurally challenged.</li>
+        <li>Gold/commodities: 5% allocation as regime-transition hedge.</li>
+        <li>Trend-following CTAs: 3&ndash;5% &mdash; the diversifier that worked in 2022, still does.</li>
+      </ul>
+      <p><strong>Key risks &amp; catalysts to watch</strong></p>
+      <ul>
+        <li><em>Inflation re-acceleration:</em> Core PCE &gt;3.2% would force Fed back to hiking. Equity + bond double-drawdown scenario. Most painful outcome.</li>
+        <li><em>Credit cycle acceleration:</em> HY OAS breaking above 500 bps = recession priced in. Reduce risk immediately.</li>
+        <li><em>AI capex cliff:</em> A hyperscaler guiding capex down would cascade through power, data center, and semi-cap plays.</li>
+        <li><em>Geopolitics:</em> Hormuz disruption, China-Taiwan escalation, US election outcomes — any could reset the macro view materially.</li>
+      </ul>
+      <p><strong>Closing view:</strong> The easy tailwinds of the 2010s (falling rates, negative correlation, US dominance, zero-cost capital) aren't coming back. The portfolio that works in 2026&ndash;2030 must be built for regime uncertainty &mdash; which means explicit inflation insurance, reduced concentration, uncorrelated diversifiers, and operational discipline on rebalancing. Discipline beats prediction.</p>
+      <p><em>&mdash; [Your name], Day 30 &mdash; This is a forever-artifact. Re-read quarterly. Update monthly.</em></p>
+    </div>
   </div>
 </div>
 
@@ -1178,6 +1777,13 @@
     <div class="deliverable-prompt">Answer from memory: (1) What's the difference between accredited and QP? (2) Who regulates muni bonds? (3) What does the 1940 Act cover?</div>
     <textarea data-key="sie-w1-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="sie-w1-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) Accredited vs. QP:</strong> Accredited investor = $1M net worth (excluding primary residence) OR $200K individual / $300K joint income for 2+ years. Qualified Purchaser = much higher bar, $5M+ in investments (individual) or $25M+ (institutional). Accredited is for most private offerings under Reg D 506(b/c); QP is needed for 3(c)(7) funds (unlimited accredited investors vs. 3(c)(1)'s 100-investor cap for regular hedge funds).</p>
+      <p><strong>(2) Muni bond regulator:</strong> MSRB (Municipal Securities Rulemaking Board) &mdash; writes the rules; FINRA enforces for broker-dealers; SEC has overarching authority. MSRB rules are numbered G-1 through G-48 (the G-17 "fair dealing" rule is the most famous).</p>
+      <p><strong>(3) 1940 Act covers:</strong> Two separate acts. <em>Investment Company Act of 1940</em> (ICA) regulates mutual funds, ETFs, closed-end funds &mdash; structural rules for pooled vehicles (registration, custody, leverage limits, director independence, fees). <em>Investment Advisers Act of 1940</em> (IAA) regulates investment advisers (anyone providing investment advice for compensation) &mdash; fiduciary duty, Form ADV, registration thresholds, anti-fraud provisions.</p>
+    </div>
   </div>
 </div>
 
@@ -1205,6 +1811,13 @@
     <div class="deliverable-prompt">(1) What makes a muni bond tax-free at the state level? (2) Mutual fund A-share vs. C-share trade-off? (3) Define a covered call and when you'd write one.</div>
     <textarea data-key="sie-w2-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="sie-w2-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) Muni bond state tax-free:</strong> Muni bonds are federal tax-exempt interest for all holders (that's the fundamental tax benefit). <em>State</em> tax-free applies only when the investor holds a muni from their own state (reciprocal exemption). So a NY investor holding NY muni = federal + state + possibly city tax-free ("triple exemption"). Same investor holding CA muni = federal exempt but NY state taxes apply. Exception: Puerto Rico munis are triple-exempt for any US investor.</p>
+      <p><strong>(2) A-share vs. C-share:</strong> <em>A-share</em> pays a front-end load (say 5.25%) on purchase &mdash; but has lower ongoing 12b-1 fees (~0.25%). Best for long holding periods; the upfront cost amortizes. <em>C-share</em> has no front load but higher ongoing 12b-1 (~1.0%) and a contingent deferred sales charge (CDSC) if sold in first year. Better for shorter holding periods (under ~6 years). Trade-off: pay upfront or pay ongoing. Breakeven typically around 6&ndash;8 years holding.</p>
+      <p><strong>(3) Covered call:</strong> You own 100 shares of a stock (the "covered" part) and sell a call option against those shares. If the stock stays below strike, you keep premium + shares. If stock rises above strike, shares get called away at strike, but you keep premium + capital gains to strike. When to write: on stocks you're neutral-to-slightly-bullish on, where you'd be happy selling at the strike anyway. Generates income; caps upside. Common on mature dividend payers.</p>
+    </div>
   </div>
 </div>
 
@@ -1232,6 +1845,13 @@
     <div class="deliverable-prompt">(1) When does settlement occur now and what changed in 2024? (2) What dollar threshold triggers a CTR? (3) Define churning and give an example.</div>
     <textarea data-key="sie-w3-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="sie-w3-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) Settlement:</strong> As of May 28, 2024, US equity, corporate bond, and municipal bond trades settle T+1 (one business day after trade date). Previously T+2 since 2017. The change reduces counterparty risk, aligns with Treasury market (already T+1), and was pushed by SEC after the 2021 GameStop volatility exposed settlement-cycle frictions. Options: T+1. Mutual funds: still T+1 (settle end of trade date NAV).</p>
+      <p><strong>(2) CTR threshold:</strong> $10,000 &mdash; banks must file a Currency Transaction Report with FinCEN for any cash transaction over $10K (deposits, withdrawals, currency exchanges). Also triggers on aggregated same-day transactions from the same customer. The separate SAR (Suspicious Activity Report) has no dollar floor &mdash; filed whenever activity appears suspicious (structuring, money laundering indicia) regardless of amount.</p>
+      <p><strong>(3) Churning:</strong> Excessive trading in a customer's account primarily to generate commissions, not to benefit the customer. Example: an RR making 50 trades per year on a buy-and-hold retiree's account, generating $15K in commissions while the portfolio value stays flat. FINRA tests it via turnover ratio and cost/equity ratio. Classic violation of suitability and Reg BI. Results in fines, suspension, or barring from the industry.</p>
+    </div>
   </div>
 </div>
 
@@ -1259,6 +1879,25 @@
     <div class="deliverable-prompt">Log your 3 practice exam scores and the topics you missed most. When all three are 80%+, schedule the real exam.</div>
     <textarea data-key="sie-w4-ready" placeholder="Practice exam 1: __%  |  Practice exam 2: __%  |  Practice exam 3: __%  |  Weak topics:"></textarea>
     <div class="save-indicator" data-ind="sie-w4-ready"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; what a ready candidate looks like</span>
+      <p><strong>A candidate who should sit the exam:</strong></p>
+      <ul>
+        <li>Mock 1 (Achievable): 82% — weak on muni bonds, AML thresholds</li>
+        <li>Mock 2 (Kaplan): 85% — weak on options basics (naked vs. covered)</li>
+        <li>Mock 3 (STC): 87% — comfortable across all topics</li>
+        <li>Pattern: steady improvement, 80%+ floor on all three, no topic consistently under 70%</li>
+      </ul>
+      <p><strong>A candidate who should NOT sit yet:</strong></p>
+      <ul>
+        <li>Mock 1: 68%, Mock 2: 74%, Mock 3: 72% — below 80% floor, improvement plateaued</li>
+        <li>One topic consistently 50&ndash;60% (e.g., regulatory) across all mocks</li>
+        <li>Time pressure issue: running out of time on one section</li>
+      </ul>
+      <p><strong>Before scheduling:</strong> Confirm you've done 3 full-length mocks (not practice sets). All 80%+. Weak topics identified have been specifically reviewed post-mock. If both conditions are met, schedule within 2 weeks to avoid forgetting. If not, spend 1&ndash;2 more weeks on the weakness before re-mocking.</p>
+      <p><strong>Scheduling logistics:</strong> Book through Prometric (FINRA's vendor). Typical fee: $80. Morning slots are better than afternoon (fresh). Take lunch break between sessions if offered.</p>
+    </div>
   </div>
 </div>
 
@@ -1317,6 +1956,13 @@
     <div class="deliverable-prompt">(1) Difference between CPI and PCE? (2) When would the Fed cut vs. hike? (3) What's reinvestment risk and when does it matter most?</div>
     <textarea data-key="s65-w1-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="s65-w1-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) CPI vs. PCE:</strong> Both measure consumer inflation but differ in scope and weighting. <em>CPI</em> (BLS) is a fixed-basket measure based on household surveys of what consumers spend. <em>PCE</em> (BEA) is a broader measure including what businesses and government buy on behalf of consumers (like employer-paid healthcare), and it uses a chain-weighted formula that adjusts as consumers substitute between goods. PCE is the Fed's preferred gauge because it better captures substitution effects and covers more spending. PCE typically runs 30&ndash;50 bps lower than CPI.</p>
+      <p><strong>(2) Fed cut vs. hike:</strong> <em>Cut</em> when: growth slowing, unemployment rising, inflation below 2% target, financial stress. <em>Hike</em> when: inflation above 2%, labor market too tight, financial conditions too loose, asset bubbles forming. Fed also weighs financial stability (QE/QT balance sheet decisions are separate from rate decisions). In practice, Fed follows a Taylor-rule-like framework but with significant discretion.</p>
+      <p><strong>(3) Reinvestment risk:</strong> The risk that cash flows from an investment must be reinvested at a lower rate than the original. Matters most for: (a) callable bonds (issuer calls when rates fall, forcing you to reinvest at lower yield); (b) mortgage-backed securities (prepayments accelerate when rates fall); (c) any high-coupon bond in a falling-rate environment. Zero-coupon bonds have no reinvestment risk during their life (but have interest rate risk). Longer-duration bonds have less reinvestment risk per dollar than short-dated bonds you keep rolling.</p>
+    </div>
   </div>
 </div>
 
@@ -1344,6 +1990,13 @@
     <div class="deliverable-prompt">(1) Bond with coupon 5%, YTM 6% &mdash; is it trading at premium or discount? (2) Variable vs. fixed annuity &mdash; key risk shift? (3) Open vs. closed-end fund pricing?</div>
     <textarea data-key="s65-w2-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="s65-w2-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) Bond coupon 5%, YTM 6%:</strong> Trading at a <strong>discount</strong>. When YTM &gt; coupon rate, the bond must be priced below par (&lt;$1,000) so that the total return (coupon + price appreciation to par at maturity) equals the yield. Rule: YTM &gt; coupon → discount; YTM &lt; coupon → premium; YTM = coupon → par.</p>
+      <p><strong>(2) Variable vs. fixed annuity risk shift:</strong> <em>Fixed</em> annuity: insurance company bears the investment risk &mdash; they guarantee a fixed interest rate regardless of portfolio performance. <em>Variable</em> annuity: the <em>annuitant</em> (customer) bears the investment risk &mdash; returns depend on sub-account (mutual-fund-like) performance. Variable has growth upside but no guaranteed principal (beyond death benefit riders). Major regulatory distinction: variable annuities are securities requiring Series 7 or Series 6 to sell; fixed annuities are insurance products only requiring insurance license.</p>
+      <p><strong>(3) Open vs. closed-end fund pricing:</strong> <em>Open-end</em> (mutual fund) trades at NAV, calculated once per day after market close. You buy/sell directly with the fund at that NAV. Fund creates new shares for buyers and redeems from sellers. <em>Closed-end</em> fund issues a fixed number of shares in an IPO; after that, shares trade on an exchange throughout the day at market-determined prices that can be at a premium or discount to NAV. Closed-end funds often trade at 5&ndash;15% discounts to NAV, which can be both an opportunity (buying $1 of assets for $0.90) and a warning sign (discount reflects manager quality or leverage risk).</p>
+    </div>
   </div>
 </div>
 
@@ -1375,6 +2028,14 @@
     <div class="deliverable-prompt">(1) Sharpe ratio formula and intuition? (2) Wash sale rule &mdash; the 30-day window explained? (3) Roth IRA contribution limit 2026 and phase-out? (4) When does strategic AA trump tactical AA?</div>
     <textarea data-key="s65-w3-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="s65-w3-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) Sharpe ratio:</strong> Sharpe = (R<sub>p</sub> &minus; R<sub>f</sub>) / &sigma;<sub>p</sub>. Measures excess return per unit of total risk (standard deviation). Intuition: how much extra return you're earning above the risk-free rate, normalized by how much volatility you're taking to get it. A Sharpe of 1.0 is considered good, 2.0+ is excellent, below 0.5 is weak. Limitations: assumes normal distribution (ignores fat tails), doesn't distinguish upside vs. downside vol (Sortino fixes that), can be gamed by managers who underreport vol.</p>
+      <p><strong>(2) Wash sale rule:</strong> The IRS disallows a capital loss deduction if you buy a "substantially identical" security within 30 days before or after the sale that generated the loss (60-day total window). The disallowed loss gets added to the cost basis of the replacement security. Purpose: prevents investors from harvesting losses for tax purposes while maintaining the same economic exposure. Applies to spouses and IRAs too &mdash; you can't sell AAPL in your taxable account and buy AAPL in your IRA to dodge wash sale.</p>
+      <p><strong>(3) Roth IRA 2026 limits:</strong> Contribution limit $7,000 ($8,000 for 50+). Income phase-out for single filers: $150K&ndash;$165K (phased out completely above $165K). Married filing jointly phase-out: $236K&ndash;$246K. Backdoor Roth (non-deductible traditional IRA → Roth conversion) is the workaround for high earners.</p>
+      <p><strong>(4) Strategic vs. tactical:</strong> <em>Strategic</em> asset allocation (long-term policy weights, rebalanced to target) trumps <em>tactical</em> (short-term deviations based on market views) in most regimes. Academic research shows strategic allocation explains 80&ndash;90% of portfolio returns; tactical rarely adds value net of transaction costs and mistiming. Tactical makes sense only when you have genuine short-term edge (unusual market dislocation, specific catalyst), and even then, small deviations (2&ndash;5% from target) beat big ones.</p>
+    </div>
   </div>
 </div>
 
@@ -1404,6 +2065,26 @@
     <div class="deliverable-prompt">3 practice exam scores + weakest ethics topics. Schedule when all 3 are 75%+.</div>
     <textarea data-key="s65-w4-ready" placeholder="Mock 1: __%  |  Mock 2: __%  |  Mock 3: __%  |  Weak areas:"></textarea>
     <div class="save-indicator" data-ind="s65-w4-ready"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; readiness check</span>
+      <p><strong>A candidate ready to sit:</strong></p>
+      <ul>
+        <li>Mock 1 (Kaplan): 76% — weak on USA definitions, IAR registration thresholds</li>
+        <li>Mock 2 (Achievable): 78% — weak on estate/trust (irrevocable vs. revocable)</li>
+        <li>Mock 3 (NASAA practice): 80% — all topics above 70%</li>
+        <li>No topic consistently below 70%; steady improvement trend</li>
+      </ul>
+      <p><strong>Common weak areas for IB/ER candidates on Series 65:</strong></p>
+      <ul>
+        <li>Legal definitions (USA, IAA, exclusion rules) — memorization-heavy, not conceptual</li>
+        <li>Retirement planning specifics (RMD ages, SECURE Act changes, Roth rules)</li>
+        <li>Estate planning (revocable vs. irrevocable trusts, gift tax thresholds)</li>
+        <li>Variable annuity tax treatment (partial annuitization, exclusion ratio)</li>
+      </ul>
+      <p><strong>Why 75% floor instead of 80% like SIE:</strong> Series 65 passing is 72%. Three mocks at 75%+ gives a realistic buffer. The exam is more nuanced/tricky than SIE (more "best answer" questions where two options are both technically correct), so 80%+ on mocks is aspirational but not required.</p>
+      <p><strong>Final preparation week:</strong> Focus entirely on Ethics/Regulations (30% of exam, tricky). Review NASAA Series 65 study guide. Don't learn new material; consolidate what's weak.</p>
+    </div>
   </div>
 </div>
 
@@ -1462,6 +2143,13 @@
     <div class="deliverable-prompt">(1) Calculate current yield for 5% coupon bond at $950. (2) Breakpoint sale violation example? (3) ETF vs. closed-end fund &mdash; which trades at discount/premium to NAV?</div>
     <textarea data-key="s7-w12-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="s7-w12-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) Current yield for 5% coupon bond at $950:</strong> Current yield = Annual coupon / Current price = $50 / $950 = <strong>5.26%</strong>. Note: current yield is different from YTM. YTM here would be higher (~5.8%) because it includes the capital gain from $950 → $1,000 (par) over the bond's remaining life. Current yield is a simpler, less complete measure.</p>
+      <p><strong>(2) Breakpoint sale violation:</strong> Mutual funds offer reduced sales charges at purchase "breakpoints" (e.g., lower load at $25K, $50K, $100K+ investments). A <em>breakpoint sale violation</em> occurs when an RR splits a customer's investment into amounts just below a breakpoint to avoid the discount. Example: Customer wants to invest $52K. RR recommends $25K now, $27K next month &mdash; both transactions at full load, vs. a single $52K purchase that would qualify for the $50K breakpoint discount. This costs the customer money and pads RR commissions. It's a FINRA violation regardless of intent.</p>
+      <p><strong>(3) ETF vs. closed-end fund NAV pricing:</strong> <em>ETFs</em> trade very close to NAV due to the creation/redemption mechanism — authorized participants arbitrage any price/NAV gap by creating or redeeming shares directly with the fund in exchange for underlying securities. Typical deviation from NAV: less than 20 bps. <em>Closed-end funds</em> have no such arbitrage mechanism (fixed share count), so market price can diverge significantly from NAV based on supply/demand for the shares. CEFs frequently trade at 5&ndash;15% discounts (reflecting leverage concerns, manager uncertainty, or structural illiquidity) or premiums (reflecting strong demand, scarce strategy).</p>
+    </div>
   </div>
 </div>
 
@@ -1493,6 +2181,25 @@
     <div class="deliverable-prompt">(1) Bull call spread max gain/loss/breakeven? (2) Tax-equivalent yield for 4% muni at 32% bracket? (3) When would you write a covered call vs. buy a protective put?</div>
     <textarea data-key="s7-w34-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="s7-w34-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) Bull call spread &mdash; Example: Buy 50 call for $5, sell 55 call for $2.</strong></p>
+      <ul>
+        <li>Net debit (cost): $5 − $2 = $3</li>
+        <li>Max loss: $3 (if stock stays at or below $50 at expiration)</li>
+        <li>Max gain: ($55 − $50) − $3 = $2 (if stock is at or above $55 at expiration)</li>
+        <li>Breakeven: $50 + $3 = $53 (long strike + net debit)</li>
+        <li>Use when: moderately bullish, want to reduce cost of call by capping upside at a known level</li>
+      </ul>
+      <p><strong>(2) Tax-equivalent yield (4% muni, 32% bracket):</strong> TEY = Muni yield / (1 − tax rate) = 4% / (1 − 0.32) = 4% / 0.68 = <strong>5.88%</strong>. Meaning: a taxable bond would need to yield 5.88% to give you the same after-tax return as the 4% muni. If a comparable-risk corporate bond yields 5%, the muni wins. If it yields 6%, the corporate wins after-tax for this investor. Note: this is federal-only; if the muni is also state-tax-exempt for the investor, TEY is even higher.</p>
+      <p><strong>(3) Covered call vs. protective put:</strong></p>
+      <ul>
+        <li><em>Covered call</em>: Own stock + sell (short) call. Generates income, caps upside. Use when: neutral-to-slightly-bullish, happy to sell at strike, want to earn premium. Outlook: "I don't expect the stock to go much higher soon."</li>
+        <li><em>Protective put</em>: Own stock + buy (long) put. Costs premium, provides downside insurance. Use when: bullish long-term but worried about near-term downside, willing to pay for insurance. Outlook: "I love this stock but I'm nervous about earnings/Fed/macro event next month."</li>
+        <li>Key difference: covered call trades away upside for income; protective put pays premium for downside protection. Opposite ends of the P&L spectrum.</li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -1520,6 +2227,21 @@
     <div class="deliverable-prompt">(1) Client buys $20K in margin &mdash; initial Reg T requirement? (2) Maintenance call formula for long position? (3) Reg BI's three core obligations?</div>
     <textarea data-key="s7-w56-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="s7-w56-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) $20K margin purchase &mdash; Reg T initial requirement:</strong> Reg T requires 50% initial margin. Initial deposit needed = 50% × $20,000 = <strong>$10,000</strong>. The broker lends the other $10,000. Exception: if purchase is under $2,000, must deposit 100%.</p>
+      <p><strong>(2) Maintenance call formula (long position):</strong> Maintenance call triggered when equity falls below 25% of market value. Formula for additional funds needed: <br>
+      <strong>Call amount = (Maintenance requirement × MV) − Current equity</strong><br>
+      Example: Stock purchased for $20K with $10K equity (50% initial). Stock falls to $14K. Current equity = $14K − $10K (loan) = $4K. Required equity at 25% = $14K × 0.25 = $3,500. Here equity ($4K) > required ($3.5K), so no call yet. If stock falls to $13K: equity = $3K, required = $3,250 → call for $250.</p>
+      <p><strong>(3) Reg BI's three core obligations:</strong></p>
+      <ul>
+        <li><em>Disclosure:</em> Broker-dealer must disclose material facts about the recommendation and relationships (fees, conflicts, capacity) in writing before or at time of recommendation.</li>
+        <li><em>Care obligation:</em> Broker must exercise reasonable diligence, care, and skill. Three components: (a) reasonable basis for the recommendation as generally appropriate, (b) customer-specific suitability, (c) quantitative suitability (series of recommendations, not individually).</li>
+        <li><em>Conflict of interest obligation:</em> Firm must identify and disclose, eliminate where possible, or mitigate conflicts (sales contests tied to specific products are prohibited; limitations on product menus must be disclosed).</li>
+      </ul>
+      <p>Separately, there's a <em>Compliance obligation</em> requiring firms to have policies/procedures reasonably designed to achieve Reg BI compliance. Some split this out as a fourth pillar.</p>
+    </div>
   </div>
 </div>
 
@@ -1546,6 +2268,26 @@
     <div class="deliverable-prompt">Track mocks, time per question, accuracy by topic. Schedule when 3 consecutive 78%+.</div>
     <textarea data-key="s7-mocks" placeholder="Mock 1: __%  Timing: __  |  Mock 2: __%  |  Mock 3: __%  |  Weakest: "></textarea>
     <div class="save-indicator" data-ind="s7-mocks"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; realistic mock progression</span>
+      <p><strong>Typical progression for a ready candidate:</strong></p>
+      <ul>
+        <li>Mock 1 (Kaplan, cold): 73% &mdash; Timing: finished with 15 min to spare, ran through options too quickly. Weakest: options strategies, municipal tax calcs.</li>
+        <li>Drill week: 60+ options questions/day for 4 days. Memorize max gain/loss/BE tables. Review MSRB rules.</li>
+        <li>Mock 2 (Achievable): 79% &mdash; Timing: 20 min to spare, more careful. Weakest: margin maintenance calls still dicey.</li>
+        <li>Drill 2 days on margin formulas + retirement plan nuances.</li>
+        <li>Mock 3 (STC): 82% &mdash; All topics ≥72%, timing comfortable. Schedule the exam.</li>
+      </ul>
+      <p><strong>Red flags that mean NOT ready:</strong></p>
+      <ul>
+        <li>Any mock below 70% with no clear improvement pattern</li>
+        <li>One topic consistently &lt;60% (e.g., always failing options) &mdash; the weakness will find you</li>
+        <li>Timing issue: running out of time on actual exam will end you. Must finish with &gt;15 min buffer.</li>
+        <li>Score volatility &gt;10 pts between mocks &mdash; inconsistent knowledge base</li>
+      </ul>
+      <p><strong>When to schedule:</strong> Once three consecutive 78%+ mocks, schedule within 10 days. Longer gap = forgetting.</p>
+    </div>
   </div>
 </div>
 
@@ -1602,6 +2344,19 @@
     <div class="deliverable-prompt">(1) Is an out-of-state BD with 2 clients in your state required to register? (2) When does an IA become federal covered? (3) 3 activities that trigger agent registration?</div>
     <textarea data-key="s63-w1-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="s63-w1-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) Out-of-state BD with 2 clients in your state:</strong> Generally must register in your state, but with a key nuance. Under the Uniform Securities Act, <em>broker-dealers</em> generally must register in every state where they effect transactions or solicit business. Exceptions exist for a firm whose only business in the state is with institutional clients or existing clients who are temporarily in the state. The "de minimis" exemption (5 or fewer clients) applies to <em>investment advisers</em>, not broker-dealers. So answer: yes, the BD must register unless a specific exemption applies (e.g., if the 2 clients are institutional, not retail).</p>
+      <p><strong>(2) IA federal covered threshold:</strong> An investment adviser becomes <em>federal covered</em> (SEC-registered instead of state-registered) when AUM reaches $100M. Between $100M and $110M, the IA may choose. Above $110M, must register with SEC. Below $100M, must register with the state (or states) where it does business. Other paths to federal covered status: advising a registered investment company (mutual fund) at any AUM; eligibility via specific exemptions. Note: even federal-covered IAs must make notice filings with states where they have &gt;5 clients.</p>
+      <p><strong>(3) Three activities that trigger agent registration:</strong></p>
+      <ul>
+        <li><em>Effecting transactions:</em> Executing orders for customers in exchange-listed or OTC securities.</li>
+        <li><em>Soliciting orders or accounts:</em> Contacting prospective customers to recommend securities, whether successful or not.</li>
+        <li><em>Receiving compensation tied to securities transactions:</em> Any commission, bonus, or share of revenue based on securities sales triggers agent-registration requirements.</li>
+      </ul>
+      <p>Key exclusion: clerical and ministerial staff who don't solicit or execute transactions are <em>not</em> agents and don't need to register. Also, agents of issuers selling certain exempt securities (government bonds, bank-issued securities) may be excluded.</p>
+    </div>
   </div>
 </div>
 
@@ -1629,6 +2384,24 @@
     <div class="deliverable-prompt">Practice scores + schedule exam when both 80%+.</div>
     <textarea data-key="s63-ready" placeholder="Mock 1: __%  |  Mock 2: __%"></textarea>
     <div class="save-indicator" data-ind="s63-ready"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; Series 63 readiness</span>
+      <p><strong>A ready candidate (typical):</strong></p>
+      <ul>
+        <li>Mock 1 (Kaplan): 82% &mdash; weak on exemption nuances, administrator powers</li>
+        <li>Mock 2 (Achievable): 85% &mdash; consistent across all sections</li>
+      </ul>
+      <p><strong>Why Series 63 typically feels easier than SIE:</strong> Shorter (60 questions in 75 min), narrower scope (pure USA legal framework, no products/math), and much of the material overlaps with SIE regulatory section. Most candidates who passed SIE clear 63 with 20&ndash;30 hrs of focused prep.</p>
+      <p><strong>Common trap areas:</strong></p>
+      <ul>
+        <li>Federal covered security vs. federal covered adviser &mdash; different concepts with similar names</li>
+        <li>Exempt security vs. exempt transaction &mdash; a security can be non-exempt but sold in an exempt transaction</li>
+        <li>Administrator's cease-and-desist vs. emergency orders &mdash; different procedural requirements</li>
+        <li>Right of rescission: 30 days to rescind after discovery of violation, but 2-3 year statute of limitations on original sale</li>
+      </ul>
+      <p><strong>Schedule timing:</strong> After SIE, bundle Series 63 into the same few weeks as Series 7 prep or take immediately after Series 7 (they complement each other). Many candidates take S7 and 63 within 2 weeks of each other.</p>
+    </div>
   </div>
 </div>
 
@@ -1795,6 +2568,22 @@
     <div class="deliverable-prompt">Track hours, QBank % by topic, and weakest concepts. Update monthly.</div>
     <textarea data-key="cfa-p2-log" placeholder="June: __ hrs, QBank avg __%, weak: __&#10;July: __ hrs, QBank avg __%, weak: __&#10;(continue monthly)"></textarea>
     <div class="save-indicator" data-ind="cfa-p2-log"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; realistic monthly log</span>
+      <p><strong>June 2026:</strong> 42 hrs logged. Topics: Quant Methods complete, FRA part 1 started. QBank avg: Quant 72% (weak on regression), FRA 78%. Weak concepts: Type I vs. Type II error, standard error, joint probability. <em>Plan for July:</em> 10 more QBank on Quant regression; finish FRA part 1 + start part 2.</p>
+      <p><strong>July 2026:</strong> 38 hrs (slower month — summer travel). FRA part 2 done, Corporate Issuers started. QBank: FRA 80%, Corp Issuers 75%. Weak: lease accounting (IFRS 16 vs. ASC 842), deferred tax mechanics. <em>Plan for Aug:</em> Wrap Corp Issuers, start Economics + Equity.</p>
+      <p><strong>August 2026:</strong> 45 hrs. Economics done, Equity Investments ~70% through. QBank: Econ 74%, Equity 81%. Weak: PPP/RPP exchange rate models, Porter's 5 forces application. Equity feels strongest of all topics (IB/ER background paying off). <em>Plan for Sept:</em> Finish Equity, PM, and start Fixed Income.</p>
+      <p><strong>September 2026:</strong> 52 hrs (pushing hard). Equity and PM complete, Fixed Income ~60% through. QBank: Equity 83%, PM 76%, FI 68% (weakest so far). Weak: duration-convexity combined, callable bond pricing, term structure theories. <em>Plan for Oct:</em> Finish FI (will need extra drill), Derivatives, Alts, start Ethics. 200+ FI QBank Qs mandatory.</p>
+      <p><strong>October 2026:</strong> 48 hrs. All topics covered. QBank weighted avg: 77% across all 10. Remaining weak topics: FI (72%), Derivatives (74%), Ethics (first pass, not drilled yet). <em>Status check:</em> On track for first pass complete by end October. Phase 3 (consolidation) starts Nov 1. Total Phase 2 hours: ~225 (vs. ~180 planned &mdash; slightly over, which is fine).</p>
+      <p><strong>Patterns to watch for:</strong></p>
+      <ul>
+        <li>If monthly hours drop below 30 &mdash; flag, you're falling behind</li>
+        <li>If weak topics stay the same across 2+ months &mdash; drilling isn't working; change method (Meldrum videos, different QBank source, tutor)</li>
+        <li>If QBank averages stay below 70% on a topic &mdash; don't proceed to next topic until 75%+ achieved</li>
+        <li>Aim to enter Phase 3 (Nov 1) with 75%+ QBank on 8 of 10 topics minimum</li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -1821,6 +2610,24 @@
     <div class="deliverable-prompt">(1) Why does duration matter more than YTM when rates shift? (2) Sharpe vs. Sortino vs. Treynor &mdash; when to use each? (3) Standard V(A) vs. V(B) of CFA Code &mdash; key difference?</div>
     <textarea data-key="cfa-p3-tq" placeholder="Your answers..."></textarea>
     <div class="save-indicator" data-ind="cfa-p3-tq"></div>
+    <button class="reveal-btn">Show sample answers</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answers</span>
+      <p><strong>(1) Why duration matters more than YTM when rates shift:</strong> YTM is a point-in-time yield measure &mdash; what you earn if you hold to maturity at current prices. But when rates <em>change</em>, bond prices move, and the magnitude of that move depends on duration, not YTM. A 10-yr bond with 5% YTM and modified duration of 8 loses ~8% of value on a 100 bps rate rise; a 2-yr bond with the same 5% YTM and duration 1.9 loses only ~1.9%. YTM tells you the expected return if nothing changes; duration tells you the sensitivity to change. For active management, duration is the actionable number &mdash; it's what you hedge, budget, and attribute P&amp;L against.</p>
+      <p><strong>(2) Sharpe vs. Sortino vs. Treynor:</strong></p>
+      <ul>
+        <li><em>Sharpe</em> = (R<sub>p</sub> − R<sub>f</sub>) / &sigma;<sub>p</sub>. Risk is total volatility (standard deviation). Use for: comparing investments as standalone portfolios where all vol matters. Best for: hedge funds, diversified portfolios in isolation.</li>
+        <li><em>Sortino</em> = (R<sub>p</sub> − R<sub>f</sub>) / downside deviation. Only penalizes returns below a target (usually zero or risk-free). Use for: strategies with asymmetric return distributions (convexity plays, trend-following) where upside vol is good. Best for: evaluating "positively skewed" strategies.</li>
+        <li><em>Treynor</em> = (R<sub>p</sub> − R<sub>f</sub>) / &beta;<sub>p</sub>. Risk is systematic (market) beta, not total vol. Use for: comparing assets or sub-portfolios within a well-diversified book, where idiosyncratic risk washes out and only beta matters. Best for: a PM evaluating contribution of a sleeve to a larger diversified portfolio.</li>
+      </ul>
+      <p>Rule of thumb: Sharpe for standalone evaluation; Sortino when you believe upside shouldn't count against you; Treynor when the investment is one piece of a larger diversified whole.</p>
+      <p><strong>(3) Standard V(A) vs. V(B):</strong> These are from the CFA Code of Ethics &mdash; Standard V is "Investment Analysis, Recommendations, and Actions."</p>
+      <ul>
+        <li><em>V(A) Diligence and Reasonable Basis:</em> Members must exercise diligence, independence, and thoroughness in analyses; have a reasonable basis supported by appropriate research and investigation for any recommendation. Essentially: "do the work before recommending."</li>
+        <li><em>V(B) Communication with Clients and Prospective Clients:</em> Members must disclose to clients the basic format and general principles of the investment process, promptly disclose any material changes, distinguish fact from opinion, and communicate relevant factors. Essentially: "tell clients honestly how you think and what's going on."</li>
+      </ul>
+      <p><strong>Key difference:</strong> V(A) is about the analytical work behind the recommendation; V(B) is about how you communicate it to clients. You could do rigorous V(A) analysis but violate V(B) by hiding assumptions, glossing over risks, or presenting opinion as fact. Both are required; they're distinct obligations.</p>
+    </div>
   </div>
 </div>
 
@@ -1848,6 +2655,28 @@
     <div class="deliverable-prompt">Score each mock, time to complete, topics below 60%.</div>
     <textarea data-key="cfa-mocks" placeholder="Mock 1 (Schweser): __%  Time: __&#10;Mock 2: __%&#10;Mock 3 (CFA official): __%&#10;Mock 4: __%"></textarea>
     <div class="save-indicator" data-ind="cfa-mocks"></div>
+    <button class="reveal-btn">Show sample answer</button>
+    <div class="sample-answer">
+      <span class="sample-answer-label">Sample answer &mdash; realistic January 2027 mock progression</span>
+      <p><strong>Mock 1 (Schweser Book 1, Jan 3): 64%. Time: finished both sessions with 5 min spare.</strong><br>
+      Topic breakdown: Ethics 58%, Quants 68%, Econ 62%, FRA 72%, Corp Issuers 60%, Equity 70%, FI 55% (disaster), Derivatives 65%, Alts 70%, PM 66%. Weak: FI (especially duration-convexity combined math, callable bonds), Ethics (tricky wording tests). Drill plan: 4 days intensive FI, 2 days Ethics review from Schweser workbook.</p>
+      <p><strong>Mock 2 (Schweser Book 2, Jan 10): 70%. Time: better pacing, 15 min spare each session.</strong><br>
+      Topic breakdown: Ethics 72%, FI jumped to 68%, Equity 76%, Corp Issuers still weak at 62%. Progress on the weak areas. Corp Issuers is the new worry &mdash; MM propositions and capital structure tricks. Drill: 3 days Corp Issuers, 1 day Ethics refresh.</p>
+      <p><strong>Mock 3 (CFA Institute official, Jan 17): 73%. Time: comfortable.</strong><br>
+      This one was the hardest &mdash; CFA official mocks are notoriously closest to real exam difficulty. Score above 70% on this is a <em>strong</em> signal. Topic breakdown: Ethics 76%, Corp Issuers up to 70%, FI holding at 72%. No topic below 65%. Momentum building.</p>
+      <p><strong>Mock 4 (AnalystPrep, Jan 24): 76%. Time: 20 min spare each session.</strong><br>
+      Best score. All 10 topics between 68% and 82%. No weak spots worth special drilling. Ready to sit.</p>
+      <p><strong>Decision:</strong> Exam scheduled for Feb 25 (middle of window). Final polish Jan 25 &ndash; Feb 20 focuses on Ethics re-read (tiebreaker topic), formula sheet memorization, and light QBank. No new material.</p>
+      <p><strong>Interpretive guide to your own mocks:</strong></p>
+      <ul>
+        <li>Mock 1 at 50&ndash;60% → normal, plenty of time</li>
+        <li>Mock 1 at 60&ndash;70% → on track</li>
+        <li>Mock 2 should be 5&ndash;8 pts above Mock 1 → drilling is working</li>
+        <li>Mock 4 at 72%+ → you're ready</li>
+        <li>Mock 4 at under 65% → consider deferring to Aug 2027 window; cramming 2 more weeks is rarely enough</li>
+        <li>Any topic stuck below 60% through all 4 mocks → exam-day emergency; plan to guess quickly on those questions and bank time for stronger topics</li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -2210,6 +3039,18 @@
     renderAll();
     if (window._saveCloud) window._saveCloud();
   };
+
+  // Sample answer reveal toggle
+  document.querySelectorAll('.reveal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.nextElementSibling;
+      if (target && target.classList.contains('sample-answer')) {
+        const isOpen = target.classList.toggle('open');
+        btn.classList.toggle('open', isOpen);
+        btn.textContent = (isOpen ? 'Hide sample answer' : 'Show sample answer');
+      }
+    });
+  });
 
   renderAll();
 </script>
