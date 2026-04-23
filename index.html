@@ -81,6 +81,24 @@
   .sample-answer p { margin: 6px 0; }
   .sample-answer ul { margin: 4px 0; padding-left: 20px; }
   .sample-answer strong { color: #2d2512; }
+
+  /* Tab navigation */
+  .tab-bar { position: sticky; top: 0; background: var(--paper); border-bottom: 2px solid var(--ink); z-index: 100; padding: 12px 0 0; margin: 24px 0 0; display: flex; gap: 0; flex-wrap: wrap; }
+  .tab-btn { background: none; border: none; border-bottom: 3px solid transparent; color: var(--muted); font-family: "Futura", "Helvetica Neue", sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; padding: 12px 20px 10px; cursor: pointer; transition: all 0.15s; margin-bottom: -2px; }
+  .tab-btn:hover { color: var(--ink); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-btn .tab-count { color: var(--muted); font-size: 10px; margin-left: 4px; font-weight: 400; }
+  .tab-btn.active .tab-count { color: var(--accent); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .subnav { background: #f5f1e8; border-left: 3px solid var(--accent); padding: 12px 16px; margin: 20px 0 28px; font-size: 13px; }
+  .subnav strong { display: block; font-family: "Futura", "Helvetica Neue", sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin-bottom: 8px; }
+  .subnav a { display: inline-block; margin: 3px 14px 3px 0; color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--muted); padding-bottom: 1px; }
+  .subnav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  @media (max-width: 640px) {
+    .tab-btn { padding: 10px 12px 8px; font-size: 11px; letter-spacing: 0.8px; }
+    .subnav a { display: block; margin: 4px 0; }
+  }
   .callout { background: var(--hl); border-left: 4px solid #c49400; padding: 12px 16px; margin: 18px 0; font-size: 15px; }
   .section-intro { color: var(--muted); font-size: 15px; margin-bottom: 16px; font-style: italic; }
   table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
@@ -149,25 +167,21 @@
   </div>
 </div>
 
-<div class="toc">
-  <strong>Quick navigation</strong>
-  <a href="#overview">Overview &amp; rationale</a>
-  <a href="#daily">Daily rhythm</a>
-  <a href="#week1">Week 1 &mdash; Foundations</a>
-  <a href="#week2">Week 2 &mdash; Construction</a>
-  <a href="#week3">Week 3 &mdash; Current state</a>
-  <a href="#week4">Week 4 &mdash; Interview prep</a>
-  <a href="#vp-fluency">VP-level fluency checklist</a>
-  <a href="#licensing-overview">Licensing roadmap &mdash; which exams do I need?</a>
-  <a href="#sie">SIE (Month 1, parallel)</a>
-  <a href="#series65">Series 65 (buy-side / RIA path, no sponsor)</a>
-  <a href="#series7">Series 7 (broker-dealer path, needs sponsor)</a>
-  <a href="#series63">Series 63 (state law, with Series 7)</a>
-  <a href="#series66">Series 66 (alternative to 63+65, with Series 7)</a>
-  <a href="#other-exams">Other exams (Series 3, 79, 24, 52)</a>
-  <a href="#cfa">CFA Level I (Feb 22&ndash;28, 2027)</a>
-  <a href="#daily-feeds">Daily feeds &amp; podcasts</a>
+<div class="tab-bar" role="tablist">
+  <button class="tab-btn active" data-tab="overview" role="tab">Overview</button>
+  <button class="tab-btn" data-tab="sprint" role="tab">30-Day Sprint</button>
+  <button class="tab-btn" data-tab="licensing" role="tab">Licensing</button>
+  <button class="tab-btn" data-tab="cfa" role="tab">CFA L1</button>
 </div>
+
+<!-- =========== OVERVIEW TAB =========== -->
+<div class="tab-content active" data-tab-content="overview">
+  <div class="subnav">
+    <strong>Jump to</strong>
+    <a href="#overview">Overview &amp; rationale</a>
+    <a href="#daily">Daily rhythm</a>
+    <a href="#daily-feeds">Daily feeds &amp; podcasts</a>
+  </div>
 
 <h2 id="overview">Overview &amp; sequencing logic</h2>
 <p>Every link here is verified. Click through directly. Primary-source documents (AQR, BlackRock, SEC, FINRA, CFA Institute) are the gold standard. Check the small box next to each learning item as you master it &mdash; the day is only "done" when you can speak to all of them.</p>
@@ -187,6 +201,18 @@
 </ul>
 
 <hr>
+</div><!-- /overview tab -->
+
+<!-- =========== SPRINT TAB =========== -->
+<div class="tab-content" data-tab-content="sprint">
+  <div class="subnav">
+    <strong>Jump to</strong>
+    <a href="#week1">Week 1 &mdash; Foundations</a>
+    <a href="#week2">Week 2 &mdash; Construction</a>
+    <a href="#week3">Week 3 &mdash; Current state</a>
+    <a href="#week4">Week 4 &mdash; Interview prep</a>
+    <a href="#vp-fluency">VP-level fluency checklist</a>
+  </div>
 
 <h2 id="week1">Week 1 &mdash; Foundations</h2>
 <p class="section-intro">What an IB/ER person touched but never truly owns.</p>
@@ -1706,6 +1732,20 @@
 </div>
 
 <hr>
+</div><!-- /sprint tab -->
+
+<!-- =========== LICENSING TAB =========== -->
+<div class="tab-content" data-tab-content="licensing">
+  <div class="subnav">
+    <strong>Jump to</strong>
+    <a href="#licensing-overview">Licensing roadmap</a>
+    <a href="#sie">SIE</a>
+    <a href="#series65">Series 65</a>
+    <a href="#series7">Series 7</a>
+    <a href="#series63">Series 63</a>
+    <a href="#series66">Series 66</a>
+    <a href="#other-exams">Other exams</a>
+  </div>
 
 <h2 id="licensing-overview">Licensing roadmap &mdash; which exams do I need?</h2>
 <p class="section-intro">"Qualify as an asset manager" isn't one credential &mdash; it depends on your seat. Here's the full landscape.</p>
@@ -2463,6 +2503,17 @@
 </div>
 
 <hr>
+</div><!-- /licensing tab -->
+
+<!-- =========== CFA TAB =========== -->
+<div class="tab-content" data-tab-content="cfa">
+  <div class="subnav">
+    <strong>Jump to</strong>
+    <a href="#cfa">Overview &amp; topics</a>
+    <a href="#cfa-setup">Setup</a>
+    <a href="#cfa-weeks">Week-by-week</a>
+    <a href="#cfa-timeline">Master timeline</a>
+  </div>
 
 <h2 id="cfa">CFA Level I (Feb 22&ndash;28, 2027)</h2>
 <p class="section-intro">The real buy-side credential. 10 topics. 180 MCQs across 2 sessions. Registration opens May 5, 2026 (early-bird ~$1,140, standard ~$1,490 through Nov 5, 2026). Budget ~300 hours total.</p>
@@ -2719,7 +2770,10 @@
 </div>
 
 <hr>
+</div><!-- /cfa tab -->
 
+<!-- Daily Feeds appears in Overview tab (second container) -->
+<div class="tab-content active" data-tab-content="overview">
 <h2 id="daily-feeds">Daily feeds &amp; podcasts</h2>
 <h3>Morning (pick 2)</h3>
 <ul class="links">
@@ -2743,6 +2797,8 @@
 <div class="callout">
   <strong>One warning.</strong> A month is enough to interview well; not enough to be a VP. Your edge: being more current than the VP whose head is down, plus humility. The licenses + CFA L1 make the claim durable.
 </div>
+
+</div><!-- /overview tab (second container, daily feeds) -->
 
 <!-- ============================================================
      FIREBASE CONFIG — paste your config below
@@ -3048,6 +3104,44 @@
         const isOpen = target.classList.toggle('open');
         btn.classList.toggle('open', isOpen);
         btn.textContent = (isOpen ? 'Hide sample answer' : 'Show sample answer');
+      }
+    });
+  });
+
+  // Tab navigation
+  function activateTab(tabName) {
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.tab === tabName);
+    });
+    document.querySelectorAll('.tab-content').forEach(c => {
+      c.classList.toggle('active', c.dataset.tabContent === tabName);
+    });
+    try { localStorage.setItem('activeTab', tabName); } catch(e) {}
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => activateTab(btn.dataset.tab));
+  });
+  // Restore last-active tab on load; default to 'overview'
+  try {
+    const savedTab = localStorage.getItem('activeTab');
+    if (savedTab && document.querySelector(`.tab-btn[data-tab="${savedTab}"]`)) {
+      activateTab(savedTab);
+    }
+  } catch(e) {}
+
+  // Intercept in-page anchor clicks so they switch to the right tab first, then scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const hash = a.getAttribute('href');
+      if (hash.length < 2) return;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      const parentTab = target.closest('.tab-content');
+      if (parentTab && !parentTab.classList.contains('active')) {
+        e.preventDefault();
+        activateTab(parentTab.dataset.tabContent);
+        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
       }
     });
   });
